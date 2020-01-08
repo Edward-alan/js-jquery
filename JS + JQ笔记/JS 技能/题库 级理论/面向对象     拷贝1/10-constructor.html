@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    //原型对象有一个属性叫constructor,这个属性的值等于构造函数
+    console.log(Person.prototype);
+    console.log(Person.prototype.constructor==Person);//true
+    Person.prototype = {
+        constructor:Person,
+        say:function(){
+
+        },
+        eat:function(){
+
+         }
+    }
+    //Array
+    console.log(Array.prototype.constructor == Array);
+    var arr = [2,3,4];//new Array()  Array的一个实例
+    console.log(arr.constructor == Array);//true
+    //判断变量是否是数组
+    console.log(arr instanceof Array);//
+    console.log(arr.constructor==Array);
+
+</script>
+</html>

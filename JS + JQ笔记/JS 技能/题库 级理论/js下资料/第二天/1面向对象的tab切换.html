@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            display: inline-block;
+            border:1px solid #666;
+            width:100px;
+            height:30px;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .active{
+            background: green;
+            color: #ffffff;
+        }
+        #contents>div{
+            display: none;
+            border: 1px solid;
+            width:300px;
+            height:200px;
+        }
+    </style>
+</head>
+<body>
+    <section id="container">
+        <div id="tab">
+            <span class="active">课程简介</span>
+            <span>课程大纲</span>
+            <span>就业方向</span>
+        </div>
+        <div id="contents">
+            <div style="display: block">web前端</div>
+            <div>HTML、css</div>
+            <div>web前端工程师</div>
+        </div>
+
+    </section>
+</body>
+<script>
+    function Tab(){
+        this.menus = document.querySelector("#tab").children;
+        this.contents = document.querySelector("#contents").children;
+        this.currentIndex = 0;
+    }
+    Tab.prototype = {
+        constructor:Tab,
+        change:function(){
+            for(var i=0;i<this.menus.length;i++){
+                this.menus[i].index = i;
+                var that = this;
+                this.menus[i].onclick = function(){
+                    // that.clearClass();
+                    this.className = "active";
+                    that.contents[this.index].style.display = "block";
+                }
+            }
+        },
+        // auto:function(){
+        //     var _that = this;
+        //     setInterval(function(){
+        //         _that.clearClass();
+        //         _that.currentIndex++;
+        //         if(_that.currentIndex==_that.menus.length)_that.currentIndex=0;
+        //         _that.menus[_that.currentIndex].className = "active";
+        //         _that.contents[_that.currentIndex].style.display = "block";
+        //     },1000);
+        // },
+        clearClass:function(){
+            for(var j=0;j<this.contents.length;j++){
+                this.menus[j].className = "";
+                this.contents[j].style.display = "none";
+            }
+        }
+    }
+    new Tab().change();
+    new Tab().auto();
+</script>
+</html>

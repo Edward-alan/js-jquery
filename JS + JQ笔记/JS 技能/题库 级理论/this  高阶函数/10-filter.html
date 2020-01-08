@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //filter 方法：会遍历数组，在遍历的过程中执行回调函数，回调函数有返回值（Boolean） ，
+    // 最终把所有返回值是true的对应的元素组成一个新的数组
+    var arr=[1,2,"ss","aa",4];
+    var newA=arr.filter(function(item,index,arr){
+          /* if(typeof item=="number"){
+               return true;
+           } else{
+               return false;
+           }*/
+          //isNaN()
+           return typeof item=="number";
+    })
+    console.log(newA);
+
+    function myFilter(array,callback){
+        var newArray = [];
+        for(var i=0;i<array.length;i++){
+            if(callback(array[i],i,array)){
+                newArray.push(array[i]);
+            }
+        }
+        return newArray;
+    }
+</script>
+</html>

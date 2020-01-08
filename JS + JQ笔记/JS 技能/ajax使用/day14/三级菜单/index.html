@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <select id="province">
+        <option>请选择</option>
+    </select>
+    <select id="city">
+        <option>请选择</option>
+    </select>
+    <select id="area">
+        <option>请选择</option>
+    </select>
+</body>
+<script src="js/ajax.js"></script>
+<script src="js/sel.js"></script>
+<script>
+    ajax({
+        url:"js/data.json",
+        success:function(data){
+            var data = JSON.parse(data);
+            new Sel({
+                provinceId:"province",
+                cityId:"city",
+                areaId:"area",
+                data:data
+            })
+        }
+    })
+</script>
+</html>

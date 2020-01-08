@@ -1,0 +1,86 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		*{margin:0;padding:0;list-style:none}
+		p{width:200px; height:200px;border:1px solid #ccc;display:none}
+		.dis{display:block}
+		.col{background:red;}
+		button{width:30px;height:30px;}
+	</style>
+	<div id="div1">
+			<button class="col">1</button>
+			<button>2</button>
+			<button>3</button>
+			<p class="dis">1111</p>
+			<p>2222</p>
+			<p>3333</p>
+	</div>
+
+	<script>
+	var t1=new Tab('div1','button','p');
+
+	function Tab(id,btn,p){
+		this.div=document.getElementById(id),
+		this.btn=this.div.getElementsByTagName(btn),
+		this.p=this.div.getElementsByTagName(p);
+				  }
+
+
+	Tab.prototype.init=function(){
+		var This=this;
+		//遍历所有按钮
+		for(var i=0;i<this.btn.length;i++){
+			this.btn[i].index = i; //记录每个btn的下标
+			this.btn[i].onclick=function(){
+				This.change(this);
+										  }
+							     }
+			}
+	t1.init();
+
+	Tab.prototype.change=function(obj){
+		for(var i=0;i<this.btn.length;i++){
+			this.btn[i].className='';
+			this.p[i].className='';
+			 							  }
+		obj.className='col';
+		this.p[obj.index].className='dis';
+
+								   }
+
+
+
+
+
+
+
+	//Tab.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+

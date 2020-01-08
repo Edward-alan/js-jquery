@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>this 指向</title>
+</head>
+<body>
+
+	<button id = "btn"> 按钮 </button>
+	<script>
+
+		/************** 事件处理函数中, this 执行的事件触发元素 *******************/
+		//id 不用获取也可以
+		var btn = document.getElementById("btn");
+		btn.onclick = function(){
+			console.log(this);
+		}
+
+
+		/************** 对象调用函数时, this 执行的当前对象 *******************/
+
+		//属性值可以是 任意类型. 数据有几种类型?
+		var name = 123;
+		var o = {
+			name : "a",
+			study : function (){
+				console.log(this);//window
+				console.log(this.name);//123
+			}	
+		}
+		//o.study();
+
+
+		var f = o.study;
+		f();	//	相对于 window 调用 f 函数, f 函数里, tihs 执行的是 window. 打印的是 window.name
+
+
+		/************** 回调函数, this 指向的 window *******************/
+		
+		//啥是回调函数?
+
+		setTimeout(function(){
+			//一秒后执行当前函数, 这个函数是回调函数.
+			console.log(this.name);
+		},1000);
+
+
+		/************** call 和 apply 会修改 this 指向 *******************/
+
+		function fn(){
+			console.log(this);
+		}
+
+		fn();
+		fn.call(0);
+		fn.apply(0);
+
+	
+	</script>
+</body>
+</html>

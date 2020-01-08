@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function fn(){
+			var a = 10;
+
+			var f = function (){
+				console.log(a);
+			}
+			return f ;
+		}
+
+		var a = fn();
+
+		fn()();
+
+
+
+		f(1)(2)(3)	// 返回的结果是 6
+
+	</script>
+</body>
+</html>

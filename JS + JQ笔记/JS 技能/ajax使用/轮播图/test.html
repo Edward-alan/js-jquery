@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var Abc = function(){
+        this.nickname = "Jacky";
+    }
+    var a=new Abc();
+    console.log(a.nickname);
+    console.log(a["nickname"]);
+    console.log(new Abc().nickname);
+    console.log(new Abc()["nickname"]);
+
+    function f(){
+        arguments.callee();
+    }
+</script>
+</html>

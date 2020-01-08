@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //map 方法：会去遍历数组，在遍历的过程中执行函数，它的回调函数有返回值，最终会把所有的返回值，组成新的数组，返回回来
+    //map 方法会返回一个新数组
+    var arr = [2,3,4,5];
+    var arr1=arr.map(function(item,index,arr){
+        //return item*index;
+    })
+    console.log(arr1);//[undefined,undefined,undefined,undefined]
+    // ["a","b","c","d"]   ["a1","b2","c3","d4"]
+    var  a = ["a","b","c","d"];
+    var nea=a.map(function(item,index,arr){
+        return item+(index+1);
+    })
+    console.log(nea);
+
+    /**
+     *
+     * @param array
+     * @param callback
+     */
+    function myMap(array,callback){
+        var newArr = [];
+        for(var i=0;i<array.length;i++){
+            newArr.push(callback(array[i],i,array));
+        }
+        return newArr;
+    }
+    
+    var newA=myMap(a,function(item,index,arr){
+        return item+(index+1);
+    })
+    console.log(newA);
+</script>
+</html>

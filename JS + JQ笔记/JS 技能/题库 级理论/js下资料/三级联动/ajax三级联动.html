@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <meta content="width=device-width, initial-scale=1.0" name="viewport">
+                <meta content="ie=edge" http-equiv="X-UA-Compatible">
+                    <title>
+                        Document
+                    </title>
+                </meta>
+            </meta>
+        </meta>
+    </head>
+    <body>
+        <div id="box">
+            <select id="sheng" name="">
+                <option value="请选择">
+                    请选择省
+                </option>
+            </select>
+            <select id="shi" name="">
+                <option value="请选择">
+                    请选择市
+                </option>
+            </select>
+            <select id="qu" name="">
+                <option value="请选择">
+                    请选择区县
+                </option>
+            </select>
+        </div>
+        <script>
+            function ajax(obj){
+            var xhr=window.new XMLHttpRequest? new XMLHttpRequest(): new ActiveXObject("Microsoft.XMLHTTP");
+            if(obj.type=="get"|| obj.type=="GET"){
+                xhr.open("get",obj.url+"?"+obj.data,obj.async)
+                xhr.send(null)
+            }
+            if(obj.type=="post"||obj.type=="POST"){
+                xhr.open("post",obj.url,obj.async)
+                xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+                xhr.send(obj.data)
+            }
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState==4&& xhr.status==200){
+                    var r=JSON.parse(xhr.responseText);
+                    obj.callback(r);
+                }
+            }
+        }
+
+        ajax({
+            type:"get",
+            url:"city.json",
+            data:"",
+            async:true,
+            callback:callback
+        })
+        function callback(data){
+            
+            var sheng=document.getElementById("sheng"),
+                shi=document.getElementById("shi"),
+                qu=document.getElementById("qu"),
+                citys=[]; //定义空数组
+            //遍历data
+            for(var i in data){
+                //创建option
+                var option=document.createElement("option");
+                //将当前的省名 赋值给 当前的option的value
+                option.value= data[i].name;
+                //将当前的省名 赋值给 当前的option的innerHTML
+                option.innerHTML=data[i].name;
+                //将当前option追加到sheng中
+                sheng.appendChild(option)
+            }
+            //给省这个下拉菜单绑定事件
+            sheng.onclick = function () {
+                //遍历data
+//_________________________________________________/点击省把市的数据显示在页面/——————————————————————————
+                for (var i in data) { 
+                    //console.log(data[i])
+                    //console.log(this.value)
+                    //判断当前项的name值 是否和点击的value相等
+                    if(data[i].name==this.value){
+                        //则将当前项下的city全部赋给数组citys
+                        citys=data[i].city;
+                        console.log(data[i])
+                        //清空第二个下拉菜单
+                        shi.innerHTML="";
+                        //遍历citys数组
+                        for(var j in citys){
+                            var option=document.createElement("option");
+                            option.value=citys[j].name;
+                            option.innerHTML=citys[j].name
+                            shi.appendChild(option)
+                        } 
+
+                    }
+                }
+//_________________________________________________/点击市把区的数据显示在页面/——————————————————————————
+                for (var i in citys) {
+                    if (citys[i].name == shi.value) {
+                        //则将当前的所有县(区)都写在area中
+                        var area = citys[i].area
+                        //清空区
+                        qu.innerHTML = ""
+                        //遍历area
+                        for (var j in area) {
+                            //创建 option
+                            var option = document.createElement("option");
+                            //把每个县(区)写入到每个新建的option中
+                            option.value = area[j];
+
+                            option.innerHTML = area[j];//页面上输出第一个值
+                            //把option添加到qu中
+                            qu.appendChild(option)
+                        }
+                    }
+                }
+                
+            }
+//________________________________________________________________________-
+            //给每个市绑定单击事件
+            shi.onclick=function(){
+                //遍历citys数组
+                for(var i in citys){
+                    if(citys[i].name==this.value){
+                        var area=citys[i].area
+                        qu.innerHTML=""
+                        for(var j in area){
+                            var option=document.createElement("option");
+                            option.value=area[j];
+                            option.innerHTML=area[j];
+                            qu.appendChild(option)
+                        }
+                    }
+                }
+             }
+            
+        }
+        </script>
+    </body>
+</html>

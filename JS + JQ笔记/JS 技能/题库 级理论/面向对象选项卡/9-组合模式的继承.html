@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Animal(name,color){
+        this.name = name;
+        this.color = color;
+    }
+    Animal.prototype.eat = function(){
+        console.log("吃");
+    }
+    function Dog(name,color){
+        Animal.call(this,name,color);
+    }
+    Dog.prototype = new Animal();
+    var d1 = new Dog("旺财","白色");
+    d1.eat();
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin: 0;padding: 0;}
+	#box{width: 500px;height: 500px;border:1px solid #ccc;margin: 50px auto;}
+	p{padding-top: 10px;}
+	button{width: 100px;height: 40px;text-align: center;line-height: 40px;border:2px solid hotpink;outline: none;cursor: pointer;margin: 0 30px}
+	#con{width: 500px;height: 440px;text-align: center;line-height: 440px;}
+	.bg{background: pink;color:red;border-color: green}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<p><button class="bg">课程简介</button><button>课程大纲</button><button>就业方向</button></p>
+		<div id="con">
+			
+		</div>
+	</div>
+	<script>
+	var tap = {
+		arr:["Web前端","HTML,CSS,JS","Web前端工程师"],
+		btn:document.getElementsByTagName('button'),
+		con:document.getElementById('con'),
+		count:0,
+		change:function(){
+			var This=this
+			for(var i=0;i<This.btn.length;i++){
+				This.btn[i].index=i
+				// This.count=This.btn[i].index
+				This.btn[i].onclick=function(){
+					for(var i=0;i<This.btn.length;i++){
+						This.btn[i].className=""
+						This.con.innerHTML=""
+					}
+					this.className="bg"
+					This.con.innerHTML=This.arr[this.index]
+				}
+			}
+		},
+		Timer:function(){
+			var This=this
+			setInterval(function(){
+				This.count++;
+				if (This.count==This.btn.length) {
+					This.count=0
+				};
+				for(var i=0;i<This.btn.length;i++){
+					This.btn[i].index=i
+					for(var i=0;i<This.btn.length;i++){
+						This.btn[i].className=""
+						This.con.innerHTML=""
+					}
+					This.btn[This.count].className="bg"
+					This.con.innerHTML=This.arr[This.count]
+				}
+			},1000)
+		}
+	}
+	tap.change()
+	// tap.Timer()
+	</script>
+</body>
+</html>

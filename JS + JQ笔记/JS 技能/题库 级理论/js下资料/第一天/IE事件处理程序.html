@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{width:300px; height: 300px; background:red}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script>
+	var box=document.getElementById('box');
+	/*box.addEventListener('click',function(){alert(1)},false);*/
+
+	//当前元素.attachEvent(事件,执行函数) detachEvent(事件,执行函数)  事件需要加on 执行函数必须为函数名才能删除
+	/*box.attachEvent('onclick',fn);
+
+	box.detachEvent('onclick',function(){alert(123)});*/
+	</script>
+</body>
+</html>

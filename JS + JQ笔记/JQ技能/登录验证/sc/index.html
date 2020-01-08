@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        
+        .box {
+            width: 1110px;
+            margin: 0 auto;
+            /* background: pink; */
+            /* border: 1px solid #ccc; */
+        }
+        
+        .header {
+            width: 1110px;
+            height: 30px;
+            background: #333333;
+            color: #eee;
+            line-height: 30px;
+        }
+        
+        .header ul {
+            float: left;
+            margin-left: 30px;
+        }
+        
+        .header ul>li {
+            float: left;
+            margin-left: 30px;
+        }
+        
+        .header ol {
+            float: right;
+            margin-right: 30px;
+        }
+        
+        .header ol>li {
+            width: 100px;
+            height: 30px;
+            float: left;
+            margin-left: 30px;
+            text-align: center;
+        }
+        
+        .yi {
+            position: relative;
+        }
+        
+        .yi:hover {
+            background: #000;
+        }
+        
+        .deng {
+            position: relative;
+        }
+        
+        .hyk {
+            position: absolute;
+            right: -90px;
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            background: #fff;
+            display: none;
+        }
+        
+        .cha {
+            width: 25px;
+            height: 25px;
+            font-size: 25px;
+            display: block;
+            position: absolute;
+            top: -12px;
+            left: 400px;
+            color: blue;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .hyk .kk {
+            width: 350px;
+            height: 200px;
+            margin-left: 60px;
+            margin-top: 45px;
+        }
+        
+        .hyk .kk input {
+            width: 260px;
+            height: 30px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        
+        .hyk .kk button {
+            width: 260px;
+            height: 35px;
+            background: lightgreen;
+            color: #fff;
+            text-align: center;
+            line-height: 35px;
+        }
+        
+        .quan {
+            width: 20px;
+            height: 20px;
+            color: #333333;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+            position: relative;
+        }
+        
+        .dui {
+            width: 20px;
+            height: 20px;
+            font-size: 24px;
+            color: #333333;
+            cursor: pointer;
+            display: none;
+        }
+        
+        .active {
+            background: #f00;
+        }
+        
+        .ts {
+            color: #f00;
+        }
+        
+        .list {
+            position: absolute;
+            top: 79px;
+            left: 73px;
+            width: 160px;
+            height: 200px;
+            border: 1px solid #ccc;
+            background: #fff;
+            /* display: none; */
+        }
+        
+        .list li {
+            color: #000;
+        }
+        
+        .hover {
+            background: #ccc
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="header">
+
+            <ol>
+                <li class="yi">网易考拉</li>
+                <li>BoBo</li>
+                <li class="deng">登录
+                    <div class="hyk">
+                        <span class="cha">×</span>
+
+                        <div class="kk">
+                            <div class="user">
+                                <input type="text" placeholder="网易邮箱/常用邮箱" id="you" class="name"><span class="quan">×</span>
+                                <!-- <ul class="list">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul> -->
+                            </div>
+                            <div class="pass">
+                                <input type="text" placeholder="请输入密码" id="password"><span class="dui">×</span>
+                            </div>
+
+                            <p class="ts"></p>
+                            <button class="btn">登录</button>
+                        </div>
+                    </div>
+                </li>
+
+                <li>免费注册邮箱</li>
+
+            </ol>
+        </div>
+    </div>
+    <script src="jquery-1.3.js"></script>
+    <script>
+        /*
+         *1.划过登录显示登录框,离开隐藏 （10分）
+         *2.如果输入为空提示验证信息（10分）
+         *3.如果邮箱格式错误，提示邮箱地址不正确，请使用正则匹配（10分）
+         *4.正确使用模块化编程（10分）
+         *5.使用模块化对不同功能进行模块划分（sea或者require）（10分）
+         *6.在登录框中的邮箱输入内容时提示功能效果如图（3，4），且文本框内显示正确（10分）
+         *7.正确匹配给出的邮箱地址（10分）
+         *8.正确实现鼠标滑过或按下键盘上的上下方向键时当前选项高亮显示（10分）
+         *9.正确实现鼠标点击或在高亮选项上回车时，文本框内显示正确的邮箱地址（10分）
+         *10.正确实现实时监听文本框，且点击文本框内的“叉号”时清空文本框（10分）
+         */
+        $('.deng').on('mouseover', function() {
+            $('.hyk').show();
+            $('.deng').addClass('active');
+
+        }).on('mouseout', function() {
+            $('.hyk').hide();
+            $('.deng').removeClass('active');
+
+        })
+        $('.btn').on('click', function() {
+            if ($('#you').val() === '') {
+                $('.ts').html("请输入邮箱");
+            } else if ($('#password').val() === '') {
+                $('.ts').html("请输入密码");
+            } else {
+                var reg = /^\w+@\w+\.(com|cn|con)/;
+                if (!reg.test(('#you'))) {
+                    $('.ts').html("邮箱编码不正确");
+
+                }
+
+            }
+        });
+        var emailData = [{
+                "name": "@126.com"
+            }, {
+                "name": "@188.com"
+            }, {
+                "name": "@136.com"
+            }, {
+                "name": "@baidu.com"
+            }, {
+                "name": "@qq.com"
+            },
+
+        ]
+        $('#you').on('input', function() {
+            var str = '';
+            var inp = $(this).val();
+            $('.list').remove()
+            if (!isMail(inp)) {
+                emailData.forEach(function(x, y) {
+                    str += `<li>${inp}${x.name}</li>`
+                });
+
+            } else {
+                var befor = inp.split('@')[0];
+                var after = '@' + inp.split('@')[1];
+                console.log(befor, after)
+                emailData.forEach(function(v, k) {
+                    if (v.name.indexOf(after) > -1) {
+                        str += `<li>${befor}${v.name}</li>`
+                    }
+                })
+            }
+
+            var ulL = $(`<ul class="list">${str}<ul>`)
+            $(this).parent().append(ulL);
+            $('.list li').eq(0).addClass('hover')
+        });
+
+        function isMail(email) {
+            if (email.indexOf('@') > -1) {
+                return true
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

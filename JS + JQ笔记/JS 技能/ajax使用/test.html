@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Person () {}
+    console.log(Person.prototype.constructor);//Person
+    //Person.prototype  对象 地址值
+    Person.prototype = {
+        say: function() {
+            console.log('Hello,' + this.name);
+        }
+    };
+    var o1 = {};//Object 的实例  new Object()
+    var person = new Person();
+    console.log(Object.prototype.constructor===Object);
+    console.log(o1.constructor === Object);
+    console.log(Person.prototype.constructor===Object);
+    console.log(person.constructor===Object);
+</script>
+</html>

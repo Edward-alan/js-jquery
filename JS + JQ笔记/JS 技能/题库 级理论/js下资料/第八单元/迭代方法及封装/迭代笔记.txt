@@ -1,0 +1,45 @@
+﻿ 7、this 指向、call、apply、bind、高阶函数、箭头函数、实现 map 源码、reduce、
+
+匿名函数里的this指向
+返回函数的里的this指向
+
+forEach、map、filter、every、so】me
+
+forEach 遍历数组的（跟for语句功能是一样的）
+
+	var arr = [1,2,3]
+
+	数组.forEach(function(元素,索引,被遍历的数组){	
+		// 这里写操作		
+	});
+
+filter 过滤数组   返回一个新的数组（内容是符合条件的元素）
+
+	var arr = [1,2,3]
+
+	数组.filter(function(元素,索引,被遍历的数组){	
+		return  元素%2 == 0
+	});
+	
+map 映射  返回一个新的数组（内容对应数组元素  结果）
+
+	数组.map(function(元素,索引,被遍历的数组){	
+		return  元素%2 == 0
+	});
+
+every 判断  返回值是Boolean   (所有的元素都符合条件则返回true，否则返回false)	
+	
+	数组.every(function(元素,索引,被遍历的数组){	
+		return  条件;
+	});
+
+	
+some 判断  返回值是Boolean   (只要有一个元素符合条件则返回true，所有的元素都不符合条件则返回false)	
+	
+	数组.some(function(元素,索引,被遍历的数组){	
+		return  条件;
+	});
+	
+	
+
+	

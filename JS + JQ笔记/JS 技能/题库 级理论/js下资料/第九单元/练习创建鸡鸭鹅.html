@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> 创建对象练习 </title>
+</head>
+<body>
+	<script>
+		//创建 鸡、鸭、鹅、狗、猫 对象。通过构造函数创建。
+		//每个对象创建2个，存在数组中，遍历数组，打印对象的每一项属性，属性值。
+
+		function Ji(color,name){
+			this.color=color;
+			this.name=name;
+			this.gn=function(){
+				console.log('下蛋')
+			}
+					 }
+
+		function  Dog(name,pz){
+			this.name=name;
+			this.pz=pz;
+			this.lookHome=function(){
+				console.log('看家')
+							  }
+					   		  }
+
+		function Cat(eyeColor,sex){
+			this.eyeColor=eyeColor;
+			this.sex=sex;
+			this.zhz=function(){
+				console.log("逮老鼠");
+								}
+					  }
+
+		var ji1=new Ji('红色','战斗鸡');
+		var ji2=new Ji('绿色','尖叫鸡');
+
+		var gou1=new Dog('狮子狗','阿拉斯加');
+		var gou2=new Dog('狗头','军师');
+
+		var mao1=new Cat('蓝色','男');
+		var mao2=new Cat('红色','女');
+
+		var arr=[ji1,ji2,gou1,gou2,mao1,mao2];
+
+		arr.forEach(function(ele){ //遍历每个对象
+				for(var k in ele){ //遍历每个对象下的属性和属性值
+					console.log(k,ele[k]);
+					 }		
+		})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		//鸡
+	/*	function Chick(type,color,height){
+			this.type = type;
+			this.color = color;
+			this.height = height;
+
+			this.cry = function(){
+				console.log("打鸣");
+			}
+			this.egg = function(){
+				console.log("下个蛋");
+			}
+		}
+
+		//鸭
+		function Duck(type,color){
+			this.type = type;
+			this.color = color;
+
+			this.fly = function(){
+				console.log("下个蛋");
+			}
+		}
+
+		//鹅
+		function Goose(type){
+			this.type = type;
+
+			this.yao = function(){
+				console.log("...");
+			}
+		}	
+
+		function Dog(name,type){
+			this.name = name;
+			this.type = type;
+			this.jump = function(){
+				console.log("跳");
+			}
+		}
+
+		function Cat(name,color){
+			this.name = name;
+			this.color = color;
+			this.sleep = function(){
+				console.log("睡觉");
+			}
+		}
+
+		var c1 = new Chick("野鸡","五颜六色",30);
+		var c2 = new Chick("肉鸡","白色",50);
+
+		var d1 = new Duck("周黑鸭","黑色");
+		var d2 = new Duck("久久鸭","黑色");
+
+		var g1 = new Goose("大白鹅");
+		var g2 = new Goose("coco鹅");
+
+		var dog1 = new Dog("傻狗","中华田园犬");
+		var dog2 = new Dog("白白","萨摩");
+
+		var cat1 = new Cat("加菲猫","yellow");
+		var cat2 = new Cat("蓝猫","blue");
+
+		var objArr = [c1,c2,d1,d2,g1,g2,dog1,dog2,cat1,cat2];
+
+		objArr.forEach(function(obj){
+			for(var k in obj){
+				console.log(k + "\t =" + obj[k]);
+			}
+		});*/
+
+	</script>
+</body>
+</html>

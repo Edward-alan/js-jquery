@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.container .container-box {
+  width: 80%;
+  margin-left: 10%;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.container .container-box .every {
+  border: 1px solid black;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.alert {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 400px;
+  width: 400px;
+  background: rgba(100, 100, 100, 0.3);
+}

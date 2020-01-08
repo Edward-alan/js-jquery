@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	 <div class="left">
+      <dl>
+        <dt style="background: url(img/shirt1.gif);"></dt>
+        <dd>阿迪1</dd>
+        <dd>价格：$<span>25</span></dd>
+      </dl>
+      <dl>
+        <dt style="background: url(img/shirt2.gif);"></dt>
+        <dd>阿迪2</dd>
+        <dd>价格：$<span>25</span></dd>
+      </dl>
+      <dl>
+        <dt style="background: url(img/shirt3.gif);"></dt>
+        <dd>阿迪3</dd>
+        <dd>价格：$<span>25</span></dd>
+      </dl>
+      <dl>
+        <dt style="background: url(img/shirt4.gif);"></dt>
+        <dd>阿迪4</dd>
+        <dd>价格：$<span>25</span></dd>
+      </dl>
+    </div>
+    <div class="right">
+      <h3>购物车</h3>
+      <table id="tab">
+        <tbody id="tBody">
+          <tr>
+            <th>名字</th>
+            <th>数量</th>
+            <th>价格</th>
+          </tr>
+          <!-- <tr>
+            <td>Data</td>
+            <td>Data</td>
+            <td>Data</td>
+          </tr> -->
+        </tbody>
+        
+      </table>
+      <p>合计：<span id="priceN">0</span>元</p>
+    </div>
+	
+</body>
+<script src="js/shopping.js"></script>
+<script>
+    new Shopping();
+</script>
+</html>

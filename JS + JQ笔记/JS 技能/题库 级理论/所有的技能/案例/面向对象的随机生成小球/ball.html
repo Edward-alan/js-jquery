@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ball{position:absolute; border-radius:50%;}
+        #box{width:500px; height:500px; background-color:blueviolet; position:relative; cursor:pointer;}
+        #btn{position:absolute; right:200px; top:200px; border-radius:5px; padding:10px 20px; border:2px solid hotpink; cursor:pointer; -webkit-user-select: none;}
+        #btn:active{border-color:maroon;}
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="btn">增加</div>
+    <script>
+        /*生成随机颜色的方法，该方法返回一个表示颜色的字符串*/
+       /* var randomColor = function(){
+           var color16 = [];
+           var letter = ['A','B','C','D','E','F'];
+           var colorStr = '#';
+           //将数字0--9天添加数组中
+           for(var i=0;i<10;i++){
+               color16.push(i);
+           }
+           //和ABCDEF数组拼接
+           color16.concat(letter);
+           //循环6次 获取十六进制的颜色 
+           for(var j=0;j<6;j++){
+               var index = Math.floor(Math.random()*color16.length);
+               colorStr+=color16[index];
+           }
+           //返回拼接后的颜色
+           return colorStr;
+        }*/
+        //获取btn按钮
+        var oBtn = document.getElementById('btn');
+        oBtn.onclick = function(){//点击按钮创建小球
+            new Ball({  //实例化对象
+                parent:document.getElementById('box')
+            })
+        }
+
+        /*请在下方书写代码*/
+        /* 写出构造函数属性及原型上的方法 */
+    function Ball(obj) {
+        this.ball = document.createElement("div"); //创建div
+        this.ball_parent = obj.parent; //将obj下的parent属性赋给实例化对象
+        this.ball_color = ""; //清空
+        this.ball_pos = {
+            x: 0,
+            y: 0
+        }
+        this.ball_size = {
+            w: 50,
+            h: 50
+        }
+        this.ball_parent_size = {
+            w: this.ball_parent.clientWidth,
+            h: this.ball_parent.clientHeight
+        }
+        this.create();
+    }
+    Ball.prototype = {
+        constructor:Ball,
+        create:function(){
+            this.ball.style.left = this.random(this.ball_parent_size.w-this.ball_size.w)+"px";
+            this.ball.style.top = this.random(this.ball_parent_size.h-this.ball_size.h)+"px";
+            this.ball.style.width = this.ball_size.w+"px";
+            this.ball.style.height = this.ball_size.h+"px";
+            this.ball.className = "ball";
+            //this.ball.style.backgroundColor = randomColor();
+            this.ball.style.backgroundColor = "rgb("+this.random(255)+","+this.random(255)+","+this.random(255)+")";
+            this.ball_parent.appendChild(this.ball);
+            this.bindEvent();
+
+        },
+        random:function(n){
+            return Math.floor(Math.random()*n);
+        },
+        bindEvent:function(){
+            var oDivs = this.ball_parent.getElementsByTagName("div");
+            var that = this;
+            /*for(var i=0;i<oDivs.length;i++){
+                oDivs[i].onclick = function(){
+                    that.ball_parent.removeChild(this);
+                }
+            }*/
+            this.ball_parent.onclick = function(ev){
+                var e = ev || event;
+                var ele = e.target || e.srcElement;
+                this.removeChild(ele);
+            }
+        }
+
+    }
+
+
+
+
+
+    </script>
+</body>
+</html>

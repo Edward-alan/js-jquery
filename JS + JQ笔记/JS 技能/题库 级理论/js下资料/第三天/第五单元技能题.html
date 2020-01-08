@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="zh"><br>
+	<input type="text" id="pas"><br>
+	<input type="text" id="tel"><br>
+	<input type="text" id="yzm"><button id="btn">获取验证码</button><br>
+	<button id="btn1">立即注册</button>
+
+	<script>
+// 		var ipts=document.getElementsByTagName('input'),
+// 			btn=document.getElementById('btn'),
+// 			btn1=document.getElementById('btn1'),
+// 			reg0=/^[A-Za-z]{1}\w{3,19}$/,
+// 			reg1=/^(\w|-|\.){6,16}$/,
+// 			reg2=/^(13|15|17|18|19)[0-9]{9}$/,
+// 			flag=false;
+// 			//给获取验证码按钮绑定事件
+// 			btn.onclick=function(){
+// 				if(reg2.test(ipts[2].value)){
+// 					var newYzm="",str='wertyuiodfghjcvbnk';
+// 					for(var i=1;i<=4;i++){
+// 							var val=str[Math.floor(Math.random()*str.length)];
+// 							newYzm+=val;
+
+// 						 }
+// 					ipts[3].value=newYzm;
+
+// 					}
+// 				else{
+// 					alert("手机格式不正确");
+// 					}
+
+// 								  }
+
+// 			 //给注册绑定事件
+// 			 	btn1.onclick=function(){
+// 			 		if(reg0.test(ipts[0].value) && reg1.test(ipts[1].value) && ipts[3].value!=''){
+// 			 			alert("注册成功");
+// 			 			for(var i=0;i<ipts.length;i++){ipts[i].value=''}
+// 			 								   }
+// 			 		else{
+// 			 			if(!reg0.test(ipts[0].value)){
+// 			 					ipts[0].value='';
+// 			 					fn(0);
+
+// 			 				}
+// 			 			else if(!reg1.test(ipts[1].value)){
+// 			 					ipts[1].value='';
+// 			 					fn(1);
+// 			 					 }
+// 			 			}
+// 			 						   }
+
+
+
+// function fn(n){
+// 	if(n==0){
+// 		ipts[n].focus();
+// 	}
+// 	else{
+// 		ipts[n].focus();
+// 		}
+// }
+
+
+  for(var i=0;i<10;i++){
+    for(var j=0;j<=10-i;j++){
+    document.write("-");
+    }
+    for(var k=0;k<i*2+1;k++){
+        document.write("*");
+    }
+    document.write("<br>");
+
+
+       }
+
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .keyword {
+            height: 40px;
+        }
+
+        .list .keyword {
+            width: 300px;
+        }
+
+        .list {
+            border: 1px solid orange;
+        }
+
+        .list li {
+            height: 32px;
+            line-height: 32px;
+        }
+
+        .list li:hover {
+            background: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>百度搜索功能</h2>
+    <input type="text" class='keyword' id='kw'>
+    <!-- <ul class='list'>
+        <li>
+            <a href="#">爱琴海</a>
+        </li>
+        <li>
+            <a href="">爱奇艺</a>
+        </li>
+        <li>
+            <a href="">爱丽丝</a>
+        </li>
+        <li>
+            <a href="">艾达灵</a>
+        </li>
+    </ul> -->
+    <script src='js/jQuery1-6.js'></script>
+    <script>
+    console.log(1+ +"2"+"2")
+        $('#kw').on('input', function() {
+            var inp = $(this)[0].value
+            if (inp.length > 0) {
+                $.ajax({
+                    url: 'data.json',
+                    method: 'get',
+                    async: true,
+                    type: 'json',
+                    data: {
+                        "name": "aa"
+                    },
+                    success: function(data) {
+                        data = JSON.parse(data)
+                        render(data);
+                    },
+                })
+
+                function render(data) {
+                    var str = '';
+                    for (var i = 0; i < data.length; i++) {
+                        console.log(data[i])
+                    }
+                }
+            } else {
+
+            }
+
+        });
+    </script>
+</body>
+
+</html>

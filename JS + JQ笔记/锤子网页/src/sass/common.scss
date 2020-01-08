@@ -1,0 +1,17 @@
+//占位符
+%full {
+    width: 100%;
+    height: 100%;
+    background: red;
+}
+
+//混合器
+@mixin pos($type:relative) {
+    position: $type;
+}
+
+.clear::after {
+    content: "";
+    clear: both;
+    display: block;
+}

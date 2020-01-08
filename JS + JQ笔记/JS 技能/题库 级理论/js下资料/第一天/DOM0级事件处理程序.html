@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{width:300px; height:300px; background:red;}
+	</style>
+</head>
+<body>
+	<input id="ipt" type="text">
+
+	<script>
+		var ipt=document.querySelector('#ipt');
+		//DOM 0级事件 不能绑定相同类型的事件
+		ipt.onclick=function(){
+			alert(123);
+							  }
+
+		ipt.onchange=function(){
+			alert(456);
+							  }
+
+		/*节点名.'on'+事件名=fn;
+		function fn(){}
+
+		节点.'on'+事件名=function(){
+			fn();
+		}*/
+
+	//操作属性的方法 .或['']
+	//box.children或box["children"]  
+
+
+
+
+	</script>
+</body>
+</html>

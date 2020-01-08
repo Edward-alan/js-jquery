@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+    var o = new Object();
+    o.name = "zhangsan";
+    o.age = 20;
+    //面向对象的编程 ：封装、继承、多态
+    //Object 是所有对象的祖先
+    // new Array() 或者[]
+    // Date new Date
+    //RegExp
+    //创建对象
+    var p1 = new Object();
+    p1.name = "zhangsan",
+    p1.age = 20;
+    p1.sex="nan";
+    var p2 = new Object();
+    p2.name = "lisi";
+    p2.age = 22;
+    p2.sex = "nv";
+    //工厂模式：把创建对象的过程封装了，把创建对象的细节封装起来了
+    //问题、缺点：把对象的类型就固定成Object
+    //创造同一种类型的对象
+    function createPerson(name,age,sex){
+        var p1 = new Object();
+        p1.name = name,
+        p1.age = age;
+        p1.sex=sex;
+        return p1;
+    }
+    var p3 = createPerson("wangwu",23,"男");
+    var p4 = createPerson("wangwu",23,"男");
+</script>
+</html>

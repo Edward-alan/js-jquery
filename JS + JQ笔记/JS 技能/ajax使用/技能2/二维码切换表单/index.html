@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li{
+            list-style: none;
+        }
+        #ul{
+            width:240px;
+            height: 40px;
+            margin:50px auto 0;
+            overflow: hidden;
+        }
+        #ul li{
+            width: 120px;
+            float: left;
+            line-height: 40px;
+            text-align: center;
+            cursor:pointer;
+            border-radius: 3px;
+        }
+        #ul li.active{
+            background: red;
+            color:#fff;
+        }
+        #cont{
+            width:500px;
+            height:auto;
+            margin:0 auto;
+        }
+        #code{
+            text-align: center;
+            margin-top:40px;
+        }
+        #form{
+            display: none;
+        }
+        #form p{
+            width: 100%;
+            text-align: center;
+            margin: 40px 0 30px;
+            font-size: 16px;
+        }
+        #form p font{
+            color:red;
+        }
+        #form input{
+            width:100%;
+            line-height: 46px;
+            border:1px solid #ccc;
+            border-radius: 5px;
+            padding:0 10px;
+            outline: 0;
+            font-size: 16px;
+        }
+        .btn li{
+            display: inline-block;
+            line-height: 44px;
+            padding:0 20px;
+            background: blue;
+            margin:0 5px;
+            color:#fff;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .btn{
+            text-align: center;
+            margin-top:30px;
+        }
+        #form p#msg{
+            line-height: 34px;
+            color:red;
+            margin:0 ;
+            text-align: left;
+            padding-left: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul">
+    <li class="active" index="0">二维码登录</li>
+    <li index="1">账号登录</li>
+</ul>
+<div id="cont">
+    <div id="code">
+        <img src="0_r2_c2.png" alt=""/>
+    </div>
+    <div id="form">
+        <p><font>* </font> 账号登录</p>
+        <input type="text" placeholder="请输入手机号或者邮箱" id="user"/>
+        <p id="msg">请输入账户信息</p>
+        <ul class="btn">
+            <li id="telBtn">使用手机号获取动态密码</li>
+            <li id="emailBtn">使用邮箱获取动态密码</li>
+        </ul>
+        <p>动态密码</p>
+        <input type="text" placeholder="请输入动态密码"/>
+        <ul class="btn">
+            <li id="loginBtn">登录</li>
+        </ul>
+    </div>
+</div>
+</body>
+<script>
+    var ul = document.getElementById("ul");
+    var lis = ul.getElementsByTagName("li");
+    var cont = document.getElementById("cont");
+    var index = 0;
+    //  选项卡切换登录方式
+    ul.onclick = function(e){
+        var ev = e || window.event;
+        var target = ev.target || ev.srcElement;
+        if(target.tagName == "LI"){
+            lis[index].className = "";
+            cont.children[index].style.display = "none";
+            index = target.getAttribute("index");
+            target.className = "active";
+            cont.children[index].style.display = "block";
+        }
+    }
+
+    var telBtn = document.getElementById("telBtn");
+    var emailBtn = document.getElementById("emailBtn");
+    var loginBtn = document.getElementById("loginBtn");
+    var msg = document.getElementById("msg");
+    var time = 5;
+    var timer = null;
+    // 获取手机号验证按钮
+    telBtn.onclick = phone;
+    function phone(){
+        var reg = /^1[35678]\d{9}$/;
+        var val = document.getElementById("user");
+        if(!reg.test(val.value)){
+            msg.style.display = "block";
+            msg.innerHTML = "请输入正确的手机号！";
+        }else{
+            msg.style.display = "none";
+            clearInterval(timer);
+            var that = this;
+            emailBtn.onclick = null;
+            emailBtn.innerHTML = "使用邮箱获取动态密码";
+            times(that);
+        }
+    }
+    // 获取邮箱验证按钮
+    emailBtn.onclick = email;
+    function email(){
+        var reg = /^[a-zA-Z0-9]{2,12}@[a-zA-Z]+\.[a-zA-Z]+$/;
+        var val = document.getElementById("user");
+        if(!reg.test(val.value)){
+            msg.style.display = "block";
+            msg.innerHTML = "请输入正确的邮箱！";
+        }else{
+            msg.style.display = "none";
+            clearInterval(timer);
+            var that = this;
+            telBtn.onclick = null;
+            telBtn.innerHTML = "使用手机号获取动态密码";
+            times(that);
+        }
+    }
+    //  倒计时
+    function times(that){
+        timer = setInterval(function(){
+            time--;
+            if(time<=0){
+                telBtn.onclick = phone;
+                emailBtn.onclick = email;
+                that.innerHTML = "重新发送动态密码";
+                clearInterval(timer);
+                time = 5;
+                return;
+            }
+            that.innerHTML = time;
+        },1000);
+    }
+</script>
+</html>

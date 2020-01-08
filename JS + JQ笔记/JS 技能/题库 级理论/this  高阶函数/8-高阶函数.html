@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //高阶函数 ：如果函数A，A的参数还是函数B，那么A就叫做高阶函数，B叫做回调函数
+    //数组里面的一些高阶函数
+    //1、forEach  用来遍历的 没有返回值 三个参数：1）当前遍历的元素2）当前遍历的索引(下标)3)遍历的数组本身
+    // 在遍历的过程中调用回调函数
+    var arr = [3,4,5,6];
+    arr.forEach(function(item,index,array){
+            console.log(item+":"+index+":"+array);
+    })
+
+    /**
+     * 自己封装forEach方法
+     * @param arr 要遍历的数组
+     * @param callback 回调函数
+     */
+    function myForEach(arr,callback){
+        for(var i=0;i<arr.length;i++){
+            callback(arr[i],i,arr);
+        }
+    }
+    myForEach(arr,function(a,b,c){
+        console.log(a+"--"+b+"--"+c);
+    })
+</script>
+</html>

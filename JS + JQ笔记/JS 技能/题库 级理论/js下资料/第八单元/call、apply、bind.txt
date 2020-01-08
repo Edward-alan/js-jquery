@@ -1,0 +1,27 @@
+﻿ call、apply、bind
+
+	call、apply、bind都能修改this的指向	
+	call、apply是调用函数的
+	call、apply如何调用函数
+	
+		function a(){
+			console.log(this);
+		}
+		a();
+		
+		语法：
+		
+			a.call(作用域,a函数的第1个参数,a函数的第2个参数,........);			
+			a.apply(作用域,数组或arguments)
+			
+			call、apply功能一样，参数个数不一样。
+			
+	bind绑定函数生成新的函数的
+	
+		function a(){
+			console.log(this);
+		}
+		
+		
+		语法：
+			a.bind(作用域,a函数的第1个参数,a函数的第2个参数,........);  // 这个不是调用

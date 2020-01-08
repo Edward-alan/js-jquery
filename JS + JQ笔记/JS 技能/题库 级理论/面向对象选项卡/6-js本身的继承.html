@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //js本身自带的继承  Array 继承Object 就是用原型链的继承实现的
+    //所有的对象都默认继承Object
+    console.log(Array.prototype.__proto__===Object.prototype);
+    console.log(Date.prototype.__proto__===Object.prototype);
+    console.log(Function.prototype.__proto__===Object.prototype);
+
+    function A(){
+
+    }
+    function B(){
+
+    }
+    A.prototype = new B();
+    console.log(A.prototype.__proto__===Object.prototype);//false
+    console.log(A.prototype.__proto__===B.prototype);
+    console.log(B.prototype.__proto__===Object.prototype);
+    console.log(Object.prototype.__proto__===null);
+    console.log(A.__proto__===Function.prototype);
+</script>
+</html>

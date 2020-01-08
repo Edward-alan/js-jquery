@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function a(){
+		var x = 10;
+		return function(){
+			return x++;
+		}
+	}
+	//console.log(a()());//10
+	//console.log(a()());//10
+	//console.log(a()());//10
+
+	var n=a();  //定义全局变量接受返回值
+	console.log(n());
+	console.log(n());
+	console.log(n());
+	</script>
+</body>
+</html>

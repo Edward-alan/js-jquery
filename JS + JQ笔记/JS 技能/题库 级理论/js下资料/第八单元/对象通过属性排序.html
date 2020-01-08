@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>对对象进行排序</title>
+</head>
+<body>
+	
+	<script>
+			
+		/*
+		var arr = [];
+
+		function random(n){		
+
+			if(n<=0){
+				return;
+			}
+			var num = Math.floor(Math.random()*100);
+
+			arr.push(num);
+			n -= 1;
+			random(n);
+			return arr;
+		}
+
+		var arr = random(10);
+
+		arr.sort(function(a,b){
+			return a < b;
+		});
+
+		console.log(arr);*/
+
+
+		//对基本数据类型可以进行排序
+
+		//现在要对对象进行排序
+
+		var objArr = [
+			{name : "f",age : 21},
+			{name : "abc",age : 11},
+			{name : "acb",age : 8},
+			{name : "b",age : 99},
+			{name : "e",age : 3},
+		];
+
+		//现在要对 objArr 进行排序, 按照对象的名称来排序 .使用 sort 方法来实现
+
+
+		// 写一个方法, 可以对对象进行排序,根据对象的某一个属性来进行排序.
+		function fn(proto){
+			return function(a,b){
+				return a[proto] > b[proto];
+			}
+		}
+
+		//objArr.sort(fn("name"));
+
+		objArr.sort(fn("age"));
+
+		console.log(objArr);
+
+	</script>
+</body>
+</html>

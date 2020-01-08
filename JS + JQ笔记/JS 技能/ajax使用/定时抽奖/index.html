@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			#wrap{
+				width: 1200px;
+				height: 639px;
+				/*background:red;*/
+				margin:0 auto;
+				position:relative;
+			}
+			#wrap>img{
+				width: 1200px;
+				height: 639px;
+			}
+			.left{
+				position:absolute;
+				top:0;
+				left:0;
+			}
+			.right{
+				position:absolute;
+				top:0;
+				right:0;
+			}
+			#drawnBox{
+				background:red;
+			}
+			.tv{
+				position:absolute;
+				top:337px;
+				right:274px;
+			}
+			#btn{
+				position:absolute;
+				top:200px;
+				right:133px;
+			}
+			#zan{
+				position:absolute;
+				top:200px;
+				right:133px;
+				display:none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<img src="img/bg.jpg" alt="">
+		    <div class="left" ><img src="img/chuanglian_01.png" alt=""></div>
+		    <div class="right"><img src="img/chuanglian_03.png" alt=""></div>
+		    <div class="tv">
+		    	<img src="img/tv_03.png" alt="">
+		    	<img src="img/btn_03.png" alt="" id="btn">
+		    	<img src="img/btn_05.png" alt="" id="zan">
+		    </div>
+		</div>
+
+		<!--中奖弹框，自己写样式,写主题内容-->
+		<div id="drawnBox"></div>
+		<script>	
+			var btn = document.getElementById("btn")
+			btn.onclick = function(){
+				
+			 }
+			var luckDraw = function(opts){
+				this.timer = null; //定时器名称
+				this.init();
+				this.addEvent();
+
+			}
+
+			luckDraw.prototype = {
+
+				//初始化方法
+				init : function(){
+					
+					this.addEvent();
+				},
+
+				/**
+					更具最大值最小值获取随机数
+				**/
+				RandomNum : function(Min,Max){
+					
+				},
+
+				/**
+					获取单个用户方法
+				**/
+				getUser : function(){
+
+				},
+
+				/**
+					页面显示随机用户方法
+				**/
+				render : function(){
+					
+				},
+
+				/**
+					停止方法
+					屏幕中姓名停止变化，弹出中奖页面
+					中过奖的人不能再次中奖
+				**/
+				stop : function(){
+					
+				},
+
+				/**
+					开始方法
+					屏幕中姓名不停变化，不停之行render方法
+				**/
+				play : function(){
+					
+				},
+
+				/**
+					单次中奖完成方法  弹出中奖弹框 并且3秒后自动关闭
+				**/
+				drawn  : function(){
+					
+				},
+
+				/**
+					事件集合方法
+				**/
+				addEvent : function(){
+					
+				}
+
+
+
+			}
+			
+			//可将抽奖用户通过参数传递 
+			new luckDraw()
+			
+				//实例化时传入的参数格式如：
+				{
+					//抽奖用户列表
+					userArray : [
+						{"name" : "张三","avatar":"用户头像"},
+						{"name" : "李四","avatar":"用户头像"},
+						{"name" : "王五","avatar":"用户头像"}
+					]
+				}
+			 
+		</script>
+	</body>
+</html>

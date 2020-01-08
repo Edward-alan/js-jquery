@@ -1,0 +1,12 @@
+<script type="text/javascript" charset="utf-8">
+	var sname = "zhangsan";
+	var obj = {
+		sname:"lisi"
+	}
+	function a(x,y){
+		console.log(x + y); //30   50
+		console.log(this.sname);//zhangsan  lis
+	}
+	//a(10,20);
+	a.call(obj,20,30);
+</script>

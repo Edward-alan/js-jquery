@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型链+构造函数继承</title>
+</head>
+<body>
+	<script>
+	function A(name,age,like){
+		this.like=like;
+		B.call(this,name,age);
+
+			   				 }
+	function B(name,age){
+		this.name=name;
+		this.age=age;
+				}
+
+	B.prototype.eat=function(){
+		console.log(1);
+	}
+
+	A.prototype=B.prototype;
+	A.prototype.constructor=A;//修改指向
+
+	var x=new A('lili',18,'code');//实例化对象
+	console.log(x.name);
+	x.eat();
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<script type="text/javascript" charset="utf-8">
+	function fn(){
+
+				 }
+
+	function a(m,n){
+		console.log(m+n)//5
+		console.log(this)//window
+	}
+	//a(2,3);
+	a.bind(fn,4,5);  //  在后面添加一个()  调用绑定后新生成的函数
+	
+
+
+
+
+</script>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        padding-left: 30px;
+    }
+</style>
+
+<body>
+    <script>
+        var data = [{
+                name: "我是一级",
+                lists: [{
+                    name: "我是二级",
+                    lists: [{
+                        name: "我是三级",
+                    }, {
+                        name: "我是三级",
+                        lists: [{
+                            name: "我是四级",
+                        }],
+                    }],
+                }, ]
+            },
+            {
+                name: "我是一级",
+                lists: [{
+                    name: "我是二级",
+                    lists: [{
+                        name: "我是三级",
+                    }, {
+                        name: "我是三级",
+                        lists: [{
+                            name: "我是四级",
+                            lists: [{
+                                name: "我是五级",
+                            }]
+                        }],
+                    }],
+                }, ]
+            },
+
+        ];
+        var html = ``;
+        var dom = document.getElementsByTagName("body")[0];
+        console.log(dom)
+
+        function test(data, dom) {
+            console.log(data)
+            data.forEach(function (item, ) {
+                html += item.name;
+                var div = document.createElement("div");
+                div.innerHTML = "-" + item.name;
+                dom.appendChild(div);
+                if (item.lists) {
+                    test(item.lists, div)
+                }
+            })
+        }
+        test(data, dom);
+        console.log(html)
+        var flag = false;
+
+        document.documentElement.onclick = function (e) {
+
+            if (e.target.localName == "div") {
+                if (flag) {
+                    console.log(e.target.innerHTML.slice(1))
+                    e.target.innerHTML = "-" + e.target.innerHTML.slice(1);
+                    flag = false;
+                } else {
+                    e.target.innerHTML = "+" + e.target.innerHTML.slice(1);
+                    // console.log(e.target.innerHTML.slice(1))
+                    flag = true;
+                }
+                if (e.target.children.length) {
+                    [...e.target.children].forEach(function (item) {
+                        if (item.style.display == "none") {
+                            item.style.display = "block"
+                        } else {
+                            item.style.display = "none";
+                        }
+                    })
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

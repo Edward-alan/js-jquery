@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrap {
+    width: 600px;
+    height: 300px;
+    margin: 20px auto;
+}
+
+.wrap input {
+    width: 600px;
+    height: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.wrap .add {
+    width: 50px;
+    height: 30px;
+    background: skyblue;
+    color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.wrap .res {
+    width: 50px;
+    height: 30px;
+    background: red;
+    color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+}
+
+.XX {
+    width: 600px;
+    /* background: pink; */
+    margin: -77px auto;
+}
+
+.XX h2 {
+    text-align: center;
+    height: 30px;
+    color: skyblue;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 600px;
+    border: 1px solid limegreen;
+}
+
+thead tr td {
+    width: 125px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid limegreen;
+}
+
+tbody tr td {
+    width: 125px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid limegreen;
+}
+
+.del {
+    height: 30px;
+    width: 65px;
+    color: #ffffff;
+    background: red;
+    /* background: pink; */
+    /* float: right; */
+    border: 0;
+}
+
+.delone {
+    height: 30px;
+    width: 65px;
+    color: #ffffff;
+    background: red;
+    /* background: pink; */
+    /* float: right; */
+    border: 0;
+}

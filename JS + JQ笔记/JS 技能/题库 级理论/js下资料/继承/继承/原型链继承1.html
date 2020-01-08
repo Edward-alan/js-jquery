@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型链继承 把A的原型指向实例化对象B </title>
+</head>
+<body>
+	<script>
+	function A(){
+
+	}
+
+	function B(){
+		this.name='二狗';
+		this.age=18;
+				}
+	B.prototype.sex='男';
+	A.prototype=new B();
+	//实例化A
+	var x=new A();
+	console.log(x.name);
+	console.log(A.prototype.constructor);
+	A.prototype.constructor=A;  //重新指回A
+	console.log(A.prototype.constructor);
+	</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            margin: 0 auto;
+            list-style: none;
+            text-decoration: none;
+        }
+        
+        .box {
+            width: 300px;
+            height: 300px;
+            margin-top: 150px;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 10000px;
+            perspective-origin: center;
+            transition: all 5s linear;
+            animation: name 5s linear infinite;
+        }
+        
+        @keyframes name {
+            0% {}
+            100% {
+                transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+        
+        p {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+        
+        img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+        
+        .box:hover {
+            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        }
+        
+        .qian {
+            transform: translateZ(150px);
+        }
+        
+        .hou {
+            transform: translateZ(-150px);
+        }
+        
+        .top {
+            transform: rotateX(90deg) translateZ(150px);
+        }
+        
+        .left {
+            transform: rotateY(-90deg) translateZ(150px);
+        }
+        
+        .right {
+            transform: rotateY(90deg) translateZ(150px);
+        }
+        
+        .bottom {
+            transform: rotateX(-90deg) translateZ(150px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p class="qian">
+            <img src="./images/a (3).jpg" alt="">
+        </p>
+        <p class="hou">
+            <img src="./images/a (2).jpg" alt="">
+        </p>
+        <p class="top">
+            <img src="./images/a (5).jpg" alt="">
+        </p>
+        <p class="left">
+            <img src="./images/a (4).jpg" alt="">
+        </p>
+        <p class="right">
+            <img src="./images/a (1).jpg" alt="">
+        </p>
+        <p class="bottom">
+            <img src="./images/a (6).jpg" alt="">
+        </p>
+    </div>
+</body>
+
+</html>

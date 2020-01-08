@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{margin:0; padding:0; list-style:none}
+	ul{width:500px; height:30px;}
+	li{width:100px;height:30px;float:left;background:pink}
+</style>
+<body>	
+	<ul id="ul">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+	<script>
+	var data='data.json';
+		function ajax(type,url,fn){
+			var xhr= window.XMLHttpRequest? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+
+			if(type=='get'|| type=='GET'){
+				type='get';
+				xhr.open(type,url,true);
+				xhr.send(null);
+				}
+			if(type=='post' || type=='POST'){
+				type='post';
+				xhr.open(type,url,true);
+				xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+				xhr.send(data);
+				}
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4 && xhr.status==200){
+					var x= JSON.parse(xhr.responseText);
+					fn(x);
+					}
+										     }
+
+
+
+			
+					   }
+			ajax('get','data.json',function(data){
+					obj.add(data);
+					obj.remove();
+			})
+
+			function Fn(){
+				//属性写在构造函数中
+						 }
+			Fn.prototype.add=function(data){
+				var lis=document.getElementsByTagName('li');
+				for(var i in data){
+					lis[i].innerHTML=data[i].name;
+					for(let i=0; i<lis.length;i++){
+						lis[i].onmouseover=function(){
+							this.style.background='red';
+											 }
+						lis[i].onmouseout=function(){
+							this.style.background='pink';
+											 }
+						}
+				}
+
+									   }
+			Fn.prototype.remove=function(){
+				console.log(1)
+			}
+
+
+			var obj=new Fn();
+
+
+
+			var x = 123;
+
+			console.log(1 + 2 * 3 / 4);
+
+			
+
+
+	</script>
+</body>
+</html>

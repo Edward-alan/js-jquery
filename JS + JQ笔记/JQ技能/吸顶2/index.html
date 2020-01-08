@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box2 {
+            height: 50px;
+            width: 830px;
+            background: #f0f
+        }
+        
+        li {
+            float: left;
+            margin-left: 30px;
+            list-style-type: none;
+        }
+        
+        .box3 {
+            height: 1800px;
+            width: 830px;
+            background: #ff0;
+        }
+        
+        .fixed {
+            position: fixed;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"><img src="1.jpg" alt=""></div>
+    <div class="box2">
+        <ul>
+            <li>热销</li>
+            <li>优惠</li>
+            <li>新品推荐</li>
+            <li>爆款套餐</li>
+            <li>Mini披萨</li>
+        </ul>
+    </div>
+    <div class="box3"></div>
+    <script src='jquery-1.3.js'></script>
+    <script>
+        $('body').on('scroll', function() {
+            var scrollT = $(this).scrollTop();
+            var box1 = $('.box1').innerHeight();
+            if (scrollT >= box1) {
+                $(".box2").addClass('fixed')
+            } else {
+                $(".box2").removeClass('fixed')
+            }
+        })
+
+
+
+
+define(function(){
+    return function(obj){
+        var ajax = {
+            type:'get',
+            async:true,
+            data:"",
+            dataType:"json",
+            success:null,
+            error:null
+        }
+        settings = object.assign({},ajax,obj)
+        var xhr = XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP")
+        xhr.onload = function(){
+            if(xhr.status >= 200 && xhr.status<300 || xhr.status === 304){
+                var data = settings.dataType === "json"?JSON.parse(xhr.responseText):responseText;
+                    settings.success && settings.success(data);
+            }else{
+                settings.error && settings.error(xhr.status);
+            }
+        }
+        var data = typeof settings.data === "object"?formData(strings.data):sttings.data;
+        var url = settings.type === "get"&&data!==""?settings.url+"?"+data:settings.url;
+        xhr.open(settings.type,settings.url,settings.async)
+        settings.type === "post"?xhr.setRequestHeader("Content-type","application/x-www-from-urlencoded");
+        xhr.send(settings.type === "get"?null:data)
+    }
+})
+
+
+    </script>
+</body>
+
+</html>

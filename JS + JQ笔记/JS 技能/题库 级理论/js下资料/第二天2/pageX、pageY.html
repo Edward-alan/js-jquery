@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//pageX	 相对于页面的水平坐标 （鼠标的）
+		//pageY  相对于页面的垂直坐标 （鼠标的）
+	
+		document.onclick=function(event){
+			var Event= event || window.event;
+			alert(Event.pageX);
+			alert(Event.pageY);
+
+										}
+
+	</script>
+</body>
+</html>

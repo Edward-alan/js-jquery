@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //异步加载图片  先把图片加载出来  再把图片绑定到dom元素上面
+/*    var p1 = new Promise(function(resolve,reject){
+        var img = document.createElement("img");
+        img.src="images/img11.jpg";
+        img.onload = function(){
+            resolve(img);
+        }
+        img.onerror = function(){
+            reject(img.src);
+        }
+    })
+    p1.then(function(img){
+        document.body.appendChild(img);
+    },function(error){
+        alert("图片出不来了"+error);
+    })*/
+
+    var str='hello world';
+    console.log(eval(str));
+
+
+
+</script>
+</html>

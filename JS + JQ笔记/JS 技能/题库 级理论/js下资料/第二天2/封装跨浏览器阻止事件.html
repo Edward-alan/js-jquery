@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+			
+	<a href="http://172.16.10.119:8080/bwie/mhIndex.do" id="a1" target="_blank">123</a>
+	
+	<script>
+	var a1=document.getElementById('a1');
+	a1.onclick=function(event){
+		var Event= event || window.event;
+		if(Event.preventDefault){
+			Event.preventDefault(); 
+			}
+		else{
+			Event.returnValue=false;
+			}
+						 }
+
+	
+
+	</script>
+	
+
+
+</body>	
+</html>

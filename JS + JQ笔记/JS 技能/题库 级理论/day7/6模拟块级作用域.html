@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //在es5中没有块级作用域
+    (function(){
+        if(true){
+            var a = 5;
+        }
+        console.log(a);
+    })()
+    console.log(a);
+</script>
+</html>

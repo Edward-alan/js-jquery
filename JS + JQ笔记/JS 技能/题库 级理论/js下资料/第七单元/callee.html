@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	//arguments对象里有一个属性callee,
+	//指向包含arguments对象的函数
+	function a(n){
+		console.log(n);
+		n--;
+		if(n>0){
+			a(n);
+			}
+				 }	
+
+
+	</script>
+</body>
+</html>

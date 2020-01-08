@@ -1,0 +1,37 @@
+[{
+    "src": "img/img1.jpg",
+    "href": "banner1.html",
+    "id": "001"
+}, {
+    "src": "img/img2.jpg",
+    "href": "banner2.html",
+    "id": "002"
+}, {
+    "src": "img/img3.jpg",
+    "href": "banner3.html",
+    "id": "003"
+}, {
+    "src": "img/img4.jpg",
+    "href": "banner4.html",
+    "id": "004"
+}, {
+    "src": "img/img5.jpg",
+    "href": "banner5.html",
+    "id": "005"
+
+}, {
+    "src": "img/img6.jpg",
+    "href": "banner6.html",
+    "id": "006"
+
+}, {
+    "src": "img/img7.jpg",
+    "href": "banner7.html",
+    "id": "007"
+
+}, {
+    "src": "img/img8.jpg",
+    "href": "banner8.html",
+    "id": "008"
+
+}]

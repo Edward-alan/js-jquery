@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>promise异步编程</title>
+</head>
+<body>
+    <script>
+
+        //PromiseStatus：用于记录Promise对象的三种状态，这三中状态分别是：
+        //  pending：待定状态，Promise对象刚被初始化的状态
+        //  fulfilled：完成状态，承诺被完成了的状态
+        //  rejected：拒绝状态，承诺完成失败的状态
+        var p= new Promise(function(resolve,reject){
+                if(true){
+                    resolve(123)
+                }else{
+                    reject(456)
+                }
+        })
+
+        p.then(function(data){
+            console.log(data)
+        },function(msg){
+            console.log(msg)
+        })
+
+    </script>
+</body>
+</html>

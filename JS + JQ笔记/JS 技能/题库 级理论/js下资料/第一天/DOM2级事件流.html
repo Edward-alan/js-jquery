@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box1{padding:100px;background:red}
+		.box2{padding:100px;background:blue}
+		.box3{padding:100px;background:green}
+	</style>
+</head>
+<body>
+		<div class="box1">
+			<div class="box2">
+				<div class="box3"></div>
+			</div>
+		</div>
+		
+		<script>
+			var  box=document.querySelectorAll('div');
+			box[0].addEventListener('click',function(){
+				alert('我是红');
+			},true);
+
+			box[1].addEventListener('click',function(){
+				alert('我是蓝');
+			},true);
+
+			box[2].addEventListener('click',function(){
+				alert('我是绿');
+			},true);
+
+
+
+		</script>
+		
+</body>
+</html>

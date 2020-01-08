@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+/*         var xhr
+        if (new XMLHttpRequest) {
+            xhr = new XMLHttpRequest;
+        } else if (new ActiveXObject) {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP")
+        }
+        // get 请求的时候我们要给后台传递数据 以供后台判断给我们一个返回值  
+        //  请求的url?属性名=属性值 用&来充当分割符        city.json? name=123 & age=30    
+        xhr.open("post", "city.json", true)
+        xhr.setRequestHeader("Content-type", 'application/x-www-form-urlencoded');
+        xhr.send("name=123 & age=30")
+
+        // 利用onreadystatechange的回调函数来判断 readyState的值为4 和status的返回值为200的时候我们去获取responseText的对象 
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+
+                // JSON.parse(JSON字符串)==eval("("+JSON字符串+")")  都是把JSON 字符串转换成JSON对象
+                // JSON.parse是把json对象 转换成 JS对象
+                // var j = JSON.parse(xhr.responseText)
+                var j = eval("(" + xhr.responseText + ")")
+                    j.map(function (item, i, arr) {
+                        console.log(item)
+                        var box = document.getElementById("box"),
+                            div = document.createElement("div")
+                            div.innerHTML = item.name;
+                            box.appendChild(div);
+                    })
+            }
+            
+        } */
+        var data="name=123&age=456"
+        function ajax(type,url,callback){
+            var xhr=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+                if(type=="get"||type=="GET"){
+                   type="get"
+                   xhr.open(type, url+"?"+data, true)
+                   xhr.send()
+                }
+                if(type=="post"||type=="POST"){
+                    type="post"
+                    xhr.open(type, url, true)
+                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+                    xhr.send(data)
+                }
+
+
+                
+                xhr.onreadystatechange=function(){
+                    if(xhr.readyState==4&& xhr.status==200){
+                        var d= JSON.parse(xhr.responseText)
+                        callback(d)
+                    }
+                }
+            
+        }
+        ajax("POST","city.json",callback)
+
+        function callback(data){
+
+           console.log(data)
+        }
+    </script>
+</body>
+
+</html>

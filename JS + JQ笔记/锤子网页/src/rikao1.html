@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>增删改查</title>
+    <link rel="stylesheet" href="./css/rikao1.css">
+</head>
+
+<body>
+    <div class="container">
+        <button class="add">添加数据</button>
+        <div class="container-box">
+
+            <div class="every">
+                名字：<span class="name">史志龙</span><br>
+                电话:<span class="tel">13171996138</span><br>
+                <button class="xiugai">修改</button>
+                <button class="del">删除</button>
+            </div>
+
+            <div class="every">
+                名字：<span class="name">史志龙</span><br>
+                电话:<span class="tel">13171996138</span><br>
+                <button class="xiugai">修改</button>
+                <button class="del">删除</button>
+            </div>
+
+        </div>
+    </div>
+    <!-- <div class="alert">
+        名字：<input type="text" class="name"> <br>
+        电话: <input type="text" class="tel"> <br>
+        <button class="xiugai">修改</button>
+        <button class="del">删除</button>
+    </div> -->
+    <script src="./js/libs/require.js"></script>
+    <script>
+        require(["./js/main"], function () {
+            require(["rikao1"], function () {
+                
+            })
+        })
+    </script>
+</body>
+
+</html>

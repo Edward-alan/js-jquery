@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<button id="sendBtn">send</button>
+	
+	<script>
+		
+		var sendBtn = document.getElementById('sendBtn');
+		
+		sendBtn.onclick = function() {
+			getData2();
+		};
+
+		function getData2() {
+			var xhr = new XMLHttpRequest();
+			xhr.open('post', './api/post.php', true);
+			xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xhr.send('size=3&page=5');
+
+			xhr.onreadystatechange = function() {
+				var response;
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					response = JSON.parse(xhr.responseText);
+					console.log(response);
+				}
+			};
+		}
+		
+		function getData() {
+
+			var xhr = new XMLHttpRequest();
+			// xhr.open('get', 'data/data.json?t='+new Date().getTime(), true);
+			xhr.open('get', './api/post.php?size=3&page=5', true);
+			xhr.send();
+			
+			xhr.onreadystatechange = function() {
+				var response;
+
+				console.log(xhr.readyState);
+				// console.log(xhr.responseText);
+
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					response = JSON.parse(xhr.responseText);
+					
+					// document.body.innerHTML += xhr.responseText;
+					// console.log(xhr.responseText);
+					// console.log(response.success)
+					
+					// if (response.success) {
+					// 	console.log(response.data);
+					// }
+					
+				}
+			};
+		}
+		
+		
+		// console.log(xhr);
+	</script>
+</body>
+</html>

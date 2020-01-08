@@ -1,0 +1,78 @@
+﻿    this 指向
+
+function a(){
+console.log(this);
+}
+
+a() 等价于 window.a()
+
+这里的“.”读“的”    window.a() window的a();    所以a() 里的this指向window
+
+
+/*******************************************/
+
+var obj = {
+sayname:function(){
+console.log(this);
+}
+}
+
+调用:
+
+obj.sayname();   obj的sayname()   这里的this指向obj
+
+
+/************************************/
+var obj = {
+son:{
+sayname:function(){
+console.log(this)
+}
+}
+}
+
+调用:
+
+obj.son.sayname();    obj的son,son的sayname();    所以this指向的是obj.son
+
+
+
+
+/**************************************************/
+
+var obj = {
+son:{
+sayname:function(){
+console.log(this)
+}
+}
+}
+
+var b = obj.son.sayname;
+/*
+b = function(){
+console.log(this)
+}
+*/
+
+
+b();  // this指谁？
+
+b()  等价于  window.b();     所以this指向的是window
+
+
+
+/******************************************************/
+
+function a(){
+return function(){
+console.log(this);		
+}	
+}
+
+
+a() 等价于 window.a() 等价于  function(){ console.log(this); }		
+var b = a();	
+b();   等价于 window.b()   所以this指向的是window
+
+a()();   等价于  函数名()   window.函数名()      所以this指向的是window

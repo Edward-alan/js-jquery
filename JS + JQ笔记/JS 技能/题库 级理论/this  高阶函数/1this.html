@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>aa</div>
+</body>
+<script>
+    //this  当前函数的执行的上下文，this指向不是在定义的时候决定的，它是在调用的时候决定的,大多数谁调的函数，里面的this就指向的谁
+    //1、事件绑定  通常情况下 this指向绑定该事件的元素
+
+    var oDiv = document.getElementsByTagName("div")[0];
+    oDiv.addEventListener("click",function(){
+        console.log(this);
+    })
+    oDiv.addEventListener("click",function(){
+        console.log("++++++++");
+        fn();
+    })
+    //2、函数调用
+    function fn(){
+        console.log(this);
+    }
+    //fn();
+    //window.fn();
+    var a = 2;
+   /* setTimeout(function(){
+        console.log(this.a);
+    },1000)*/
+    //3、方法调用  对象：属性(变量)和方法(函数)
+    var obj = {
+        a:1,
+        fn:function(){
+            console.log(this+","+this.a);
+        },
+        c:{
+            a:3,
+            ff:function(){
+                console.log(this+","+this.a);
+            }
+        }
+    }
+    obj.fn();
+    var f = obj.fn;
+    f();
+    console.log("++++++++++++++++++++++++++++");
+    obj.c.ff();//多层对象调用  this指的是离它近的对象
+    var f1 = obj.c.ff;
+    f1();//this 指向的是window
+    var o2 = {
+        a:5,
+        fn:function(){
+            setTimeout(function(){
+                console.log(this+","+this.a);
+            },1000)
+        }
+    }
+    o2.fn();
+</script>
+</html>

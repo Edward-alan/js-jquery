@@ -1,0 +1,168 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="head"></div>
+        <ul id="ul">
+            <li><img src="img/loading.gif" data-src="img/1-2.jpg"></li>
+            <li><img src="img/loading.gif" data-src="img/1-2.jpg"></li>
+            <li><img src="img/loading.gif" data-src="img/1-2.jpg"></li>
+            <li><img src="img/loading.gif" data-src="img/1-2.jpg"></li>
+            <li><img src="img/loading.gif" data-src="img/1-2.jpg"></li>
+            <li><img src="img/loading.gif" data-src="img/1-2.jpg"></li>
+            <li><img src="img/loading.gif" data-src="img/1-2.jpg"></li>
+            <li><img src="img/loading.gif" data-src="img/1-2.jpg"></li>
+            <li><img src="img/loading.gif" data-src="img/1-2.jpg"></li>
+            <li><img src="img/loading.gif" data-src="img/1-2.jpg"></li>
+        </ul>
+        <div class="head"></div>
+    </div>
+
+
+    <script>
+        var imgs = document.getElementsByTagName("img")
+        for (var i = 0; i < imgs.length; i++) {
+            var to = imgs[i].getBoundingClientRect().top
+            if (to <= window.innerHeight) {
+                imgs[i].src = imgs[i].getAttribute("data-src")
+            }
+        }
+
+        ul.onscroll = function () {
+            for (var w = 0; w < imgs.length; w++) {
+                var top = imgs[w].getBoundingClientRect().top
+                if (ul.scrollTop >= top) {
+                    imgs[w].src = imgs[w].getAttribute("data-src")
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
+ -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0
+      }
+        .content{
+            width: 500px;
+            height: 500px;
+            line-height: 500px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        ul{
+            position: fixed;
+            list-style: none;
+            clear: both;
+            height: 40px;
+            top: 0;
+            left: 0;
+            border: 1px solid blue;
+
+
+        }
+        li{
+            
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-right: 1px solid yellow;
+            cursor: pointer;
+        }
+        .active{
+            background: orange;
+        }
+        a{
+            text-decoration: none;
+            color: black
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+   <ul>
+       <li>一层</li>
+       <li>二层</li>
+       <li>三层</li>
+       <li>四层</li>
+       <li>五层</li>
+       <li><a href="#">跳回顶部</a></li>
+   </ul>
+   <div class="content" style='padding:40px'>一层</div>
+   <div class="content" >二层</div>
+   <div class="content" >三层</div>
+   <div class="content" >四层</div>
+   <div class="content" >五层</div>
+   <div style="height:500px"></div>
+</body>   
+<script>
+    var ul=document.getElementsByTagName('ul')[0]
+    var lis=ul.getElementsByTagName('li')
+    var content=document.getElementsByClassName('content')
+    var floors=[];
+    var activeNum=0
+    var to=0;
+    var H = document.body.offsetHeight;
+    for(var i=0;i<content.length;i++){
+        to=content[i].offsetTop;
+        floors.push(to);
+    }
+    floors.push(H);
+    for(var i=0;i<lis.length;i++){
+        (function(i){
+         lis[i].onclick=function(){
+             lis[activeNum].className=''
+             lis[i].className='active'
+             activeNum=i
+             document.documentElement.scrollTop=floors[i]-content[0].offsetTop;
+           
+            }
+        })(i)
+    }
+    scroll();
+  window.onscroll=function(){
+   scroll();
+        }
+function scroll(){
+ var scrrop=document.documentElement.scrollTop +1;
+  floors.forEach(function(item,index){
+        if(scrrop>=item &&scrrop < floors[index+1]){
+            lis[index].className = "active"; 
+        }else{
+            lis[index].className = "";
+        }
+  })  
+}
+</script>
+</html> 

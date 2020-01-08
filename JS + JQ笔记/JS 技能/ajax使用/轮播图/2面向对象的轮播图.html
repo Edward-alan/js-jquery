@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #carousel{
+            position: relative;
+            width: 730px;
+            margin:50px auto;
+        }
+        #carousel img{
+            display: none;
+        }
+        #pages{
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+        #pages span{
+            display: inline-block;
+            width: 20px;
+            height:20px;
+            border-radius: 50%;
+            background: #fff;
+        }
+        #pages span.active{
+            background: red;
+        }
+        #next_Prev{
+            position: absolute;
+            left: 0;
+            width: 100%;
+            top:50%;
+        }
+        #next_Prev span{
+            width:50px;
+            height:30px;
+            line-height: 30px;
+            background: #fff;
+            text-align: center;
+            cursor: pointer;
+        }
+        #next_Prev span:nth-child(1){
+            float: left;
+        }
+        #next_Prev span:nth-child(2){
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="carousel">
+        <img src="img/img1.jpg" alt="" style="display: block">
+        <img src="img/img2.jpg" alt="">
+        <img src="img/img3.jpg" alt="">
+        <img src="img/img4.jpg" alt="">
+        <p id="next_Prev">
+            <span> < </span>
+            <span> > </span>
+        </p>
+        <p id="pages">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </p>
+    </div>
+</body>
+<script>
+    function Carousel(){
+        this.carousel = document.getElementById("carousel");
+        this.imgs = carousel.getElementsByTagName("img");//所有的图片
+        this.pages = Array.from(document.getElementById("pages").getElementsByTagName("span"));
+        this.btns = document.getElementById("next_Prev").getElementsByTagName("span");//上一页、下一页
+        this.index = 0;//当前播放的图片的下标
+        this.timer = null;//定时器
+        this.init();
+    }
+    Carousel.prototype = {
+        constructor:Carousel,
+        init:function(){
+            this.auto();
+            this.bindEvent();
+        },
+        bindEvent:function(){
+            var that = this;
+            that.carousel.onmouseover = function(){
+                clearInterval(that.timer);
+            }
+            /**
+             * 鼠标移除，轮播继续
+             */
+            that.carousel.onmouseout = function(){
+                that.auto();
+            }
+            /**
+             * 点击上一页
+             */
+            that.btns[0].onclick = function(){
+                that.changePage("prev");
+            }
+            that.btns[1].onclick = function(){
+                that.changePage("next");
+            }
+            that.pages.forEach(function(item,i,arr){
+                item.onclick = function(){
+                    that.changePage(i);
+                }
+            })
+        },
+        auto:function(){
+            var that = this;
+            that.timer=setInterval(function(){
+                that.changePage("next");
+            },1000);
+        },
+        changePage:function(type){
+            var that = this;
+            //清空样式
+            that.imgs[that.index].style.display = "none";
+            that.pages[that.index].className = '';
+            if(type=="next"){
+                that.index++;
+                if(that.index==that.imgs.length) that.index=0;
+            }else if(type=="prev"){
+                that.index--;
+                if(that.index==-1) that.index=that.imgs.length-1;
+            }else{
+                that.index = type;
+            }
+            //设置当前播放的图片的样式
+            that.imgs[that.index].style.display = "block";
+            that.pages[that.index].className = 'active';
+        }
+    }
+
+
+    new Carousel();
+
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{width:200px; height:200px; background:blue; position:absolute;}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+		
+	<script>
+	var box=document.getElementById('box');
+	document.onkeydown=function(event){
+		var Event= event || window.event;
+		
+		switch(Event.keyCode){//判断按下的键盘值
+			//通过距浏览器的距离来移动元素
+			case 37:box.style.left= box.offsetLeft-5+'px';break;
+			case 38:box.style.top= box.offsetTop-5+'px';break;
+			case 39:box.style.left= box.offsetLeft+5+'px';break;
+			case 40:box.style.top= box.offsetTop+5+'px';break;
+			    }
+									}
+	</script>
+	
+
+</body>
+</html>

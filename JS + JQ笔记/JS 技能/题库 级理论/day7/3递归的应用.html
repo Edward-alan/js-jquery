@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //阶乘  5!= 5*4*3*2*1   4!=4*3*2*1  6!=6*5*4*3*2*1=6*5!  n!=n*(n-1)!
+
+    function fn(n){
+        //n = 6
+        if(n<=1){return 1};
+        return n*fn(n-1);
+    }
+    fn(6);//6!
+    fn(5);//5!
+    fn(1);// 1
+    console.log(fn(6));
+</script>
+</html>

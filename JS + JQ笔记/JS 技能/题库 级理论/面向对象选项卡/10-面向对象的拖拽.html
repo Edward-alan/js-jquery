@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height:100px;
+            background: red;
+            position: absolute;
+            top:0;
+        }
+        #drag1{
+            left:0;
+        }
+        #drag2{
+            left:200px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="drag1"></div>
+    <div id="drag2"></div>
+</body>
+<script>
+    function Drag(id){
+        this.element = document.getElementById(id);//要拖拽的元素
+        this.drag();
+    }
+    Drag.prototype = {
+        constructor:Drag,
+        drag:function(){
+            //用来拖拽元素的
+            var that = this;
+            this.element.onmousedown = function(e){
+                var ev = e || window.event;
+                var pos = {
+                    x:ev.offsetX,
+                    y:ev.offsetY
+                }
+                document.onmousemove = function(e){
+                    var ev = e || window.event;
+                    that.element.style.left = ev.clientX-pos.x+"px";
+                    that.element.style.top = ev.clientY-pos.y+"px";
+                }
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                }
+            }
+        }
+    }
+   //var d1 =  new Drag("drag1");
+    //d1.drag();
+    new Drag("drag1");
+    new Drag("drag2");
+</script>
+</html>

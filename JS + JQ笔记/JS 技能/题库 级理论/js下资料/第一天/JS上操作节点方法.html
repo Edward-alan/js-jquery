@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		
+		<div id="box" class="abc" name='qwer'>
+				<p>123</p>
+				<p>456</p>
+		</div>
+
+	<script>
+		//   document.getElementById('id名') ==>通过id名获取节点(元素) 只能获取一个节点 效率最高 性能最优
+		//   document.getElementsByTagname('标签名')==>通过标签名获取节点的集合==>返回值为 类数组 
+		//console.log(document.body);
+		//console.log(document.getElementsByTagName('body')[0]);
+
+		//   document.getElementsByClassname('标签名')==>通过类名获取节点的集合==>返回值为 类数组 
+		//   document.getElementsByName('标签名')==>通过name名获取节点的集合==>返回值为 类数组 
+		//   document.querySelector('');==>通过选择器获取首个节点  标签、id选择器、类选择器
+		//   document.querySelectorAll('')==>通过选择器获取全部节点
+
+		/*var node=document.querySelector('li'),
+			nodes=document.querySelectorAll('li');
+
+			console.log(node,nodes);*/
+
+
+		// 父节点.removeChild(被删除项);  ==>删除节点 
+		// 父节点.appendChild('被追加节点'); ==>追加节点 
+		// 父节点.insertBefore(插入的内容,插入的位置);==>插入节点
+		// 父节点.replaceChild(用来替换的节点,被替换的节点);==>替换节点
+		// 被克隆的节点.cloneNode(); ==>小括号中 两个参数 true(深克隆) 和 false(浅克隆) 
+
+		//创建元素和文本内容
+		//document.createElement('标签名'); ==>创建标签
+		//document.createTextNode('文本内容');==>创建文本内容
+
+		//节点关系  兼容问题  默认识别 空白节点  解决兼容==> 在属性中添加Element
+		//父元素.firstElementChild  首个子节点
+		//父元素.lastChild    最后一个子节点
+		//当前元素.previousSibling 上一个兄弟节点
+		//当前元素.nextSibling 下一个兄弟节点
+
+		//当前元素.parentNode 父节点
+
+		//childNodes  ==> 默认保存着节点的所有子节点
+		//children	  ==> 默认保存着节点的所有子元素节点
+		
+		//操作节点的内容
+		//innerHTML  可以获取或设置 节点的文本内容或元素 
+		//innerText	 可以获取或设置 节点的文本内容
+
+		//操作样式的方法和属性
+		//元素.style.属性名="属性值";   ==> 属性名需要驼峰写法   font-size => fontSize
+		//元素.style.cssText="属性名1:属性值1;属性名2:属性值2;..."
+		//非IE下获取节点的样式
+		//getComputedStyle(节点,'rewr').样式名
+		//IE下获取节点的样式
+		//currentStyle
+
+		//操作类的方法和属性
+		//元素.className 可以设置或获取元素的类名
+		//元素.classList.方法名('');  
+		//add() 添加类
+		//remove() 删除类
+		//contains() 判断某类名是否出现在该元素中  如果存在返回true  不存在返回false 
+		//item()  通过下标 返回相应的 类名
+
+		//操作属性的方法和属性 
+		//元素.getAttribute('获取的属性名')  获取属性值
+		//元素.setAttribute('属性名','属性值') 设置属性和属性值
+		//元素.removeAttribute('属性名') ==>删除属性 
+		//attributes ==>  默认保存在节点属性的集合
+		/*var box=document.querySelector('#box');
+		console.log(box.attributes[box.attributes.length-1]);*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

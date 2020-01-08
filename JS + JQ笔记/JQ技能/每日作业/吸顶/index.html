@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*_{margin:0;padding:0;}
+	.box2{
+		margin-left:15%;
+	}
+	.box3{
+		margin-left:15%;
+	}
+	.box4{
+		position:fixed;
+		bottom: 0;
+		right:20px;
+		display:none;
+	}
+	.fixed{
+		position: fixed;
+		top:0;
+		margin-left:15%;
+	}
+	</style>
+</head>
+<body>
+	 <div class="box1"><img src="img/img1.jpg" alt=""></div>
+    <div class="box2"><img src="img/img2.jpg" alt=""></div>
+    <div class="box3"><img src="img/img3.jpg" alt=""></div>
+    <div class="box4"><img src="img/img5.jpg" alt=""></div>
+
+
+<script src="jQuery.js"></script>
+<script>
+
+	$(document).on('scroll',function(){
+		var box1 = $('.box1').innerHeight();
+		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		if(scrollTop >= box1){
+	        $('.box2').addClass("fixed");
+			$('.box3').css('margin-top','55px');
+		}else{
+			$('.box2').removeClass('fixed')
+			$('.box3').css('margin-top','0px')
+		}
+		if(scrollTop >= 600){
+			$('.box4').show()
+		}else{
+			$('.box4').hide()
+		}
+	})
+	$('.box4').on('click',function(){
+		$("html,body")[0].scrollTop = 0
+	})
+	
+
+
+</script>
+</body>
+</html>

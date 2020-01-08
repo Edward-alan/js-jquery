@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            float: left;
+            list-style-type: none;
+            margin-left: 10px;
+        }
+        
+        .box {
+            margin-left: 45px;
+            width: 500px;
+            height: 500px;
+        }
+        
+        .img {
+            width: 100%;
+            height: 100%
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><img src="img1/1.png" alt=""></li>
+        <li><img src="img1/2.png" alt=""></li>
+        <li><img src="img1/3.png" alt=""></li>
+        <li><img src="img1/4.png" alt=""></li>
+        <li><img src="img1/5.png" alt=""></li>
+        <li><img src="img1/6.png" alt=""></li>
+    </ul>
+    <div class="box">
+        <img class="img">
+    </div>
+    <script src='js/jquery-1.3.js'></script>
+    <script>
+        $('ul').on('click', 'img', function() {
+            var srcImg = $(this).attr('src');
+            $('.img').attr('src', srcImg)
+        })
+    </script>
+</body>
+
+</html>

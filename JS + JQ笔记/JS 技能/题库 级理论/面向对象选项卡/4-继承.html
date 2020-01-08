@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //继承：原型链的方式实现继承
+    function Father(){
+        this.money = "1亿";
+    }
+    Father.prototype.getMoney = function(){
+        return this.money;
+    }
+    function Son(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Son.prototype = new Father();//原型链的继承
+    var s1 = new Son("zhangsan",20);
+    console.log(s1.getMoney());
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		<ul>
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+		</ul>
+
+	<script>
+
+
+	var lis=document.getElementsByTagName('li');
+	for(var i=0; i<lis.length;i++){
+		(function(n){
+			lis[n].onclick=function(){
+			console.log(n)
+							     }
+		})(i)
+		
+		}
+
+	
+
+	</script>
+</body>
+</html>

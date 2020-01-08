@@ -1,0 +1,105 @@
+/*
+* @Author: Marte
+* @Date:   2018-04-10 09:19:50
+* @Last Modified by:   Marte
+* @Last Modified time: 2018-04-11 10:23:24
+*/
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    width:505px;
+    margin:100px auto;
+}
+.ipt{
+    margin-top:10px;
+}
+.ipt img{
+    width:30px;
+    height:30px;
+    margin-left:13px;
+}
+.ipt .col{
+    opacity:.3;
+}
+.ipt input{
+    width:150px;
+    height:30px;
+    float:left;
+}
+textarea{
+    width:500px;
+    height:100px;
+    margin-top:20px;
+    display:block;
+}
+button{
+    width:80px;
+    height:30px;
+    display:block;
+    float:right;
+    margin-top:10px;
+    margin-bottom:10px;
+    background:#85c221;
+    border-radius: 5px;
+}
+
+.everybody{
+    width:100%;
+    float:left;
+}
+.everybody .top{
+    width:100%;
+    padding-top:10px;
+    background: #e3eaec;
+}
+.everybody .top h3{
+    background:#fff;
+    width:90px;
+    padding:5px 0 0 10px;
+    margin-left:10px;
+}
+
+.everybody .cen{
+
+    margin-left:10px;
+    margin-top:10px;
+}
+.everybody .cen span{
+    width:100%;
+    float:left;
+    padding-top:10px;
+    border-bottom:1px solid #ccc;
+    position:relative;
+}
+.everybody .cen span img{
+    float:left;
+    margin-right:10px;
+    margin-bottom:10px;
+}
+.everybody .cen span p{
+    line-height: 30px;
+}
+.everybody .cen span h3{
+    line-height: 30px;
+}
+#num{
+    color:red;
+    font-size:20px;
+    display: inline;
+}
+.bacolor{
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.1);
+    position:absolute;
+    left:0;
+    top:0;
+}
+.bacolor b{
+    float:right;
+    line-height:70px;
+    margin-right:20px;
+}
+

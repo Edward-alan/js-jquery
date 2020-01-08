@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 600px;
+			height: 60px;
+			/*background:red;*/
+			margin:0 auto;
+		}
+		.left{
+			float:left;
+			width: 300px;
+			height: 60px;
+			/*background:pink;*/
+			line-height:60px;
+			text-align:center;
+		}
+		.left:hover{
+			background:red;
+		}
+		.right{
+			float:right;
+			width: 300px;
+			height: 60px;
+			/*background:blue;*/
+			line-height:60px;
+			text-align:center;
+		}
+		.right:hover{
+			background:red;
+		}
+		.erwei{
+			width: 600px;
+			height:300px;
+			margin:0 auto;
+			/*background:yellow;*/
+		}
+		.bann{
+			float:left;
+			width: 100px;
+			height: 100px;
+			/*background:red;*/
+			margin:50px 50%;
+			margin-left:238px;
+			display:none;
+		}
+		.inp{
+			width: 600px;
+			height: 300px;
+			/*background:red;	*/
+			text-align:center;
+		}
+		
+		.inp>input{
+			width: 500px;
+			height: 30px;
+		}
+		.youx{
+			height: 60px;
+		/*	background:red;*/
+			margin-top:15px;
+		}
+		.youx>.zuo{
+			float:left;
+			width: 70px;
+			height: 60px;
+			background:#456;
+			margin-left:160px;
+			border-radius:4px;
+		}
+		.youx>.you{
+			float:left;
+			width: 270px;
+			height: 60px;
+			background:skyblue;
+			margin:0 25px;
+			border-radius:4px;
+		}
+		.dtmima{
+			margin-top:20px;
+			height: 200px;
+			/*background:red;*/
+		}
+		.dtmima>input{
+			width: 500px;
+			height: 30px;
+		}
+		button{
+			width: 100px;
+			height: 50px;
+			background:skyblue;
+			margin-top:30px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 头部 -->
+	<div class="box">
+		<div class="left">二维码登陆</div>
+		<div class="right">账号登录</div>
+	</div>
+
+<div class="erwei">
+	 <!--  图隐藏 -->
+     <div class="bann" id="dis">
+     	<img src="img/erwei.png" alt="">
+     </div>
+    <!--  input隐藏 -->
+     <div class="inp">
+     	<p>*账号登录</p>
+     	<input type="text" placeholder="请输入账号">
+     	<!-- 动态码 -->
+     	<div class="youx">
+     		<div class="zuo"></div>
+     		<button class="you" id="but1">使用邮箱动态</button>
+     		<!-- <div class="you"></div> -->
+     	</div>
+		
+		<div class="dtmima" >
+			<p>*动态密码</p>
+			<input type="text" >
+
+			<button id="but2">登录</button>
+		</div>
+     </div>
+</div>
+</body>
+</html>

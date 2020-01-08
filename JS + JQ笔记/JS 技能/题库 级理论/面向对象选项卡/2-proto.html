@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //实例也有一个属性__proto__,他的值等于对应的原型对象
+    function A(){
+
+    }
+    var a1 = new A();
+    console.log(a1.__proto__===A.prototype);
+    console.log(A.__proto__===Function.prototype);
+    console.log([].__proto__===Array.prototype);
+    console.log(Array.__proto__===Function.prototype);
+    var arr = [123];
+</script>
+</html>

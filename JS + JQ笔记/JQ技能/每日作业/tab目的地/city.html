@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        body {
+            background: #ccc;
+        }
+        
+        #box {
+            width: 400px;
+            height: 600px;
+            background: #fff;
+            margin: 20px auto;
+        }
+        
+        .title {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        
+        .title span {
+            width: 200px;
+            float: left;
+            background: #eee;
+            cursor: pointer;
+            color: blue;
+        }
+        
+        .title .bg {
+            background: #fff;
+        }
+        
+        .nav {
+            height: 80px;
+            color: #ccc;
+        }
+        
+        .nav p {
+            padding-left: 20px;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+        
+        .nav ul li {
+            padding-left: 20px;
+            float: left;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .search {
+            margin: 0 20px;
+            border-top: solid 1px #ccc;
+        }
+        
+        .search input {
+            margin-top: 10px;
+            width: 345px;
+            height: 30px;
+            padding-left: 10px;
+        }
+        
+        .render {
+            height: 30px;
+            margin: 20px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .render ul li {
+            float: left;
+            width: 90px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .render .active {
+            background: blue;
+            color: #fff;
+        }
+        
+        .list {
+            margin-top: 10px;
+            margin-left: 30px;
+            height: 360px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        .list .area {
+            height: auto;
+        }
+        
+        .list .area div {
+            position: relative;
+            margin-right: 20px;
+            left: 30px;
+            top: -25px;
+        }
+        
+        .list .area div span {
+            width: 60px;
+            height: 10px;
+            font-size: 15px;
+            text-align: center;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="title">
+            <span class="bg">北京</span><span>热门目的地</span>
+        </div>
+
+        <div class="nav">
+            <p>热门出发城市</p>
+            <ul>
+                <li>北京</li>
+                <li>上海</li>
+                <li>天津</li>
+                <li>青岛</li>
+                <li>南京</li>
+                <li>杭州</li>
+                <li>厦门</li>
+                <li>成都</li>
+                <li>深圳</li>
+                <li>广州</li>
+                <li>沈阳</li>
+                <li>武汉</li>
+                <li>香港</li>
+                <li>台北</li>
+            </ul>
+        </div>
+
+        <div class="search">
+            <input type="text" placeholder="搜索城市 (支持汉字、首字母查询)">
+        </div>
+
+        <div class="render">
+            <ul>
+                <li class="active">ABCDEFGH</li>
+                <li>JKLMNOPQ</li>
+                <li>RSTWX</li>
+                <li>YZ</li>
+            </ul>
+        </div>
+
+        <div class="list">
+            <!--             <div class="area">
+    <h5>A</h5>
+    <div>
+        <span>昆明</span>
+        <span>昆明</span>
+
+    </div>
+</div> -->
+        </div>
+    </div>
+</body>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+    $(function() {
+        $.ajax({
+            url: 'data/format.json'
+        }).done(function(data) {
+            render(data)
+
+        })
+
+        function render(data) {
+            var arr = [];
+            $.each(data.Data, function(k, v) {
+                if (arr.indexOf(v.PrefixEName) == -1) {
+                    arr.push(v.PrefixEName)
+                }
+
+            })
+            arr.sort()
+            var str = ``;
+            for (var i = 0; i < arr.length; i++) {
+
+
+                var div = `<div>`
+
+                $.each(data.Data, function(k, v) {
+                    if (arr[i] == v.PrefixEName) {
+                        div += `<span>${v.Name}</span>`
+                    }
+
+                })
+                div += `</div>`
+                str += `<div class="area">
+                  <h2>${arr[i]}</h2>${div}</div>`
+
+
+            }
+            $(str).appendTo('.list')
+        }
+        $(".render ul li").mouseover(function() {
+            $(this).addClass("active").siblings("li").removeClass('active')
+            var prev = $(this).prevAll()
+            var top = 0;
+            var l = 0
+            $(prev).each(function(k, v) {
+                l += $(v).html().length;
+            })
+            for (var i = 0; i < l; i++) {
+                top += $(".area").eq(i).height();
+
+            }
+
+            $(".list").stop().animate({
+                "scrollTop": top
+            }, 500)
+        })
+
+
+
+    })
+</script>
+
+
+</html>

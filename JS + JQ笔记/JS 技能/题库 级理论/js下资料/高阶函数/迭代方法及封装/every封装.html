@@ -1,0 +1,18 @@
+<script type="text/javascript" charset="utf-8">
+	var arr = [1,5,9,8,6,3,2,5,4]
+	function every(arr,fn){
+		var key = true;
+		for(var i=0;i<arr.length;i++){
+			if(!fn(arr[i],i,arr)){
+				key = false;
+				break;
+			}
+		}
+		return key;
+	}
+	var abc = every(arr,function(e,i,s){ 
+		return e < 9;
+	})
+	console.log(abc);
+
+</script>

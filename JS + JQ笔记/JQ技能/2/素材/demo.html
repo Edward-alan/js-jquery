@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 导航菜单 -->
+    <div id="menu">
+        <ul>
+            <li class='li'>1F<span>服饰</span></li>
+            <li class='li'>2F<span>美妆</span></li>
+            <li class='li'>3F<span>手机</span></li>
+            <li class='li'>4F<span>家电</span></li>
+            <li class='li'>5F<span>数码</span></li>
+            <li class='li'>6F<span>运动</span></li>
+            <li class='li'>7F<span>居家</span></li>
+            <li class='li'>8F<span>母婴</span></li>
+            <li class='li'>9F<span>食品</span></li>
+            <li class='li'>10F<span>图书</span></li>
+            <li class='li'>11F<span>服务</span></li>
+        </ul>
+    </div>
+    <!-- 导航菜单 -->
+    <!-- 产品内容 -->
+    <div id="content">
+        <!-- <img src="images/head.png" alt="" style="border:1px solid red;"> -->
+        <div class="louti" id="louti1"><img data-name="img" src="img/1.jpg" alt=""></div>
+        <div class="louti" id="louti2"><img src="img/2.jpg" alt=""></div>
+        <div class="louti" id="louti3"><img src="img/3.jpg" alt=""></div>
+        <div class="louti" id="louti4"><img src="img/4.jpg" alt=""></div>
+        <div class="louti" id="louti5"><img src="img/5.jpg" alt=""></div>
+        <div class="louti" id="louti6"><img src="img/6.jpg" alt=""></div>
+        <div class="louti" id="louti7"><img src="img/7.jpg" alt=""></div>
+        <div class="louti" id="louti8"><img src="img/8.jpg" alt=""></div>
+        <div class="louti" id="louti9"><img src="img/9.jpg" alt=""></div>
+        <div class="louti" id="louti10"><img src="img/10.jpg" alt=""></div>
+        <div class="louti" id="louti11"><img src="img/11.jpg" alt=""></div>
+    </div>
+    <!-- 产品内容 -->
+    <!-- 底部 -->
+    <div id="footer" class="container"></div>
+</body>
+<script src="jquery-1.4.js"></script>
+<script>
+    // var arr = [1, 2, 3, 4]
+
+    // console.log(arr.join())
+        $('#menu').on('mouseover', 'li', function() {      //划过每一个li
+            var ind = $(this).index();                  //找每一个li的下标
+        $('.louti').each(function(k, v) {               //遍历每个div    k下标    v每一个div                       
+            if (ind == k) {                             //判断 每一个li  == k下标
+                $('html body')[0].scrollTop = v.offsetTop;              //划过每一个的高度
+            }
+        })
+    })
+    $('body').on('scroll', function() {                 //给滚动一个on事件
+        var scrollT = $(this).scrollTop();              //滚动的高度              
+        $('.louti').each(function(k, v) {               //遍历每个div    k下标   v每一个div
+            if (v.offsetTop <= scrollT) {               //如果每个div的offsetTop 大于等于滚动的高度
+                var ind = $(v).index();                 //滚动的下标     
+                $('.li').children().css('display', 'none');    //li高亮隐藏
+                $('.li').eq(ind).children().css('display', 'block');   //li高亮显示
+            }
+        })
+    });
+
+    $(".li").on("click",function(){
+        $(this).addClass("active").siblings().removeClass("active")
+        var ide = $(this).index()
+        var top = $("#menu").eq(ide).offset().top - $(".li").innerHeight();
+        $("html,body").scrollTop = top
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    // $('#content').on('click', 'img', function() {
+    //     var img = $(this).attr('data-name')
+    //     location.href = 'home.html?name=' + img;
+
+    // })
+</script>
+<script>
+    
+    // $("ul").on("click","li",function(){
+    //     console.log(123)
+    // })
+</script>
+
+</html>

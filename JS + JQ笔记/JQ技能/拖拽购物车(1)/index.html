@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>拖拽购物车</title>
+    <style type="text/css" media="screen">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        img {
+            border: 0;
+        }
+        
+        ol,
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        .wrap {
+            width: 1200px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        
+        .wrap div {
+            float: left;
+        }
+        
+        .left {
+            width: 900px;
+            height: 100%;
+            background: #FAFAFA;
+        }
+        
+        .left div {
+            float: left;
+            width: 160px;
+            height: 210px;
+            margin: 0 5px;
+            position: relative;
+        }
+        
+        .left div figure.copy {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 6;
+            /*background:#FAFAFA;*/
+            background: #9c27b0;
+        }
+        
+        .left img {
+            border: solid 1px #000;
+        }
+        
+        .left section p {
+            text-align: center;
+            color: #C3C3CD;
+            line-height: 20px;
+        }
+        
+        .right {
+            width: 300px;
+            height: 100%;
+            background: #ccc;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .right h1 {
+            line-height: 100px;
+        }
+        
+        .right table {
+            background: #F5F5F5;
+            width: 260px;
+            border-collapse: collapse;
+        }
+        
+        .right table th,
+        .right table td {
+            border: solid 1px #000;
+        }
+        
+        .right p {
+            text-align: right;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="left">
+            <div>
+                <figure>
+                    <figcaption>
+                        <img src="img/shirt1.gif">
+                    </figcaption>
+                    <section>
+                        <p class="tit">Balloon</p>
+                        <p>价格:￥<span class="price">25</span></p>
+                    </section>
+                </figure>
+                <!--<figure class="copy">
+                    <figcaption>
+                        <img src="img/shirt1.gif">
+                    </figcaption>
+                    <section>
+                        <p class="tit">Balloon</p>
+                        <p>价格:￥<span class="price">25</span></p>
+                    </section>
+                </figure>-->
+            </div>
+            <div>
+                <figure>
+                    <figcaption>
+                        <img src="img/shirt2.gif">
+                    </figcaption>
+                    <section>
+                        <p class="tit">Feeling</p>
+                        <p>价格:￥<span class="price">20</span></p>
+                    </section>
+                </figure>
+            </div>
+            <div>
+                <figure>
+                    <figcaption>
+                        <img src="img/shirt3.gif">
+                    </figcaption>
+                    <section>
+                        <p class="tit">Elephant</p>
+                        <p>价格:￥<span class="price">35</span></p>
+                    </section>
+                </figure>
+            </div>
+            <div>
+                <figure>
+                    <figcaption>
+                        <img src="img/shirt4.gif">
+                    </figcaption>
+                    <section>
+                        <p class="tit">Stamps</p>
+                        <p>价格:￥<span class="price">10</span></p>
+                    </section>
+                </figure>
+            </div>
+            <div>
+                <figure>
+                    <figcaption>
+                        <img src="img/shirt5.gif">
+                    </figcaption>
+                    <section>
+                        <p class="tit">Monogram</p>
+                        <p>价格:￥<span class="price">30</span></p>
+                    </section>
+                </figure>
+            </div>
+            <div>
+                <figure>
+                    <figcaption>
+                        <img src="img/shirt6.gif">
+                    </figcaption>
+                    <section>
+                        <p class="tit">Rolling</p>
+                        <p>价格:￥<span class="price">15</span></p>
+                    </section>
+                </figure>
+            </div>
+        </div>
+        <div class="right">
+            <h1>购物车</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>数量</th>
+                        <th>单价</th>
+                    </tr>
+                </thead>
+                <tbody class="tBody">
+                    <!--<tr>
+                        <td>1</td>
+                        <td class="count">2</td>
+                        <td>3</td>
+                    </tr>-->
+                </tbody>
+            </table>
+            <p>合计：<span class="sum"></span></p>
+        </div>
+    </div>
+</body>
+<script src="js/jquery_1.4.js"></script>
+<script src="js/index.js"></script>
+
+</html>

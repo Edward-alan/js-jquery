@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        
+        .box {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin: 200px auto;
+            /* 开启3d */
+            transform-style: preserve-3d;
+            /*透视距离 */
+            perspective: 8500px;
+            perspective-origin: center;
+            /* 旋转 */
+            transition: all 2s linear;
+        }
+        
+        .box:hover {
+            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        }
+        
+        p {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            text-align: center;
+            border: 1px solid deeppink;
+            background: deepskyblue;
+            line-height: 200px;
+            font-size: 45px;
+            opacity: 0.3;
+        }
+        
+        .qian {
+            -webkit-transform: translateZ(100px);
+            -moz-transform: translateZ(100px);
+        }
+        /* 反2 */
+        
+        .hou {
+            -webkit-transform: rotateY(180deg) translateZ(100px);
+            -moz-transform: rotateY(180deg) translateZ(100px);
+        }
+        /* 正2 */
+        /* .hou {
+            -webkit-transform: translateZ(-100px);
+            -moz-transform: translateZ(-100px);
+        } */
+        
+        .top {
+            -webkit-transform: rotateY(90deg) translateZ(100px);
+            -moz-transform: rotateY(90deg) translateZ(100px);
+        }
+        
+        .left {
+            -webkit-transform: rotateY(-90deg) translateZ(100px);
+            -moz-transform: rotateY(-90deg) translateZ(100px);
+        }
+        
+        .right {
+            -webkit-transform: rotateX(90deg) translateZ(100px);
+            -moz-transform: rotateX(90deg) translateZ(100px);
+        }
+        
+        .bottom {
+            -webkit-transform: rotateX(-90deg) translateZ(100px);
+            -moz-transform: rotateX(-90deg) translateZ(100px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p class="qian">前</p>
+        <p class="hou">后</p>
+        <p class="top">上</p>
+        <p class="left">左</p>
+        <p class="right">右</p>
+        <p class="bottom">下</p>
+    </div>
+</body>
+
+</html>

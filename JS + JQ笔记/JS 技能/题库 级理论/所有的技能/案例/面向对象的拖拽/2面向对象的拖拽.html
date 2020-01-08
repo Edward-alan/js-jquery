@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width:100px;
+            height:100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    function Drag(){
+        this.oDiv = document.getElementsByTagName("div")[0];
+    }
+    Drag.prototype={
+        constructor:Drag,
+        drag:function(){
+            var that = this;
+            this.oDiv.onmousedown = function(e){
+                var ev = e || event;
+                var pos = {
+                    x:ev.offsetX,
+                    y:ev.offsetY
+                }
+                that.move(pos);
+                that.up();
+            }
+        },
+        move:function(pos){
+            var that = this;
+            document.onmousemove = function(e){
+                var ev = e || event;
+                that.oDiv.style.left = ev.clientX-pos.x+"px";
+                that.oDiv.style.top = ev.clientY-pos.y+"px";
+            }
+        },
+        up:function(){
+            document.onmouseup = function(){
+                document.onmousemove = null;
+            }
+        }
+    }
+    new Drag().drag();
+</script>
+</html>

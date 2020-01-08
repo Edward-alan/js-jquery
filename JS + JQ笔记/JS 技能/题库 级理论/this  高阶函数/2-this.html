@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        ww
+        <p>sse</p>
+    </div>
+</body>
+<script>
+    "use strict"
+    function f() {
+        console.log(this);
+    }
+    f();//在严格模式下  函数调用this指向指的是undefined
+    var oDiv = document.getElementsByTagName("div")[0];
+    oDiv.onclick = function(e){
+        var ev = e || window.event;
+        console.log(this);
+        var target = ev.target || ev.srcElement;//事件源  触发该事件的元素
+        console.log(this==target);//this 和target可能相等
+        console.log(ev.currentTarget==this);//和this始终相等，绑定该事件的元素
+    }
+
+
+</script>
+</html>

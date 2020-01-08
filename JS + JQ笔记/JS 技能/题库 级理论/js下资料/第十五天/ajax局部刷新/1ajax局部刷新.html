@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+          <div>ddsddfs</div>  
+          <h2>dsde</h2>
+          <p>ddsfs</p>
+          <input type="button" value="获取新闻"/>
+          <div id="news"></div>
+    </body>
+    <script>
+      var oInput = document.getElementsByTagName("input")[0];
+      var oDiv = document.getElementById("news");
+      addEvent(oInput,"click",function(){
+          var xhr = null;
+          if(window.XMLHttpRequest){
+            xhr = new XMLHttpRequest();
+          }else{
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xhr.open("GET","data.json",true);
+          xhr.send(null);
+          xhr.onreadystatechange = function(){
+            if(xhr.readyState==4&&xhr.status == 200){
+                var data = eval("("+xhr.responseText+")");
+                var html = "";
+                data.forEach( function(element, index) {
+                   html+="<h2>"+element.title+"</h2><div>"+element.desc+"</div>";
+                });
+                oDiv.innerHTML = html;
+            }
+          }
+      });
+
+
+      function addEvent(ele,type,fn){
+          if(ele.addEventListener){
+            ele.addEventListener(type,fn,false);
+          }else if(ele.attachEvent){
+            ele.attachEvent("on"+type,fn);
+          }else{
+            ele["on"+type] = fn;
+          }
+      }
+    </script>
+</html>

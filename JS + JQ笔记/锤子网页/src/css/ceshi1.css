@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+.container {
+  width: 800px;
+  margin: auto;
+}
+
+.container .container-box {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.container .container-box .every-box {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.container .container-box .every-box p {
+  border-bottom: 1px solid black;
+  line-height: 30px;
+}
+
+.container .container-box .every-box div {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.container .container-box .every-box div button {
+  padding: 5px 10px;
+  margin-left: 50px;
+}
+
+.dialog i {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(100, 100, 100, 0.5);
+  left: 0;
+  top: 0;
+  z-index: 998;
+}
+
+.dialog .dialog-box {
+  background: white;
+  height: 300px;
+  width: 400px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999;
+}
+
+.dialog .dialog-box div {
+  text-align: center;
+  height: 30px;
+}
+
+.dialog .dialog-box div button {
+  margin-left: 20px;
+  padding: 5px 10px;
+}

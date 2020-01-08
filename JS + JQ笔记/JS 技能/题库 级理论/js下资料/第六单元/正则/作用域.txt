@@ -1,0 +1,123 @@
+1.变量声明：	console.log(a); // undefined
+		var a = 10;  // 有变量声明提升
+
+2.函数声明提升：
+	console.log(a); // 报错undefined
+	a = 10;  // 有变量没有声明提升
+
+3.函数声明提升：
+	var a = 10;
+	function a(){
+	
+	}
+	console.log(a);  // 10
+4.函数声明提升：	
+	function a(){
+	
+	}
+	a = 10;
+	
+	console.log(a);  // 10
+
+5.函数声明提升：
+	var a;
+	function a(){
+	
+	}
+	
+	console.log(a);
+	
+6.函数声明提升：
+	var a;
+	function a(){
+		var a = 10;
+	}
+	console.log(a);   
+	a = 20;
+	console.log(a);
+	/*
+		第一层 是变量声明
+		第二层 是函数声明
+		第三层 是赋值操作
+	
+	
+	
+	*/
+	
+	
+	/*
+		console.log(a);
+		function a(){
+			var a = 10;
+		}
+		var a = 20;
+		console.log(a);
+	*/
+
+7.没有块级作用域：
+	for(var i=0;i<5;i++){
+	
+	}
+	alert(i);
+	
+	function a(){
+		var j = 10;
+	}
+	a();
+	
+	alert(j);
+8.作用域：
+	var x = 10;
+	function a(){
+		var y = 20;
+	}
+	console.log(x);
+	console.log(y);
+
+
+fnname(); // 报错
+	var fnname = function(){
+		console.log(123);
+	}
+
+function fn(){
+			var a = 10;
+
+			var f = function (){
+				console.log(a);
+			}
+			return f ;
+		}
+
+		var a = fn();
+
+		fn()();
+
+
+
+		f(1)(2)(3)	// 返回的结果是 6
+
+
+		function f(n1){
+			return function (n2){
+				return function (n3){
+					return n1 + n2 + n3;
+				}
+			}
+		}
+
+
+		// var f2 = f(1);
+		// var f3 = f(1)(2);
+
+
+
+
+
+
+
+
+
+		var n = f(1)(2)(3);
+
+		alert(n);

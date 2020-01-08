@@ -1,0 +1,103 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>title</title>
+	</head>
+	<body>
+		<div id="dizhi">
+			<select  id="sheng">
+				<option value="">默认</option>
+			</select>
+			<select  id="shi">
+				<option value="">默认</option>
+			</select>
+			<select  id="qu">
+				<option  value="">默认</option>
+			</select>
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			function ajax(type,url,data,callback){
+				var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+				if(type == "get" || type == "GET"){
+					xmlhttp.open("get",url +"?"+ data,true);
+					xmlhttp.send(null);
+				}else{
+					xmlhttp.open("post",url,true);
+					xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded"); 
+					xmlhttp.send(data);
+				}
+				xmlhttp.onreadystatechange = function(){
+					if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+						//callback(eval("("+xmlhttp.responseText+")"));//把json转换成js对象
+						callback(JSON.parse(xmlhttp.responseText));
+					}
+				}
+			}
+			
+			ajax("get","city.json","",function(data){
+			
+				var sheng = document.getElementById("sheng")
+				var shi = document.getElementById("shi")
+				var qu = document.getElementById("qu")
+				
+				var citys = [];
+				
+				//初始化省信息
+				for(var i in data){
+					var option = document.createElement("option")
+					console.log(data[i].name)
+					option.value = data[i].name;
+					option.innerHTML = data[i].name;
+					sheng.appendChild(option);
+				}
+				
+				sheng.onclick = function(){
+				
+				
+					for(var i in data){
+						if(data[i].name == this.value){
+							citys = data[i].city; // 获取到的城市信息存到citys变量里（内包含区域信息）
+							shi.innerHTML = "";
+							for(var j in citys){
+								var option = document.createElement("option")
+								option.value = citys[j].name;
+								option.innerHTML = citys[j].name;
+								shi.appendChild(option);  //添加城市信息
+							}
+						}
+					}
+					
+					
+					for(var i in citys){
+						if(citys[i].name == shi.value){
+							var area = citys[i].area;
+							qu.innerHTML = "";
+							for(var j in area){
+								var option = document.createElement("option")
+								option.value = area[j];
+								option.innerHTML = area[j];
+								qu.appendChild(option);
+							}
+						}
+					}
+				}
+				
+				// shi.onclick = function(){
+				// 	for(var i in citys){
+				// 		if(citys[i].name == this.value){
+				// 			var area = citys[i].area;
+				// 			qu.innerHTML = "";
+				// 			for(var j in area){
+				// 				var option = document.createElement("option")
+				// 				option.value = area[j];
+				// 				option.innerHTML = area[j];
+				// 				qu.appendChild(option);
+				// 			}
+				// 		}
+				// 	}
+				// }
+				
+			});
+		</script>
+	</body>
+</html>

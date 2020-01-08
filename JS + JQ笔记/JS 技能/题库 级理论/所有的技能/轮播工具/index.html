@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tip</title>
+    <style type="text/css" media="screen">
+		*{margin:0; padding:0;}
+		#wrap{
+			width:100%;
+			position:absolute;
+			left:0; bottom:10px;
+			text-align:center;
+		}
+		#wrap img{
+			width:64px;
+		}
+        #black{
+            width: 5px;height:5px;
+            position: fixed;
+            background-color: #000;
+        }
+	</style>
+</head>
+<body>
+    <div id="wrap">
+        <img src="img/1.png" alt="">
+        <img src="img/2.png" alt="">
+        <img src="img/3.png" alt="">
+        <img src="img/4.png" alt="">
+        <img src="img/5.png" alt="">
+    </div>
+    <div id='black'>
+
+    </div>
+    <script>
+        /*
+            思路：
+            1. 在mousemove事件中
+            2. 计算鼠标到图片中心的距离
+            3. 根据鼠标到图片的距离控制图片的宽度
+            4. 使用面向对象实现
+        */
+       //图片大小128*128
+        function AppleMove(options){
+            //通过传入参数的id名获取图片节点
+            this.box=document.querySelector(options.el);
+            this.imgs=this.box.querySelectorAll('img');
+            //调用初始化函数init
+            this.init();
+        }
+        // 初始化
+        AppleMove.prototype.init = function(){
+        
+            //调用添加事件函数addEvent
+            this.addEvent();
+        }
+
+        // 添加mousemove事件
+        AppleMove.prototype.addEvent = function(){
+           
+            //为整个文档添加鼠标移动事件,并使用bind为事件处理函数改变this指向
+            document.addEventListener('mousemove',this.mouseMove.bind(this));
+        }
+
+        // 鼠标滑动事件逻辑
+
+        AppleMove.prototype.mouseMove = function(e){
+           
+            var imgs=this.imgs;
+            for (var i = imgs.length - 1; i >= 0; i--) {
+                //调用getDis函数获取两点之间距离
+                var x=this.getDis(e,imgs[i]),
+                    imgwidth=64,
+                    min=10,max=100,c=max-min;
+               
+                if (x<min) {
+                //当两点距离小于20时 图片大小恒为128px
+                    imgs[i].style.width=imgwidth*2+'px';
+                }else if(x<max){
+                    
+                    //当两点距离大于20小于100时,图片大小按两点距离调整宽度的比例
+                    var ob=Math.sin( (c-(x-min))/c*Math.PI/2 );
+                    imgs[i].style.width=imgwidth*(ob+1)+'px';
+                }
+                else{
+                    //当两点距离大于100时,图片宽度恒为64px
+                    imgs[i].style.width=imgwidth+'px';
+                }
+            };
+        }
+
+        // 计算两点之间的逻辑
+        //5.正确计算两点之间的距离
+        AppleMove.prototype.getDis = function(e,node){
+            //获取img节点中心的X Y坐标 为img节点的坐标加上宽高的一半
+            var nodeInX=node.x+node.offsetWidth/2,
+                nodeInY=node.y+node.offsetHeight/2;
+            //根据三角公式 两边平方的和等于斜边的平方 x^2+y^2=z^2
+            //推导得斜边为 z=Math.sqrt((x^2+y^2),2)
+            //8.正确计算鼠标坐标
+            return Math.sqrt(Math.pow(Math.abs(e.clientX-nodeInX),2)+Math.pow(Math.abs(e.clientY-nodeInY),2));
+        }
+
+
+
+        // 实例化,传入元素的id名实现所要求的效果
+
+        new AppleMove({
+            el:'#wrap'
+        });
+
+    </script>
+</body>
+</html>

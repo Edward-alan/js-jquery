@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">点我</button>
+	<script>
+		 //this : 所属 的 函数 做为方法 被调用时 所属的对象 
+		/* btn.onclick=function(){
+		 	console.log(this)
+		 					   }*/
+
+		//window:在全局作用域下定义的变量都被作为window的属性(. [""]),定义的函数都被作为window的方法
+		var a=1;
+		console.log(a);
+		console.log(window.a);
+		console.log(this.a);
+	</script>
+</body>
+</html>

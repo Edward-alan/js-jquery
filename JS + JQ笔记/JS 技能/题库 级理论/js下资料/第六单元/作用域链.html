@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	
+	var x=1;
+
+	/*function fn(){ 
+		var a=3;
+		function fn1(){////fn1的作用域为: 它自身、fn、window
+			var b=2;
+			//console.log(a+b+x);
+			      	  } 
+		console.log(a+x) 
+		return fn1;
+
+				 }
+	fn()(); //fn1() */ 
+
+
+	function fn(n1){
+		function fn1(n2){
+			function fn2(n3){
+				console.log(n1+n2+n3);
+						  }
+			return fn2;
+					  }
+		return fn1;
+				 }
+
+fn(1)(2)(3);
+
+
+    
+
+
+
+
+
+
+	//可以改变作用域链 
+	//with eval  try catch
+	</script>
+</body>
+</html>

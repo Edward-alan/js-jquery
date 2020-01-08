@@ -1,0 +1,15 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.count_down1{
+    width:600px;
+    height: 100px;margin:20px auto;
+}
+.count_down{
+    width: 600px;
+    height: 300px;margin:20px auto;
+}
+.count_down span{
+    background: #eee;font-size: 30px;margin-left:10px;
+}

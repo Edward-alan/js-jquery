@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="ElongLogin" class="formbox">   
+        <div class="inputbox login_id">
+              <span class="icon"></span>
+              <input class="blur" type="text" id="UserName" value="用户名/卡号/手机号/邮箱">
+              <div class="input_tip" name="input_error_tip" style="display: none;">    您输入的用户名和密码不匹配，请重新输入！
+              </div>
+        </div>
+        <div class="inputbox login_pw" style="" id="input_password">
+            <span class="icon"></span>
+            <input class="blur" type="password" method="PassWord" id="PassWord">
+            <div class="input_tip" name="input_error_tip" style="display: none;">您输入的密码和用户名不匹配，请重新输入！
+            </div>
+        </div>
+	  <div class="inputbox">
+	  	  <input class="test" type="text" value="验证码" id="ValidateCode">
+	  	  <p class="test-wrap">QNMP</p>
+	  	  <a href="#?" id="ValidateHref">换一张</a>
+	  	  <div class="input_tip input_tip_yzm" id="validate_result" style="display: none;">您输入的验证码有误</div>
+	  </div>
+        <a class="loginbtn" href="#?" usable="true" method="LoginSubmit">登录</a>
+    </div>
+    <script>
+       // 不允许修改与样式！！！！！！！！！！！！！！！！
+       // 用户点击“登陆”按钮之后进行信息验证：
+       //验证用户名与密码的格式是否正确，要求用户名必须是字母、数字的组合，且必须是5到12位。
+//码必须是6-12位，如果密码是纯数字或纯字母，在下方提示用户”您的密码过于简单，建议重新设置”
+//证用户名与密码是否正确，如果用户名或密码错误，显示蓝色框内的信息，用户名错误蓝色框出现在用户名文本框的下方，密码错误则蓝色框出现在密码文本框的下方。假设正确的登陆信息是：用户名：myBawei88,密码是wangzhan123。
+//果验证码错误，显示黑色框内的信息
+//击“换一张”按钮在26个子母中随机生成4位大写字母显示出来。
+//果用户名、密码、验证码均填写正确，跳转到login.html页面中，将用户填写的用户名和密码以?参数=参数值的形式传递过去，中文需编码。
+    </script>
+</body>
+</html>

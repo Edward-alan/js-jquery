@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>工厂模式</title>
+</head>
+<body>
+	<script>
+		//工厂模式 : 快速创建对象的.
+		
+		//开一家共享单车公司
+
+		// var car = {
+		// 	name : "xiaoluche",
+		// 	money : 200,
+		// 	idNum : 1,
+		// 	open : function(){
+		// 		alert("欢迎使用,请注意安全");
+		// 	},
+		// 	close : function(){
+		// 		alert("旅途愉快,请注意付款");
+		// 	}
+		// }
+
+		function CreateCar(num){
+			var car = {
+				name : "xiahuangche",
+				money : 200,
+				idNum : num,
+				open : function(){
+					alert("我是第" + this.idNum + "辆车,欢迎使用,请注意安全");
+				},
+				close : function(){
+					alert("旅途愉快,请注意付款");
+				}
+			}
+			return car;
+		}
+
+		var arr = [];
+		for(var i = 0;i<100;i++){
+			arr[i] = CreateCar(i);
+
+		}
+
+		console.log(arr);
+		arr[88].open();
+		
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// for(var i=0;i<lis.length;i++){
+	// 	lis[i].onclick = (function(i){
+	// 			return function(){
+	// 				alert(i);
+	// 			}
+	// 	})(i)
+	// }
+	// 
+	
+	function fn(n1){
+		return function(n2){
+			return function(n3){
+				return n1+n2+n3;
+							 }
+		
+						}
+	
+			     }
+		console.log(fn(1)(2)(3));
+
+</script>
+</html>

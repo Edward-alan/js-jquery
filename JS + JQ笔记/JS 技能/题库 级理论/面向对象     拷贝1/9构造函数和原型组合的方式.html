@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Person(name,age,money) {
+        this.name = name;
+        this.age = age;
+        this.money = money;
+    }
+    /*Person.prototype.eat = function(){
+        console.log("能吃是福");
+    }
+    Person.prototype.sleep = function(){
+        console.log("怎么睡都睡不够");
+    }
+    Person.prototype.shopping = function(){
+        var that = this;
+        var timer=setInterval(function(){
+            that.money -= 100;
+            if(that.money<=0){
+                console.log(that.name+"花光了，再去挣吧");
+                clearInterval(timer);
+            }else{
+                console.log(that.name+'继续买吧,还剩'+that.money+"块钱");
+            }
+        },1000)
+    }*/
+    Person.prototype = {
+        eat: function(){
+            console.log("能吃是福");
+        },
+        sleep:function(){
+            console.log("怎么睡都睡不够");
+        },
+        shopping:function(){
+            var that = this;
+            var timer=setInterval(function(){
+                that.money -= 100;
+                if(that.money<=0){
+                    console.log(that.name+"花光了，再去挣吧");
+                    clearInterval(timer);
+                }else{
+                    console.log(that.name+'继续买吧,还剩'+that.money+"块钱");
+                }
+            },1000)
+        }
+    }
+    var p1 = new Person("zhangsan",18,1000);
+    p1.shopping();
+</script>
+</html>

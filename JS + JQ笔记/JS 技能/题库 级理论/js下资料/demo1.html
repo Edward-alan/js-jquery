@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;list-style:none}
+		#box{width:170px; height:100px;border:1px solid #ccc}
+		.dis{display:none}
+	</style>
+
+</head>
+<body>
+		<input type="text" id="ipt"><button>放大镜</button>
+		<div id="box" class="dis">
+			<div>还打算打算</div>
+			<div>切尔奇翁群</div>
+			<div>其味无穷我</div>
+			<div>仍为热为去</div>
+		</div>
+
+		<script>
+		var ipt=document.getElementById('ipt'),
+			lis=document.querySelectorAll('#box div'),
+			box=document.getElementById('box'),
+			count=-1;
+
+			//给文本框绑定事件
+			ipt.addEventListener('input',function(event){
+				var Event= event || window.event;
+				if(ipt.value.length>0){//判断文本框内的是否有内容
+					box.className='';
+					}
+				else{
+					box.className='dis';
+					}
+
+				box.addEventListener('click',function(event){
+					//判断点击的是否是li 
+					if(event.target.tagName=='DIV'){
+						//将该事件的文本内容写入到input中
+						ipt.value=event.target.innerHTML;
+						box.className='dis';
+						count=-1;
+						}
+				})
+			
+
+			});
+			
+			document.addEventListener('keydown', function(event) {
+            lis.forEach(function(item) {
+                item.style.background = '';
+            })
+            if (event.keyCode === 38) {
+                count--;
+                if (count < 0) count = 0;
+                lis[count].style.background = 'pink';
+                ipt.value = lis[count].innerHTML;
+            } else if (event.keyCode === 40) {
+                count++;
+                if (count > lis.length - 1) count = lis.length - 1;
+                lis[count].style.background = 'pink';
+                ipt.value = lis[count].innerHTML;
+           }
+           
+        })
+
+
+
+
+
+
+
+
+		</script>
+</body>
+</html>

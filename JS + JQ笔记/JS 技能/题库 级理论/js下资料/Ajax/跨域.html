@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> jsonp 跨域请求 </title>
+</head>
+<body>
+
+	<script>
+		
+		// var xhr = new XMLHttpRequest();
+		// xhr.open("get", "https://api.douban.com/v2/book/search?q=javascript&count=2", true);	
+		// xhr.send(null);
+		// xhr.onreadystatechange = function(){
+		// 	if(xhr.readyState == 4 && xhr.status == 200){
+		// 		console.log(xhr.responseText);
+		// 	}
+		// }
+		//jsonp
+		//原理是 把请求 url 写在 script 标签的 scr 属性中,让 script 标签自动去请求数据.
+
+		var script = document.createElement("script");
+
+		// script.src = "https://api.douban.com/v2/book/search?q=javascript&count=2&callback=success";
+			script.src = "http://api.map.baidu.com/geocoder/v2/?address=上海&output=json&ak=1aSeowqQ0tO51aXqBR012wo669ncmiIA&callback=qwer"
+			//&callback=qwer 
+
+		document.body.insertBefore(script, document.body.firstChild);
+
+		function qwer(data){
+			console.log(data);
+		}
+
+	</script>
+</body>
+</html>

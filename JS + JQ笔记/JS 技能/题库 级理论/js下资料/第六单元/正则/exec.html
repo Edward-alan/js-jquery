@@ -1,0 +1,39 @@
+<script type="text/javascript" charset="utf-8">
+//exec 检索字符串中指定的值。返回找到的值，并确定其位置。 查找不到值返回null  lastIndex值为0
+//语法结构
+//reg.exec(字符串);
+
+	var str = "shan3g h4a5i b7a w9ei x0ue yuan"
+	var reg = /\d/g;
+	var regarr = reg.exec(str)
+	console.log(regarr);//["3", index: 4, input: "shan3g h4a5i b7a w9ei x0ue yuan", groups: undefined]
+	console.log(reg.lastIndex);//5 
+
+	var regarr = reg.exec(str)
+	console.log(regarr);//["4", index: 8, input: "shan3g h4a5i b7a w9ei x0ue yuan", groups: undefined]
+	console.log(reg.lastIndex);//9
+
+	var regarr = reg.exec(str)
+	console.log(regarr);
+	console.log(reg.lastIndex);//11
+
+	var regarr = reg.exec(str)
+	console.log(regarr);
+	console.log(reg.lastIndex);
+
+	var regarr = reg.exec(str)
+	console.log(regarr);
+	console.log(reg.lastIndex);
+
+	var regarr = reg.exec(str)
+	console.log(regarr);
+	console.log(reg.lastIndex);
+
+	var regarr = reg.exec(str)
+	console.log(regarr);
+	console.log(reg.lastIndex);
+
+	var regarr = reg.exec(str)
+	console.log(regarr);
+	console.log(reg.lastIndex);
+</script>

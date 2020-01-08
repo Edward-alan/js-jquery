@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>构造函数</title>
+</head>
+<body>
+	
+	<script>
+		//构造函数是用来创建对象的
+		//那么我们想创建一个狗的对象,就应该先弄一个构造函数
+
+		var dog = {
+			name : "abc",
+			eat : function(){
+			}
+		}
+		dog.eat()
+
+		//构造函数
+		function Dog(name,age){
+			this.name = name;
+			this.age = age;
+			this.eat = function(){
+				
+			}
+		}
+
+		//构造函数创建对象的过程 叫实例化对象.
+
+
+		//构造函数创建对象
+
+		var d = new Dog("huahua",2);
+		console.log(d);
+
+		var f = new Dog("meili",3);
+		console.log(f);
+
+		//不是用 new 关键字时, 构造函数里面的 this 指向的是 window
+
+		Dog("haha",10);
+
+		 console.log(window.name);
+		 console.log(window.age);
+
+		
+
+	</script>
+
+</body>
+</html>

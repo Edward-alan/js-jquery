@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var o = {
+        a:12,
+        b:{
+            b1:2,
+            b2:3,
+            b3:[2,3,4],
+            b4:{
+                b4:1,
+                b44:2,
+                b5:{
+                    b:2
+                }
+            }
+        },
+        c:true,
+        d:[1,2,3]
+    }
+    /*for(var i in o){
+        console.log(i+":"+o[i]);
+        if(typeof o[i] == "object"){
+            for(var j in o[i]){
+                console.log(j+":"+o[i][j]);
+            }
+
+        }
+    }*/
+
+    function getObjDetails(obj){
+        for(var i in obj){
+            console.log(i+":"+obj[i]);
+            if(typeof obj[i]=="object"){
+                getObjDetails(obj[i]);
+            }
+        }
+    }
+    getObjDetails(o);
+</script>
+</html>

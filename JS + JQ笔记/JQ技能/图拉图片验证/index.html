@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .big {
+            position: relative;
+        }
+        
+        .small {
+            position: absolute;
+            top: 0px;
+        }
+        
+        p {
+            width: 350px;
+            height: 32px;
+            background: #fcc;
+            position: relative;
+        }
+        
+        span {
+            width: 32px;
+            height: 32px;
+            background: #f00;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big">
+        <img src="img/2.png" alt="" class="big">
+        <div class="small">
+            <img src="img/3.png" alt="" class="small">
+        </div>
+    </div>
+    <p class="ps"><span class="sr">→</span></p>
+    <script src='jquery-1.3.js'></script>
+    <script>
+        $('.sr').on('mousedown', function(e) {
+            var left = e.pageX - $(this).position().left;
+            var that = this;
+            $(document).on('mousemove', function(e) {
+                var l = e.pageX - left;
+                var maxW = $('.ps').innerWidth() - $('.sr').innerWidth()
+                if (l < 0) l = 0;
+                if (l > maxW) l = maxW;
+                $(that).css('left', l + "px");
+                $('.small').css('left', l + 'px')
+            }).on('mouseup', function() {
+                $(this).off('mousemove');
+                $(this).off('mouseup');
+
+            })
+        })
+    </script>
+</body>
+
+</html>

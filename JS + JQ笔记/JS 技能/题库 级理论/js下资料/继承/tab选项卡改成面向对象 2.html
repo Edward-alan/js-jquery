@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.active{background:#f00;}
+			#div1 div, #div2 div{width:200px;height:200px;border:1px solid #ccc;display:none;}
+		</style>
+		<script type="text/javascript">
+
+			// 面向对象写法
+			window.onload = function (){
+				// 为了方便复用，ID通过参数传进去
+				var t1 = new Tab('div1');
+				t1.init();
+
+				var t2 = new Tab('div2');
+				t2.init();
+				t2.auto(); // 自动播放
+			}
+
+			function Tab(id){
+				this.oParent = document.getElementById(id);
+				this.aBtn = this.oParent.getElementsByTagName('input');
+				this.aDiv = this.oParent.getElementsByTagName('div');
+				//this.iNow = 0; // 标识
+			}
+			Tab.prototype.init = function (){
+				var This = this;//指实例对象
+				for(var i=0; i<this.aBtn.length; i++){
+					this.aBtn[i].index = i;
+					this.aBtn[i].onclick = function (){
+						This.change(this);
+					};
+				}
+			}
+			Tab.prototype.change = function (obj){
+				for(var i=0; i<this.aBtn.length; i++){
+					this.aBtn[i].className = ''
+					this.aDiv[i].style.display = 'none';
+				}
+				obj.className = 'active';
+				this.aDiv[obj.index].style.display = 'block';
+			}
+			Tab.prototype.auto = function (){
+				var This = this;
+				setInterval(function (){
+					if(This.iNow === This.aBtn.length - 1){
+						This.iNow = 0;
+					}else{
+						This.iNow ++;
+					}
+
+					for(var i=0; i<This.aBtn.length; i++){
+						This.aBtn[i].className = ''
+						This.aDiv[i].style.display = 'none';
+					}
+					This.aBtn[This.iNow].className = 'active';
+					This.aDiv[This.iNow].style.display = 'block';
+
+				}, 1000);
+			}
+
+
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+		    <input class="active" type="button" value="1" />
+		    <input type="button" value="2" />
+		    <input type="button" value="3" />
+		    <div style="display:block;">1111</div>
+		    <div>2222</div>
+		    <div>3333</div>
+		</div>
+
+		<!-- <div id="div2">
+		    <input class="active" type="button" value="1" />
+		    <input type="button" value="2" />
+		    <input type="button" value="3" />
+		    <div style="display:block;">1111</div>
+		    <div>2222</div>
+		    <div>3333</div>
+		</div> -->
+	</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+			.div1{
+				background-color:red;
+				padding:100px;
+			}
+			.div2{
+				background-color:green;
+				padding:100px;
+			}
+			.div3{
+				background-color:blue;
+				padding:100px;
+			}
+		</style>
+</head>
+<body>
+	<div id="div1" class="div1">
+			<div id="div2"  class="div2">
+				<div id="div3" class="div3">
+				</div>
+			</div>
+		</div>
+
+		<script>
+			var Div1 = document.getElementById("div1");
+			var Div2 = document.getElementById("div2");
+			var Div3 = document.getElementById("div3");
+
+			// oDiv1.onclick = function(){
+
+			// 	alert("red");
+			// }
+
+			// oDiv2.onclick = function(){
+			// 	alert("green");
+			// }
+			// oDiv3.onclick=function(event){
+			// 	var Event= event || window.event;
+			// 	if(Event.stopPropagation){
+			// 		Event.stopPropagation();//非IE下阻止事件传播
+			// 		}
+			// 	else{
+			// 		Event.cancelBubble=true;//IE下阻止事件传播
+			// 		}
+			// 	alert('blue');
+			// 						 }
+            Div1.onclick=function(){
+                alert("red");
+            }
+            Div2.onclick=function(){
+                alert("green");
+            }
+            Div3.onclick=function(event){
+                var Event=event || window.event;
+                if(Event.stopPropagation){
+                    Event.stopPropagation();//非IE下阻止事件传播
+                }else{
+                    Event.cancelBubble=true;//IE下阻止事件传播
+                }
+                alert("blue")
+            }
+            stopPropagation
+            stopPropagation
+            stopPropagation
+            stopPropagation
+            stopPropagatipn
+            stopPropagation
+            cancelBubble
+            cancelBubble
+            cancelBubble
+            cancelBubble
+            cancelBubble
+            cancelBubble
+            cancelBubble
+            stopPropagation
+            stopPropagation
+
+		</script>
+
+
+
+
+</body>
+</html>

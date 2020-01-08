@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>we</div>
+</body>
+<script>
+    var oDiv = document.getElementsByTagName("div")[0];
+    //1、使用bind的方式
+    oDiv.addEventListener("click",f.bind(oDiv,3,4));
+    //2、使用闭包的方式
+    oDiv.addEventListener("click",ff(3,4));
+    function ff(a,b){
+        return function(){
+            console.log(a*b);
+        }
+    }
+    function f(a,b) {
+        console.log(a+b);
+    }
+</script>
+</html>

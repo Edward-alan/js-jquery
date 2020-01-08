@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin:0; padding:0;}
+		.box{
+			width: 600px;
+			height: 100px;
+			margin:0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<span class="tian"></span>
+		<span class="shi"></span>
+		<span class="fen"></span>
+		<span class="miao"></span>
+	</div>
+	<script src="js/jQuery.js"></script>
+	<script>
+		$(".box").addens({
+			time:"2018/12/20 15:40:00",
+			Timer:"2018/1/1 12:00:00",
+			tian:"tian",
+			shi:"shi",
+			fen:"fen",
+			miao:"miao"
+		})
+(function($){
+	function addens(set){
+		this.set = set;
+		this.startT = new Data(set.startTime).getTime();
+		this.endT = new Data(set.endTime).getTime();
+		this.nowT = new Data().getTime();
+		this.Time = null;
+		this.init();
+	};
+	addens.prototype = {
+		constructor:addens,
+		init:function(){
+		var that = this;
+		that.timer = setInterval(function(){
+			that.nowT = new Data().getTime();
+			if(that.startT >= that.nowT){
+				alert("倒计时没有开始")
+			}else if(that.nowT <= that.endT){
+				var time = that.endT - that.nowT;
+				var d = Math.floot(time/1000/60/60/24)     //一天时间
+				var s = Math.floot(time/1000/60/60%24)     //时
+				var m = Math.floot(time/1000/60%60)        //分
+				var miao = Math.floot(time/1000%60)        //秒
+			}
+		},1000)
+		}
+	};
+	$.fn.addens = function(opt){
+		var def = {
+			time:"2018/12/20 15:40:00",
+			Timer:"2018/1/1 12:00:00",
+			tian:"tian",
+			shi:"shi",
+			fen:"fen",
+			miao:"miao"
+		}
+		var set = $.extend(def,opt)
+		var count = new addens(set)
+	}
+})(jQuery)
+		
+
+
+
+
+;(function($){
+	$.fn.mingzi = function(){
+		var dare = {
+			
+		}
+	}
+})(jQuery);
+
+
+
+
+		
+	</script>
+</body>
+</html>

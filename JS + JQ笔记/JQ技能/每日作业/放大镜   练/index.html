@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{padding:0; margin:0;}
+		#banner{
+			width: 500px;
+			height: 500px;
+			float:left;
+			margin:100px 100px;
+			position:relative;
+		}
+		#bann{
+			width: 500px;
+			height: 500px;
+			-webkit-selectted:none;
+		}
+		#box{
+			width: 100px;
+            height: 100px;
+            background: rgba(254, 0, 0, 0.3);
+            position: absolute;
+            left: 0;
+            top: 0;
+			/*display:none;*/
+		}
+		#bag{
+			 width: 300px;
+            height: 300px;
+            border: 2px #666 solid;
+            float: left;
+            margin: 100px 0;
+            position: relative;
+            overflow: hidden;
+           /* display: none;*/
+		}
+		#banners{
+			width: 888px;
+			height: 888px;
+			position:absolute;
+		}
+	</style>
+</head>
+<body>
+<div id="banner">
+	<img src="img/small.jpg" alt="" id="bann">
+	<div id="box"></div>
+</div>
+<div id="bag"> <img src="img/big.jpg" alt="" id="banners"></div>
+
+<script src="jQuery.js"></script>
+<script>
+	// $("#banner").on("mouseover",function(e){
+	// 	e.preventDefault();
+	// 	var that = this;
+	// 	$(this).on("mouseover",function(e){
+	// 		e.preventDefault();
+	// 		var l = e.pageX - $(that).offset().left - $('#box').innerWidth() / 2;
+	// 		var t = e.pageY - $(that).offset().top - $('#box').innerHeight() / 2;
+	// 		if(l<0) l = 0;
+	// 		if(t<0) t = 0;
+	// 		$('#box').css('left', l + 'px');
+	// 		$("#box").css('top', t + 'px');
+	// 		var vint = $('#banners').innerWidth() / $('#bann').innerWidth();
+	// 		// $('#banners').css('left',-l*vint+'px');
+	// 		// $('#banners').css('top',-t*vint+'px');
+	// 	}).on('mouseup',function(){
+	// 		$(this).off('mouseover');
+	// 		$(this).off('mouseup');
+	// 	})
+	// })
+	
+	$('#banner').on('mouseover',function(e){
+		e.preventDefault();
+		var that = this;
+		$(document).on('mousemove',function(e){
+			e.preventDefault();
+			var l = e.pageX - $(that).offset().left - $('#box').innerWidth()/2
+			var t = e.pageY - $(that).offset().top - $('#box').innerHeight()/2
+			$('#box').css('left',l+"px")
+			$('#box').css('top',t="px")
+			if(l<0) l = 0;
+			if(t<0) t = 0;
+			$('#box').css('left', l + 'px');
+			$("#box").css('top', t + 'px');
+			var vint = $('#banners').innerWidth() / $('#bann').innerWidth();
+			$('#banners').css('left',-l*vint+'px');
+			$('#banners').css('top',-t*vint+'px');
+		}).on('mouseup',function(){
+			$(this).off('mouseover');
+			$(this).off('mouseup');
+		})
+	})
+</script>
+</body>
+</html>

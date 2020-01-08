@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>title</title>
+	</head>
+	<body>
+		<div id="dizhi">
+			<select  id="sheng">
+				<option value="">默认</option>
+			</select>
+			<select  id="shi">
+				<option value="">默认</option>
+			</select>
+			<select  id="qu">
+				<option  value="">默认</option>
+			</select>
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			function ajax(type,url,data,callback){
+				var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+				if(type == "get" || type == "GET"){
+					xmlhttp.open("get",url +"?"+ data,true);
+					xmlhttp.send(null);
+				}else{
+					xmlhttp.open("post",url,true);
+					xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded"); 
+					xmlhttp.send(data);
+				}
+				xmlhttp.onreadystatechange = function(){
+					if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+						callback(eval(xmlhttp.responseText+''));
+					}
+				}
+			}
+			
+		
+			
+			var caidan = {
+				select1:null,
+				select2:null,
+				select3:null,
+				data:null,
+				city:null,
+				init:function(data){
+					this.select1 = document.getElementById("sheng");
+					this.select2 = document.getElementById("shi");
+					this.select3 = document.getElementById("qu");
+					this.data = data;
+					this.setOneSelect(this.data);
+					this.bindEvent();
+				},
+				setOneSelect:function(data){
+					for(var i in data){
+						this.select1.appendChild(this.createOption(data[i].name));
+					}
+				},
+				setTwoSelect:function(city){
+					this.select2.innerHTML = "";
+					for(var i in city){
+						this.select2.appendChild(this.createOption(city[i].name));
+					}
+				},
+				setThreeSelect:function(area){
+					this.select3.innerHTML = "";
+					for(var i in area){
+						this.select3.appendChild(this.createOption(area[i]));
+					}
+				},
+				createOption:function(value){
+					var option = document.createElement("option");
+					option.value = value;
+					option.innerHTML = value;
+					return option;
+				},
+				bindEvent:function(){
+					var _this = this;
+					this.select1.onclick = function(){
+						for(var i in _this.data){
+							if(_this.data[i].name == this.value){
+								_this.setTwoSelect(_this.data[i].city);
+								_this.city = _this.data[i].city;
+								for(var j in _this.city){
+									if(_this.city[j].name == _this.select2.value){
+										_this.setThreeSelect(_this.city[j].area)
+									}
+								}
+								
+							}
+						}
+					}
+					this.select2.onclick = function(){
+						for(var i in _this.city){
+							if(_this.city[i].name == this.value){
+								_this.setThreeSelect(_this.city[i].area)
+							}
+						}
+					}
+				}
+			}
+			
+			ajax("get","city.json","",function(data){
+				caidan.init(data);
+			});
+			
+		</script>
+	</body>
+</html>

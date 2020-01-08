@@ -1,0 +1,75 @@
+clientX  相对于浏览器可视区的水平坐标（鼠标的）
+clientY  相对于浏览器可视区的垂直坐标（鼠标的）
+offsetX  相对于标签的水平坐标 （鼠标的）
+offsetY  相对于标签的垂直坐标 （鼠标的）
+pageX	 相对于页面的水平坐标 （鼠标的）
+pageY    相对于页面的垂直坐标 （鼠标的）
+
+事件对象的属性
+
+	事件对象.clientX    相对于浏览器可视区的水平坐   
+	事件对象.clientY    相对于浏览器可视区的垂直坐标
+	
+	
+	事件对象.offsetX    相对于标签的水平坐标
+	事件对象.offsetY    相对于标签的垂直坐标
+	
+	
+	事件对象.pageX      相对于页面的水平坐标      
+	事件对象.pageY      相对于页面的垂直坐标
+	
+	谁的坐标？  鼠标的坐标
+	
+	
+	事件对象.keyCode     键盘码
+	
+		回车的键盘码  13
+		空格的键盘码  32
+		左上右下的键盘码  37 38 39 40
+	keyup抬起  keydown按下 keypress按下
+
+
+
+		
+事件类型
+
+	UI事件
+	
+		onload  加载事件
+		onscroll  滚动条事件
+		error  错误事件
+		
+	鼠标事件
+	
+		onmouseover  鼠标滑过事件
+		onmouseout   鼠标离开事件
+		
+		onclick     单击事件
+		ondblclick  双击事件
+		
+		onmouseup   鼠标抬起事件
+		onmousedown   鼠标按下事件
+		
+		onmousemove  鼠标移动事件
+		
+		onmousewheel  鼠标滚轮事件、2
+		
+	键盘事件
+	
+		onkeydown   键盘按下事件
+		onkeyup    键盘抬起事件
+		onkeypress  键盘按下又抬起(按下字母事件)
+		
+	文本事件
+	
+		oninput  文本事件（在输入框里只要输入字符就会触发）
+		
+	焦点事件
+	
+		onfocus  获取焦点事件
+		onblur  失去焦点事件
+		
+	表单事件
+	
+		onsubmit   提交事件
+		onreset   重置事件

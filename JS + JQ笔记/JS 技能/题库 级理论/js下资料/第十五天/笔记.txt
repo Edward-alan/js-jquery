@@ -1,0 +1,72 @@
+https://api.douban.com/v2/book/search?q=javascript&count=2&callback=success
+
+http://api.map.baidu.com/geocoder/v2/?address=上海&output=json&ak=1aSeowqQ0tO51aXqBR012wo669ncmiIA&callback=success
+
+
+1.什么是eval
+eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码。
+
+eval(string)
+
+返回值
+通过计算 string 得到的值（如果有的话）。
+
+说明
+该方法只接受原始字符串作为参数，如果 string 参数不是原始字符串，那么该方法将不作任何改变地返回。因此请不要为 eval() 函数传递 String 对象来作为参数。
+
+如果试图覆盖 eval 属性或把 eval() 方法赋予另一个属性，并通过该属性调用它，则 ECMAScript 实现允许抛出一个 EvalError 异常。
+<script type="text/javascript">
+
+eval("x=10;y=20;document.write(x*y)")
+
+document.write(eval("2+2"))
+
+var x=10
+document.write(eval(x+17))
+
+</script>
+
+2.什么是json
+json
+
+	json对象	
+		{name:"aaaa",age:12}		
+		只有属性，没有方法的对象		
+		
+	json字符串	
+		'{“name”:"aaaa",“age”:12}'
+		
+
+	json序列化（json对象转json字符串）	
+		JSON.stringify(json对象);
+		
+	json解析（json字符串转json对象）	
+		JSON.parse(json字符串)		
+		eval("("+json字符串+")")
+3.什么是箭头函数
+
+//箭头函数 是 ES6新出的. 箭头函数的特点是使函数变的简洁了
+//回调函数内都可以写成箭头函数
+//箭头函数有一个特点, 自动绑定 this 指向 . 绑定 this 是父级函数的 this 指向
+//如果你怕乱, 那么把所有的回调函数都弄成箭头函数. 这样就不用保存 this 指向了.
+//回调函数,就是做完一件事情,调用一个函数,告诉你,我做完了.
+
+4../api/user_manage_list.php?size=5&page=1
+'size=3&page=5
+document.body.insertBefore(script, document.body.firstChild);
+
+5.promise
+
+var p=new Promise(function(resolve,reject){
+把复杂的事件,放在这里执行.这里面 代码就是异步编程
+}
+
+
+PromiseStatus：用于记录Promise对象的三种状态，这三中状态分别是：
+pending：待定状态，Promise对象刚被初始化的状态
+fulfilled：完成状态，承诺被完成了的状态
+rejected：拒绝状态，承诺完成失败的状态
+、Promise用法     问 ：如果我想要用第一次返回来的数据，进行第二次请求。这 种现象会造成回调函数的嵌套，多个回调函数嵌套，不太好。     答 ： 用 promise 来解决回调函数深渊问题。
+
+
+onload   onerror

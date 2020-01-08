@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>22</li>
+        <li>3333</li>
+    </ul>
+</body>
+<script>
+    var lis = document.getElementsByTagName("li");
+    /*for(var i=0;i<lis.length;i++){
+        lis[i].index = i;
+        lis[i].onclick = function () {
+            alert(i);
+            alert(this.index);
+        }
+    }*/
+    //es6中新增的声明变量的let  块级作用域（局部作用域）
+    /*for(let i=0;i<lis.length;i++){
+        lis[i].onclick = function () {
+            alert(i);
+        }
+    }*/
+    for(var i=0;i<lis.length;i++){
+        (function(a){
+            lis[a].onclick = function () {
+                alert(a);
+            }
+        })(i);
+
+    }
+    //console.log(i);
+</script>
+</html>

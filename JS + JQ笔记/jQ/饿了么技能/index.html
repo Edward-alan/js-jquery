@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* { margin: 0; padding: 0; list-style: none; font-size: 15px;}
+        
+        body {
+            background: #f7f5f5;
+        }
+        
+        .wrap {
+            width: 800px;
+            margin: 0 auto;
+        }
+        
+        .top {
+            line-height: 50px;
+            display: flex;
+            justify-content: space-between;
+            background: #fff;
+        }
+        
+        .top span {
+            padding: 0 20px;
+            cursor: pointer;
+        }
+        
+        .top span.de {
+            color: #2196f3;
+        }
+        
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            width: 800px;
+            margin-top: 20px;
+            background: #fff;
+        }
+        
+        nav>span {
+            padding: 15px 40px;
+            cursor: pointer;
+        }
+        
+        .black {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .black>h1 {
+            width: 100%;
+            line-height: 80px;
+            font-size: 24px;
+        }
+        
+        .black>li {
+            width: 47%;
+            background: #fff;
+            height: 100px;
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .imgs {
+            height: 100%;
+        }
+        
+        .imgs>img {
+            height: 100%;
+        }
+        
+        .fons {
+            width: 180px;
+            margin-left: 30px;
+            float:left;
+        }
+        
+        .fons>h4 {
+            font-size: 20px;
+            line-height: 60px;
+        }
+        
+        .fons>p {
+            width: 100%;
+            display: flex;
+            justify-content:space-between;
+        }
+        
+        .fons>p>b {
+            color: red;
+        }
+        
+        .fons>p>span {
+            padding: 5px 15px;
+            border-radius: 13px;
+            background: #2196f3;
+        }
+        
+        .mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+        }
+        
+        .box {
+            width: 550px;
+            height: 320px;
+            background:#fff;
+            margin: 100px auto;
+            display: flex;
+            position: relative;
+        }
+        
+        .box>.imgs,.box>.fons {
+            height: 70%;
+            margin: 40px;
+        }
+        .box>.fons>h4 {
+            line-height: 50px;
+        }
+        .box>.fons>p {
+            margin-top: 140px;
+        }
+        nav>span.active {
+            color: #fff;
+            background: #3f51b5;
+        }
+        nav.fix {
+            width: 800px;
+            position: fixed;
+            top: 0;
+            margin-top: 0;
+            background: rgba(0,0,0,.5);
+           /* opacity: 0.5;*/
+           color:red;
+        }
+        .box>span {
+            display: inline-block;
+            width: 30px;
+            line-height: 30px;
+            background: #ccc;
+            border-radius: 50%;
+            color: #fff;
+            text-align: center;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            cursor: pointer;
+        }
+        .src img {
+            width: 100px;
+            height: 100px;
+            float:left;
+        }
+        .mask {
+            display: none;
+        }
+        .fixed {
+            position:fixed;
+            top:-20px;
+        }
+        .bosx{
+            width: 390px;
+            height:auto;
+            float:left;
+        }
+	</style>
+</head>
+<body>
+<div class="wrap">
+        <div class="top">
+            <div class="left">
+                <span class='de'>所有商品</span>
+                <span>评价</span>
+                <span>商家资质</span>
+            </div>
+            <div class="right">
+                <span class='de'>默认排序</span>
+                <span>评价</span>
+                <span>销量</span>
+                <span class='jg'>价格</span>
+            </div>
+        </div>
+        <nav>
+        	<!-- <span class="">热销</span>
+			<span class="">川菜</span>
+			<span class="active">家乡小炒</span> -->
+        </nav>
+        <div class="container">
+            <!--<div class="black">
+                <h1>热销</h1>
+                <li>
+                    <div class="src">
+                        <img src="img/2.jpg" alt="">
+                    </div>
+                    <div class="fons">
+                        <h4>米饭</h4>
+                        <p><b>￥4</b><span>加入购物车</span></p>
+                    </div>
+                </li>
+            </div>
+
+            <div class="black">
+                <h1>潇湘</h1>
+                <li>
+                    <div class="src">
+                        <img src="img/2.jpg" alt="">
+                    </div>
+                    <div class="fons">
+                        <h4>米饭</h4>
+                        <p><b>￥4</b><span>加入购物车</span></p>
+                    </div>
+                </li>
+            </div>-->
+        </div>
+
+    <div class="mask">
+        <div class="box">
+            <span>X</span>
+            <div class="imgs">
+                <img src="img/2.jpg" alt="">
+            </div>
+            <div class="fons">
+                <h4>米饭</h4>
+                <p><b>￥20</b><span>加入购物车</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="jQuery.js"></script>
+    <script>
+        $.ajax({
+            url:"data.json",
+            success:function(data){
+                init(data);
+                listet();
+                dian();
+            }
+        });
+function init(data) { 
+    for(var i in data){
+    var nav =`<span >${data[i].name}</span>`
+    var str = `<h1>${data[i].name}</h1>`;
+    data[i].list.forEach(function(v, k) {
+            str += `<li class="li">
+                        <div class="src">
+                            <img src="img/${v.src}" alt="">
+                        </div>
+                        <div class="fons">
+                            <h4>${v.title}</h4>
+                            <p><b>${v.price}</b><span>加入购物车</span></p>
+                        </div>
+                    </li>`
+        })
+    var black = $(`<div class="black">${str}</div>`);
+    $(".container").append(black);
+    $("nav").append(nav)
+}; 
+}
+function listet(){              //吸顶
+  $(document).on("scroll",function(){
+     //兼容
+     var scrollT = document.documentElement.scrollTop || document.documentElement.scrollTop;
+     var topp = $(".top").innerHeight();     //获取top的高度
+     if(scrollT >= topp){               
+        $("nav").addClass('fixed')
+     }else{
+        $("nav").removeClass('fixed')
+     }
+  })
+}
+
+function dian(){        //点击span 动
+    $("nav").on("click","span",function(){
+        $(this).addClass("active").siblings().removeClass('active')
+        var ind = $(this).index();
+        var top = $(".black").eq(ind).offset().top - $("nav").innerHeight();
+        $("html,body")[0].scrollTop = top; 
+    })
+}
+var flag = -1
+$(".jg").on('click',function(){
+    flag*= -1;
+    var li = $("li");      //获取dom元素
+    var arr = Array.from(li)     //转数组
+    arr.sort(function(x,y){       //排序
+        return $("b",x).html().replace(/[^0-9]/g," ")*flag - $("b",y).html().replace(/[^0-9]/g," ")*flag})
+   li.remove();      //删除li
+   arr.forEach(function(item,item){        //遍历arr数组
+        $("fons").append(item)                  //添加到盒子里
+        console.log(arr)    
+   })
+})
+
+
+//1:获取dom元素,
+//2:把获取到的dom的维数组转数组
+//3:进行排序
+//4:删除
+    </script>
+</body>
+</html>
+
+<!-- 1.排版布局
+2.正确实现ajax请求，正确实现数据渲染
+3.随着页面的滚动菜单有个吸顶的效果
+4.点击菜单，页面滚动到对应的列表标题
+5.页面滚动到某个列表，对应的菜单显示高亮（
+6.点击每一道菜出现弹窗，弹窗内显示对应的图片、菜名和价钱（渐隐渐现的动画效果）
+7.点击价格，按照价格从高到低对列表进行排序，再次点击，按照价格从低到高进行排序
+8.封装弹窗插件 -->

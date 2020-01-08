@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<textarea name="" id="tea" cols="30" rows="10" maxlength="140"></textarea>
+	<p>还能输入<span id="spn">140</span>字</p>
+
+	<script>
+	var tea=document.getElementById('tea'),
+		spn=document.getElementById('spn');
+
+		tea.addEventListener('keydown',function(event){
+			
+
+			if(tea.value.length<25){
+				tea.style.color='red';
+				}
+			else{
+				tea.style.color='black';
+				}
+			spn.innerHTML=140-tea.value.length;
+			if(spn.innerHTML<0){
+				spn.innerHTML=0;
+				}	
+		});
+	</script>
+</body>
+</html>

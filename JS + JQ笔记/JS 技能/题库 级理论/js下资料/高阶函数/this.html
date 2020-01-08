@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+	/*function fn(){
+		console.log(this)  //window 所属函数作为方法被调用时所属的对象
+				 }
+	fn();  //window.fn()*/
+
+
+	var obj = {
+		fn:function(){
+			console.log(this);
+		},
+		name:"哈哈";
+	}
+
+	obj.fn(); //obj对象
+
+
+
+
+	</script>
+</body>
+</html>

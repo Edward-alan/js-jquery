@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>王者荣耀</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="box">
+        <h2>英雄数据库</h2>
+        <div class="left">
+            <form>
+                <h3>搜索英雄</h3>
+                <p>
+                    <input type="text" class="search" placeholder="请输入英雄名称"><span id="search"></span>
+                </p>
+                <h4>战场职责</h4>
+                <ul class="navWrap">
+                    <!-- <li><label><input type="checkbox" value="tk">坦克</label></li>-->
+                </ul>
+            </form>
+        </div>
+        <div class="right">
+            <!-- <dl>
+                <dt><img src="img/1.jpg" alt=""></dt>
+                <dd>你好</dd>
+            </dl> -->
+        </div>
+    </div>
+
+</body>
+<script src="js/ajax.js"></script>
+<script src="js/game.js"></script>
+<script>
+    ajax({
+        url: "data.json",
+        success: function(rs) {
+            // 实例化
+            new Game({
+                navWrap: '.navWrap',
+                person: '.right',
+                btn: 'search',
+                input: '.search',
+                data: JSON.parse(rs)
+            })
+        }
+    })
+</script>
+
+</html>

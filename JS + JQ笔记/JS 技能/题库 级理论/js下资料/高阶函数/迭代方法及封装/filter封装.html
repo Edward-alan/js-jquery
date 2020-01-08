@@ -1,0 +1,20 @@
+<script type="text/javascript" charset="utf-8">
+	var arr = [1,5,9,8,6,3,2,5,4]
+	
+	function filter(arr,fn){
+		var newarr = [];
+		for(var i=0;i<arr.length;i++){
+			if(  fn(arr[i],i,arr)  ){
+				newarr.push(arr[i]);
+			}
+		}
+		return newarr;
+	}
+	
+	var arr1 = filter(arr,function(e,i,s){
+		return e%2 == 0
+	})
+	
+	console.log(arr1);
+	
+</script>

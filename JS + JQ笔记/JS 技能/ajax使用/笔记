@@ -1,0 +1,40 @@
+ajax
+异步的javascript 和XML
+请求数据的一种方式
+Ajax的核心是一个对象XMLHttpRequest
+原理：通过XMLHttpRequest对象向后台发送异步请求，从后台获取了数据，然后使用js把数据渲染到Dom上面
+
+异步：也叫做非阻塞，前面的代码还没执行完，就可以去执行其他的脚本，互不影响
+同步：阻塞  后面的程序必须等到前面的程序执行完才能执行
+
+特点：用户体验好，局部刷新
+缺点：破坏浏览器的返回按钮 、对搜索引擎的支持不好
+使用Ajax的流程：
+1、创建对象
+    var xhr = null;
+        if(window.XMLHttpRequest){
+            xhr = new XMLHttpRequest();
+        }else{
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+ 2、xhr.open(请求方法,请求的URL,是否异步)
+       请求方法和请求的URL数据类型是string，是否异步数据类型是boolean
+    1) 请求方法：get|post
+         get请求和post请求的区别
+           a) 请求的大小不同，get请求不能超过2kb，post请求基本上没限制
+           b）请求传递参数的方式不同，get请求直接把参数追加到URL地址后面，post请求把参数放到请求体里面
+           3）get请求传输速度快，会缓存，不安全
+    2）请求的地址
+    3)是否异步  默认异步  true  第三个参数可以省略
+3、xhr.send() 提交，发送请求 该方法有一个参数，该参数是以请求体的方式向后台传递参数，不过不传递参数，需要设置成null
+
+ajax对象的一个属性readyState 用来表示ajax执行到了哪个阶段
+0 还没初始化呢  还没调用 open方法
+1 已经调用了open方法
+2 已经发送请求了，已经调了send
+3 响应还未完成，已经解析了部分数据
+4 请求完成，可以渲染页面了
+status:http的状态码
+200：响应成功
+500:服务内部错误
+404：页面未找到，请求的资源不存在

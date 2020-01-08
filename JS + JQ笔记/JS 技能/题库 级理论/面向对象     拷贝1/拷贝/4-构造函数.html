@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 构造函数 ： 通过new 关键字调用的函数 ,构造函数的函数名称通常首字母是大写的(为了和普通的函数区分开)
+    //Date、Array、Object、RegExp
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+   var p1 = new Person("zhangsan",20);//创建了一个Person类型的实例
+    console.log(p1.name);
+    var p2 = new Person("lisi",22);
+    console.log(new Person("wangwu",23).age);
+</script>
+</html>

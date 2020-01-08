@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #area {
+            text-align: center;
+        }
+        
+        #area select {
+            background: transparent;
+            padding: 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            height: 34px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="area">
+        <select class="sheng">
+          <option value=0>请输入省</option>
+        </select>
+        <select class="shi">
+          <option value=0>请输入市</option>
+        </select>
+        <select class="qu">
+          <option value=0>请输入区</option>
+        </select>
+    </div>
+    <script src="js.js"></script>
+    <script>
+        $.ajax({
+            url: 'data.json',
+
+            success: function(data) {
+                data = JSON.parse(data)
+                renderSheng(data);
+            },
+
+        });
+
+        function renderSheng(data) {
+            var str = '';
+            for (var i = 0; i < data.length; i++) {
+                str += `<option value=${i+1}>${data[i].name}</option>`
+            }
+            $('.sheng').append(str);
+        }
+    </script>
+</body>
+
+</html>

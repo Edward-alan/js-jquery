@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+			list-style: none;
+			border:0;
+		}
+		.list{
+			width: 90%;
+			height: auto;
+			overflow: hidden;
+			margin:50px auto;
+			border:1px solid #ccc;
+		}
+		.list li{
+			width: 100%;
+			height: 40px;
+			background: #fff;
+			font-size:14px;
+			border-bottom: 1px solid #ccc;
+		}
+		.list li:nth-of-type(odd){
+			background: rgb(226,240,228);
+		}
+		.list li:first-child{
+			background: rgb(238,241,246);
+			font-size:16px;
+		}
+		.list li p{
+			width: 25%;
+			height: 40px;
+			line-height: 40px;
+			float: left;
+			box-sizing: border-box;
+			padding-left: 10px;
+		}
+		.list li button{
+			padding:3px 10px;
+			border:1px solid #ccc;
+			border-radius: 4px;
+			background: #fff;
+			font-size: 12px;
+		}
+		.list li button:last-child{
+			background: rgb(255,73,73);
+			color:#fff;
+			border:0;
+		}
+		.page{
+			width: 500px;
+			height: 30px;
+			margin:50px auto;
+			font-size:12px;
+		}
+		.page .total{
+			line-height: 30px;
+			float: left;
+		}
+		.page select{
+			border:1px solid #ccc;
+			padding:5px;
+			float: left;
+			margin: 0 10px;
+			height: 30px;
+		}
+		.page ul{
+			float: left;
+			height: 30px;
+			border:1px solid #ccc;
+		}
+		.page ul li{
+			width: 25px;
+			height: 100%;
+			float: left;
+			border-right:1px solid #ccc;
+			line-height: 28px;
+			text-align: center;
+			cursor:pointer;
+		}
+		.page ul li:last-child{
+			border-right:0;
+		}
+		.page ul li.current{
+			background: rgb(32,160,255);
+			color:#fff;
+		}
+		.left{
+			float: left;
+			width: 25px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			border:1px solid #ccc;
+			float: left;
+			cursor: pointer;
+		}
+		.right{
+			float: left;
+			width: 25px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			border:1px solid #ccc;
+			float: left;
+			cursor: pointer;
+		}
+		.page p{
+			float: left;
+			margin-left: 10px;
+		}
+		.page p span{
+			float: left;
+			padding: 0 5px;
+			line-height: 30px;
+		}
+		.page p input{
+			float: left;
+			width: 25px;
+			height: 27px;
+			border:1px solid #ccc;
+			line-height: 30px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<ul class="list">
+		<li>
+			<p>标题</p>
+			<p>前后端分类</p>
+			<p>时间</p>
+			<p>操作</p>
+		</li>
+		<li>
+			<p>2接口文档删除接口</p>
+			<p>back</p>
+			<p>2017-10-10 13:41:28</p>
+			<p>
+				<button type="button">编辑</button>
+				<button type="button">删除</button>
+			</p>
+		</li>
+		<li>
+			<p>3接口文档删除接口</p>
+			<p>back</p>
+			<p>2017-10-10 13:41:28</p>
+			<p>
+				<button type="button">编辑</button>
+				<button type="button">删除</button>
+			</p>
+		</li>
+
+
+	</ul>
+	<div class="page">
+		<span class="total">共 <b>19</b>  条</span>
+		<select id="pages">
+			<option value="5">5条/页</option>
+			<option value="10">10条/页</option>
+			<option value="15">15条/页</option>
+			<option value="20">20条/页</option>
+		</select>
+		<span class="left"> < </span>
+		<ul class="pageCode">
+			<!--<li class="current">1</li>
+			<li>2</li>
+			<li>3</li>-->
+		</ul>
+		<span class="right"> > </span>
+		<p class="target">
+			<span>前往</span>
+			<input type="text" value="1" class="goText">
+			<span>页</span>
+			<input type="button" value="go" class="go">
+		</p>
+	</div>
+</body>
+<script src="js/jquery.js"></script>
+<script>
+	$.ajax({
+		url:"data/data.json",
+		success:function(data){
+			
+		}
+	})
+</script>
+
+</html>

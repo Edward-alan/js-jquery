@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //对象：由两部分组成  属性(对象里面的变量)、方法(对象里面的函数)
+    //键值对
+    var o = {
+        name:"zhangsan",
+        age:20,
+        sex:"男"
+    }
+    var o1 = {
+        "name":"lisi",
+        "age":20,
+        "0":"qq"
+    }
+    //访问对象里面的属性或者方法:两种方式
+    //1、  点  .  通过点访问的属性名称或者方法名 必须是已知的
+    console.log(o.name);
+    //2、  []   [属性名称]   中括号的方式还可以访问非法的命名的属性名称
+    console.log(o["name"]);
+    var tem = "age";
+    console.log(o[tem]+","+o["age"]);
+    console.log(o1["0"]);
+
+</script>
+</html>

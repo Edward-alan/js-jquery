@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrap {
+    width: 600px;
+    height: 300px;
+    margin: 20px auto;
+}
+
+.wrap input {
+    width: 600px;
+    height: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.wrap .add {
+    width: 50px;
+    height: 30px;
+    background: skyblue;
+    color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.wrap .res {
+    width: 50px;
+    height: 30px;
+    background: red;
+    color: #ffffff;
+    border: 0;
+    border-radius: 10px;
+}
+h2{
+			text-align: center;
+			margin-top: 10px;
+			color: #468CC8;
+		}
+		.list{
+			width: 90%;
+			height: auto;
+			overflow: hidden;
+			margin:50px auto;
+			border:1px solid #ccc;
+		}
+		.list li{
+			width: 100%;
+			height: 49px;
+			background: #fff;
+			font-size:14px;
+			border-bottom: 1px solid #ccc;
+		}
+		.list li:nth-of-type(odd){
+			background: rgb(226,240,228);
+		}
+		.list li:first-child{
+			background: rgb(238,241,246);
+			font-size:16px;
+		}
+		.list li p{
+			width: 31%;
+			height: 40px;
+			line-height: 40px;
+			float: left;
+			box-sizing: border-box;
+			padding-left: 10px;
+		}
+		.list li button{
+			padding:3px 10px;
+			border:1px solid #ccc;
+			border-radius: 4px;
+			background: #fff;
+			font-size: 12px;
+		}
+		.list li button:last-child{
+			background: rgb(255,73,73);
+			color:#fff;
+			border:0;
+		}
+		.page{
+			width: 500px;
+			height: 30px;
+			margin:50px auto;
+			font-size:12px;
+		}
+		.page .total{
+			line-height: 30px;
+			float: left;
+		}
+		.page select{
+			border:1px solid #ccc;
+			padding:5px;
+			float: left;
+			margin: 0 10px;
+			height: 30px;
+		}
+		.page ul{
+			float: left;
+			height: 30px;
+			border:1px solid #ccc;
+		}
+		.page ul li{
+			width: 25px;
+			height: 100%;
+			float: left;
+			border-right:1px solid #ccc;
+			line-height: 28px;
+			text-align: center;
+			cursor:pointer;
+		}
+		.page ul li:last-child{
+			border-right:0;
+		}
+		.page ul li.current{
+			background: rgb(32,160,255);
+			color:#fff;
+		}
+		.left{
+			float: left;
+			width: 25px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			border:1px solid #ccc;
+			float: left;
+			cursor: pointer;
+		}
+		.right{
+			float: left;
+			width: 25px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			border:1px solid #ccc;
+			float: left;
+			cursor: pointer;
+		}
+		.page p{
+			float: left;
+			margin-left: 10px;
+		}
+		.page p span{
+			float: left;
+			padding: 0 5px;
+			line-height: 30px;
+		}
+		.page p input{
+			float: left;
+			width: 25px;
+			height: 27px;
+			border:1px solid #ccc;
+			line-height: 30px;
+			text-align: center;
+		}
+		tbody tr:nth-child(2n){
+			background: rgb(238, 238, 238);
+		}
+
+.del {
+    height: 30px;
+    width: 65px;
+    color: #ffffff;
+    background: red;
+    /* background: pink; */
+    /* float: right; */
+    border: 0;
+}
+
+.delone {
+    height: 30px;
+    width: 65px;
+    color: #ffffff;
+    background: red;
+    /* background: pink; */
+    /* float: right; */
+    border: 0;
+}
+	</style>
+</head>
+<body>
+ <div class="wrap">
+        <label for="">用户名:</label>
+        <input type="text" placeholder="请输入用户名" class="user">
+        <label for="">年龄:</label>
+        <input type="text" placeholder="请输入年龄" class="age">
+        <button id="add">添加</button>
+        <button class="res">重置</button>
+    </div>
+    <div class="XX">
+        <h2>用户信息表</h2>
+		<ul class="list">
+			<li>
+				<p>标题</p>
+				<p>前后端分类</p>
+				<p>操作</p>
+			</li>
+			<!--<li>
+				<p>2接口文档删除接口</p>
+				<p>back</p>
+				<p>2017-10-10 13:41:28</p>
+				<p>
+					<button type="button">编辑</button>
+					<button type="button">删除</button>
+				</p>
+			</li>
+			<li>
+				<p>3接口文档删除接口</p>
+				<p>back</p>
+				<p>2017-10-10 13:41:28</p>
+				<p>
+					<button type="button">编辑</button>
+					<button type="button">删除</button>
+				</p>
+			</li>-->
+		</ul>
+    </div>
+
+	<script src="jQuery.js"></script>
+<script>
+var falser = true;
+$('#add').on('click',function(){
+	var user = $('.user').val()
+	var age = $('.age').val()
+	if(user === ""){
+		alert('请输入用户名')
+	}else if(age === ""){
+		alert('请输入年龄')
+	}
+	falser = !falser
+		var str = `<li>
+					<p>${user}</p>
+					<p>${age}</p>
+					<p>
+					<button type="button">编辑</button>
+					<button type="button">删除</button>
+				    </p>
+			</li>`;
+		$(".list").append(str)
+	$('.countent').on('click',function(){
+		$(this).parent().parent().remove()
+		$('.user').val("")
+		$('.age').val("")
+	})
+
+	
+})
+
+</script>
+</body>
+</html>

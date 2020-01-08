@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function fn(){
+			var num=10;
+			 function fn1(){
+			 	return num+=1;
+			 				  }
+			return fn1;
+
+					 }
+
+ 		console.log(fn()());//11
+		console.log(fn()());//11
+		console.log(fn()());//11
+
+		//局部变量会在使用后销毁
+
+
+
+
+		//全局变量在使用时不会销毁
+		var n = fn();
+		console.log(n());//11
+		console.log(n());//12
+		console.log(n());//13
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+
+	 
+		
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

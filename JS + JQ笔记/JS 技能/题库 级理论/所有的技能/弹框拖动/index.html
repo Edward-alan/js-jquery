@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function Dialog(obj){//创建构造函数Dialog
+			 this.tag = null;//Dialog的tag等于空
+			 this.content=obj.content;//把obj下的content的方法赋给了实例化对象的content
+			 this.btn=obj.btn[0];//把obj下的btn数组的整项赋给了实例化对象的content
+			 this.init();//调动init的方法
+		}
+		Dialog.prototype={
+			init:function(){
+				this.createTag();
+				this.draw();
+				this.dindEvent();
+			},
+			createTag:function(){
+				this.tag=document.createElement("div");
+				this.tag.style.width = "300px";
+				this.tag.style.height = "300px";
+				this.tag.style.border = "1px solid #ccc";
+				this.tag.style.position = "absolute";
+				this.tag.innerHTML = this.content();
+				this.tag.appendChild(this.createBtn());
+			},
+			createBtn:function(){
+				var btn=document.createElement("input");
+				btn.type="button";
+				btn.value=this.btn.txt;
+				btn.onclick = this.btn.action;
+				return btn;
+			},
+			draw:function(){
+					document.body.appendChild(this.tag);
+			},
+			dindEvent:function(){
+				var _this = this;
+				var winW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+				var winH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+				this.tag.onmousedown = function(event){
+					var Event = event || window.event;
+					var x = Event.offsetX;
+					var y = Event.offsetY;
+
+					document.onmousemove = function(event){
+
+						var Event = event ||window.event;
+						var mx = Event.clientX;
+						var my = Event.clientY;
+
+						var tag_top = my - y;
+						var tag_left = mx -x;
+						console.log(tag_top,tag_left)
+
+						if(tag_top < 0){
+							tag_top = 0;
+						}
+						if(tag_left < 0){
+							tag_left = 0;
+						}
+						if(tag_left < winW - _this.tag.offsetWidth){
+							tag_left = winW - _this.tag.offsetWidth;
+						}
+						if(tag_top < winH - _this.tag.offsetHeight){
+							tag_top = winH - _this.tag.offsetHeight;
+						}
+						_this.tag.style.left = tag_left + "px" 
+						_this.tag.style.top = tag_top + "px"
+					}
+					document.onmouseup=function(){
+						this.onmousedown = null;
+						document.onmousemove = null;
+					}
+				}
+			}
+		}
+		new Dialog({
+			content:function(){
+				var html=`<h2>弹框的标题</h2><p>弹框的内容</p>`;
+				return html;
+			},
+			btn:[{txt:'按钮文字',action:function(){
+				alert('点击按钮后的动作');
+			}}]
+		});
+	</script>
+</body>
+</html>

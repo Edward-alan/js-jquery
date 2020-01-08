@@ -1,0 +1,34 @@
+<script type="text/javascript" charset="utf-8">
+	var str = "shan3g h4a5i b7a w9ei x0ue yuan"
+	/*
+	//不是全局匹配时
+	var reg = /\d/
+	var newstr = str.replace(reg,"*")// 替换第一个匹配结果
+	console.log(newstr);  // “shan*g h4a5i b7a w9ei x0ue yuan”
+	*/
+	/*
+	//全局匹配时
+	var reg = /\d/g
+	var newstr = str.replace(reg,"*")// 替换第一个匹配结果
+	console.log(newstr);//  “shan*g h*a*i b*a w*ei x*ue yuan”
+	*/
+	/*
+	var reg = /\d/g
+	// "shan3g h4a5i b7a w9ei x0ue yuan"
+	var newstr = str.replace(reg,function(sub){
+		alert(sub);
+		return "*"
+	});
+	console.log(newstr); // shan*g h*a*i b*a w*ei x*ue yuan
+	*/
+	
+	
+	var reg = /([0-9])(a)/g
+	// "shan3g h4a5i b7a w9ei x0ue yuan"
+	var newstr = str.replace(reg,function($0,$1,$2){ //$1,$2........$99   是模式里的子式的匹配结果
+		console.log($0,$1,$2)
+		return "*"
+	});
+	console.log(newstr);
+	
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //constructor 是原型对象的属性
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    //Person.prototype  原型对象
+    console.log(Person.prototype.constructor===Person);
+    var p1 = new Person("zhangsan",18);
+    console.log(p1.constructor===Person.prototype.constructor);//true
+    console.log(p1.constructor===Person);
+    //Array 是数组的构造函数
+    console.log(Array.prototype.constructor===Array);
+    console.log([].constructor===Array);
+    var a = [];
+    console.log(a.constructor===Array);
+    function f() {
+        console.log(123);
+    }
+    //var f = new Function();// 函数的构造函数是叫Function
+    //f  是 构造函数Function的一个实例
+    console.log(Function.prototype.constructor===Function);
+    console.log(f.constructor === Function);
+    console.log(Person.constructor ===Function);
+    console.log(Person.prototype.constructor===Person);
+    ///constructor 只有原型对象和实例可以访问
+    console.log(Array.constructor===Function);
+    console.log(Object.constructor===Function);
+    console.log(Object.prototype.constructor===Object);
+</script>
+</html>

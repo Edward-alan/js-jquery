@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //箭头函数
+    /*function f(a,b){
+        if(a>b){
+            return a;
+        }else{
+            return b;
+        }
+    }
+    var fn=(a,b)=>{
+        if(a>b){
+            return a;
+        }else{
+            return b;
+        }
+    }
+    fn();
+    function ff(){
+        console.log(123);
+    }
+    ()=>{
+        console.log(123);
+    }*/
+    //箭头函数里面的this, 箭头函数不绑定this，箭头函数会去捕捉上下文的this，箭头函数内部的this和箭头函数外部的this是一样的
+    var obj = {
+        a:1,
+        fn:function(){
+            setTimeout(function(){
+                console.log(this+"++++");
+            },0);
+            setTimeout(()=>{
+                console.log(this+"===========");
+            },0);
+        }
+    }
+    obj.fn();//obj
+    var o1 = obj.fn;
+    o1();//window
+</script>
+</html>

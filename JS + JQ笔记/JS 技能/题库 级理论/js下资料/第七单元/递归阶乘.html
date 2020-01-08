@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	var fn = function f(n){ //4
+		if(n==1){
+			return 1;
+			}
+			return f(n-1)*n;
+
+				  }
+
+	 var result=fn(4); 
+	 	 //1*2*3*4
+	 console.log(result);
+	 var a = fn;// 0x001
+	 fn = null;//
+	 a(5);//
+
+
+	 
+
+	</script>
+</body>
+</html>

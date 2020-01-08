@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //异步：就是非阻塞
+    function cook(callback){
+        setTimeout(function(){
+            console.log("做了鸡柳焖锅");
+            callback("鸡柳焖锅");
+        },3000)
+    }
+    function eat(str){
+        setTimeout(function(){
+            console.log("站着吃");
+            console.log("吃完了"+str);
+        },2000)
+    }
+    function eat2(str){
+        setTimeout(function(){
+            console.log("蹲着，拿着碗在那吃");
+        })
+    }
+    // cook();
+    // eat();
+    cook(eat);
+    cook(eat2);
+</script>
+</html>

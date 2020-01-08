@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		//clientX  相对于浏览器可视区的水平坐标（鼠标的）
+		//clientY  相对于浏览器可视区的垂直坐标（鼠标的）
+		
+		document.onclick=function(event){
+			var Event= event ||window.event;
+			alert(Event.clientX);
+			alert(Event.clientY);
+
+								   }
+	</script>
+</body>
+</html>

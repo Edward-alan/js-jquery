@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #carousel{
+            position: relative;
+            width: 730px;
+            margin:50px auto;
+        }
+        #carousel img{
+            display: none;
+        }
+        #pages{
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+        #pages span{
+            display: inline-block;
+            width: 20px;
+            height:20px;
+            border-radius: 50%;
+            background: #fff;
+        }
+        #pages span.active{
+            background: red;
+        }
+        #next_Prev{
+            position: absolute;
+            left: 0;
+            width: 100%;
+            top:50%;
+        }
+        #next_Prev span{
+            width:50px;
+            height:30px;
+            line-height: 30px;
+            background: #fff;
+            text-align: center;
+            cursor: pointer;
+        }
+        #next_Prev span:nth-child(1){
+            float: left;
+        }
+        #next_Prev span:nth-child(2){
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div id="carousel">
+    <img src="img/img1.jpg" alt="" style="display: block">
+    <img src="img/img2.jpg" alt="">
+    <img src="img/img3.jpg" alt="">
+    <img src="img/img4.jpg" alt="">
+    <p id="next_Prev">
+        <span> < </span>
+        <span> > </span>
+    </p>
+    <p id="pages">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </p>
+</div>
+</body>
+<script>
+    function Carousel(obj){
+        this.carousel = document.getElementById(obj.carouselId);
+        this.imgs = this.carousel.getElementsByTagName("img");//所有的图片
+        this.pages = document.getElementById(obj.pagesId).getElementsByTagName("span");
+        this.btns = document.getElementById(obj.btnId).getElementsByTagName("span");
+        this.index = 0;//当前播放的图片的下标
+        this.timer = null;
+    }
+    Carousel.prototype = {
+        constructor:Carousel,
+        init:function(){
+            this.auto();
+            this.bindEvent();
+        },
+        bindEvent:function(){
+            var that = this;
+            that.carousel.onmouseover = function(){
+                clearInterval(that.timer);
+            }
+            that.carousel.onmouseout = function(){
+                that.auto();
+            }
+        },
+        auto:function(){
+            var that = this;
+            that.timer=setInterval(function(){
+                that.imgs[that.index].style.display = "none";
+                that.pages[that.index].className = "";
+                that.index++;
+                if(that.index==that.imgs.length)that.index=0;
+                that.imgs[that.index].style.display = "block";
+                that.pages[that.index].className = "active";
+            },1000);
+        }
+    }
+    new Carousel({
+        carouselId:"carousel",
+        pagesId:"pages",
+        btnId:"next_Prev"
+    }).init()
+</script>
+</html>

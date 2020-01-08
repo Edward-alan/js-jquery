@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="js/ajax.js"></script>
+<script>
+    ajax({
+        "url":"js/data.txt",
+        "method":"post",
+        success:function(str){
+            var data = JSON.parse(str);
+            data.forEach(function(item){
+                //第一种创建图片的方式
+                // var img = document.createElement("img");
+                // img.src="img/"+item;
+                var img = new Image();
+                img.src="img/"+item;
+                document.body.appendChild(img);
+            })
+        },
+        error:function(){
+            console.log("出错了");
+        }
+    })
+</script>
+</html>

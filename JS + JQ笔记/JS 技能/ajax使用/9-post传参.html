@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" placeholder="用户名">
+    <input type="password" placeholder="密码">
+    <input type="button" value="登陆">
+</body>
+<script>
+    var oInput = document.getElementsByTagName("input");
+    oInput[2].onclick = function(){
+        var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+        xhr.open("post","http://www.baidu.com",true);
+        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState==4&&xhr.status==200){
+                console.log(xhr.responseText);
+            }
+        }
+        xhr.send("user="+oInput[0].value+"&pwd="+oInput[1].value);
+    }
+</script>
+</html>

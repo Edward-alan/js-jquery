@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1300px;
+        }
+        
+        ul li {
+            list-style-type: none;
+            float: left;
+            width: 200px;
+            height: 400px;
+            transition: width .4s;
+        }
+        
+        span {
+            font-size: 30px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class=acc>
+            <li style="background:url(img1/11.png) no-repeat center;">
+
+            </li>
+            <li style="background:url(img1/22.png) no-repeat center;">
+
+            </li>
+            <li style="background:url(img1/33.png) no-repeat center;">
+
+            </li>
+            <li style="background:url(img1/44.png) no-repeat center;">
+
+            </li>
+            <li style="background:url(img1/55.png) no-repeat center;">
+
+            </li>
+            <li style="background:url(img1/66.png) no-repeat center;">
+
+
+            </li>
+        </ul>
+    </div>
+    <script src="js/jquery-1.3.js"></script>
+    <script>
+        $('.acc').on('mouseover', 'li', function() {
+            $(this).css("width", '400px').siblings().css("width", "160px")
+        }).on('mouseout', 'li', function() {
+            $(this).parent().children().css("width", "200px")
+        })
+    </script>
+</body>
+
+</html>

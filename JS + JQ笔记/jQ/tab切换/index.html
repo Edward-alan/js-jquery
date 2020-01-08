@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{list-style:none; margin:0; padding:0;}
+		ul{
+			width: 297px;
+			height: 30px;
+			margin:30px auto 0 ;
+			border:1px solid #ccc;
+		}
+		ul>li{
+			float:left;
+			padding:0 27px;
+			line-height:30px;
+			border-right:1px solid #ccc;
+		}
+		#box{
+			width: 300px;
+			height: 150px;
+			border:1px solid #ccc;
+			margin:0 auto 0 ;
+		}
+		#box>li{
+			line-height:150px;
+			text-align: center;
+			display:none;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<!-- <li>1111</li>
+		<li>22222</li>
+		<li>33333</li> -->
+	</ul>
+	<div id="box">
+		<li style="display:block;">附近的还款方式</li>
+		<li>说话速度好快</li>
+		<li>稍等会儿好好的</li>
+	</div>
+
+
+	<script src="jQuery.js"></script>
+	<script>
+	$.ajax({
+		url:"ajax.json",
+		success:function(data){
+			var str;
+		 var Data=data;
+		 Data.forEach(function(item,index){
+            str=document.createElement('li');
+           str.innerHTML=item.name;
+           var ul=document.getElementsByTagName('ul')[0];
+           ul.appendChild(str);
+		 })
+          
+		}
+
+		
+			
+	})
+	</script>
+</body>
+</html>

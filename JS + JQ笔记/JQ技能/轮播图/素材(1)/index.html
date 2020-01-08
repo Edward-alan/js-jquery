@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="head">
+        <div class="box1">
+            <ul>
+                <li>个人中心</li>
+                <li>我的订单</li>
+                <li>我的消息</li>
+                <li>商家入驻</li>
+                <li>购物车</li>
+                <li>商家中心</li>
+                <li>客户服务</li>
+            </ul>
+        </div>
+        <div class="box2">
+            <ul>
+                <li>10：00开抢 |</li>
+                <li>买手砍价 |</li>
+                <li>验货质检 |</li>
+            </ul>
+            <input type="text" placeholder="请输入你想要找到的宝贝">
+        </div>
+        <div class="box3">
+            <ul>
+                <li>首页</li>
+                <li>品牌折扣</li>
+                <li>9.9包邮</li>
+                <li>明日预告</li>
+                <li>手机版</li>
+            </ul>
+        </div>
+        <div class="box4">
+            <h1>依浠琳小店</h1>
+        </div>
+        <div class="box5">
+            <h2>依浠琳女装上新专场</h2>
+            <p><span>满件减</span>满2件减8元，满3件减15元</p>
+        </div>
+    </div>
+    <div class="list">
+        <span class="span1">默认</span>
+        <span class="span2">价格</span>
+        <span class="span3">销量</span>
+        <span class="span4">仅看有货</span>
+        <div class="times">
+            <div class="count_down1"></div>
+            <div class="count_down">
+                <span class="day_num"></span>
+                <span class="hour_num"></span>
+                <span class="min_num"></span>
+                <span class="sec_num"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <!-- <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <p>100</p>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl>
+        <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl>
+        <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl>
+        <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl>
+        <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl>
+        <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl>
+        <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl>
+        <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl>
+        <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl>
+        <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl>
+        <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl>
+        <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl>
+        <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl>
+        <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl>
+        <dl>
+            <img src="images/1.jpg">
+            <dt>价格</dt>
+            <p>100</p>
+            <dd>秋装时尚韩版长袖卫衣</dd>
+        </dl> -->
+    </div>
+
+    <div class="fxd">
+        <b>我</b>
+        <p>购物袋</p>
+        <button>↑</button>
+        <img src="images/icon-total.png" class="img01">
+        <img src="images/sidebar.png" class="img02">
+    </div>
+
+
+    <script src="shijianchuo.js"></script>
+    <script>
+        $(".count_down").countDown({
+            startTime: '2018/11/15 20:00:00', //开始时间
+            endTime: "2019/1/1 00:00:00", //结束时间
+            daySelector: ".day_num", //天
+            hourSelector: ".hour_num", //小时
+            minSelector: ".min_num", //分
+            secSelector: ".sec_num" //秒
+        });
+    </script>
+</body>
+<script src="gouwu.js"></script>
+
+</html>

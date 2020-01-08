@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+// var pi= new Promise(function(resolve,reject){
+// 	reject("failed")
+// })
+// pi.then(function(str){
+// 	console.log("thes里面也成功了"+str)
+// })
+
+
+
+// var p1 = new Promise(function(resolve,reject){
+// 	var random = Math.floor(Math.random()*10)+1
+// 	if(random>5){
+// 		resolve(random)
+// 	}else{
+// 		reject(random)
+// 	}
+// })
+// p1.then(function(n){
+// 	console.log(n+"大于5")
+
+// },function(n){
+// 	console.log(n+"小于5")
+// })
+// console.log("代码")
+
+
+
+//图片异步加载
+// var p1 = new Promise(function(resolve,reject){
+// 	var img = new Image();
+// 	img.src = "img/1.jpg";
+// 	img.onload = function(){
+// 		resolve(img)
+// 	}
+// 	img.onerror = function(){
+// 		reject(img.src)
+// 	}
+// })
+// p1.then((data)=>{
+// 	document.body.appendChild(data)
+// },(src)=>{
+// 	console.log("图没有了"+src)
+// })
+
+//封装异步加载图
+function asyncLiadImg(url){
+	var p1 = new Promise(function(resolve,reject){
+		var img = new Imge();
+		img.src = url;
+		img.onload = function(){
+			resolve(img)
+		}
+		img.onerror = function(){
+			reject(img.src)
+		}
+	})
+	return p1
+}
+//调用then 方法
+	asyncLiadImg("img/123.jpg").then(function(data){
+		document.body.appendChild(data)
+	}).catch(function(error){
+		console.log('img'+error+"没有加载出来")
+	})
+
+	
+
+	</script>
+</body>
+</html>

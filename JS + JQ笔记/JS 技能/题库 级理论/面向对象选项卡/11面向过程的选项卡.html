@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            display: inline-block;
+            width:100px;
+            height:30px;
+            line-height: 30px;
+            text-align:center;
+            background: #ccc;
+            cursor: pointer;
+        }
+        #contents{
+            border:1px solid;
+            padding:10px;
+        }
+        #contents div{
+            display: none;
+        }
+        .active{
+            background: #f90;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <span class="active" index="0">首页</span>
+        <span index="1">html</span>
+        <span index="2">js</span>
+    </div>
+    <div id="contents">
+        <div style="display: block">
+            首页的内容
+        </div>
+        <div>
+            一些标签
+        </div>
+        <div>
+            dom、Bom、es
+        </div>
+    </div>
+</body>
+<script>
+    var oDiv = document.getElementById("menu");
+    var currentIndex = 0;//当前选中的菜单的下标
+    var contents = document.getElementById("contents");
+    oDiv.onclick = function(e){
+        var ev = e || window.event;
+        var target = ev.target || ev.srcElement;
+        if(target.tagName=="SPAN"){
+            oDiv.children[currentIndex].className = "";//把上一次选中的菜单清空
+            contents.children[currentIndex].style.display = "none";
+            target.className = "active";
+            currentIndex = target.getAttribute("index");//把当前点击的菜单的下标赋给变量currentIndex
+            contents.children[currentIndex].style.display = "block";
+        }
+    }
+</script>
+</html>

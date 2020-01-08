@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/weekcss.css">
+</head>
+<body>
+<form id="box">
+    <ul>
+        <li><sup>*</sup>邮件地址</li>
+        <li>
+            <input type="text" id="email">
+            <div>6~18个字符，可使用字母、数字、下划线，需以字母开头</div>
+        </li>
+        <li>@</li>
+        <li>
+            <select>
+                <option>163.com</option>
+                <option>qq.com</option>
+                <option>sina.com</option>
+            </select>
+        </li>
+    </ul>
+    <ul>
+        <li><sup>*</sup>密码</li>
+        <li>
+            <input type="password" id="password">
+            <div>6~16个字符，区分大小写</div>
+        </li>
+    </ul>
+    <ul>
+        <li><sup>*</sup>确认密码</li>
+        <li>
+            <input type="password" id="password2">
+            <div>请再次填写密码</div>
+        </li>
+    </ul>
+    <ul>
+        <li><sup>*</sup>手机号码</li>
+        <li>
+            <input type="text" id="phone">
+            <div>忘记密码时，可以通过该手机号快速找密码</div>
+        </li>
+    </ul>
+    <div>
+        <input type="button" value="立即注册">
+    </div>
+</form>
+<script>
+    var oInputs = document.getElementsByTagName("input");
+    //6~18个字符，可使用字母、数字、下划线，需以字母开头
+    var reg1 = /^[a-z]\w{5,17}$/i;
+    var reg2 = /^.{6,16}$/;//6~16个字符，区分大小写  验证密码
+    var reg4 = /^1[3578]\d{9}$/;
+    var checkEmail = false;
+    var checkPwd = false;
+    var confirmPwd = false;
+    var checkTel = false;
+
+    //验证邮箱
+    oInputs[0].onblur = function(){
+        checkEmail=check(reg1,this,"用户名必须是6~18个字符，可使用字母、数字、下划线，需以字母开头");
+    }
+    //验证密码
+    oInputs[1].onblur = function(){
+        checkPwd = check(reg2,this,"密码不正确");
+    }
+    //确认密码
+    oInputs[2].onblur = function(){
+        confirmPwd = check(new RegExp("^"+oInputs[1].value+"$"),this,"两次密码不一致");
+    }
+    oInputs[3].onblur = function(){
+        checkTel = check(reg4,this,"手机号有误");
+    }
+    oInputs[4].onclick = function(){
+        if(checkEmail&&checkPwd&&confirmPwd&&checkTel){
+            console.log(234);
+            console.log("index.html?email="+oInputs[0].value);
+            window.location.href="index.html?email="+oInputs[0].value;
+        }
+    }
+    /**
+     * 验证
+     * @param reg
+     * @param dom
+     * @param msg
+     * @returns {boolean}
+     */
+    function check(reg,dom,msg){
+        var flag = reg.test(dom.value);
+        var msgDom = dom.nextElementSibling;
+        if(flag){
+            msgDom.style.display = "none";
+        }else{
+            msgDom.style.display = "block";
+            msgDom.innerHTML = msg;
+        }
+        return flag;
+    }
+
+
+
+
+</script>
+</div>
+</body>
+</html>

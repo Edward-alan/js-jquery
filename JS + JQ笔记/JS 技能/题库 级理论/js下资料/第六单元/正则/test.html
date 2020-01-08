@@ -1,0 +1,20 @@
+<script type="text/javascript" charset="utf-8">
+	var str = "jin tian shi ge hao ri qi"
+	
+	/*
+	var reg = /(i)/
+	console.log(str.match(reg));
+	*/
+	
+	//var newstr = str.replace("i","*");
+	//var newstr = str.replace(/[ia]/g,"*");
+	//var newstr = str.replace(/i|a/g,"*");
+	
+	var newstr = str.replace(/i|a/g,function(dadjaslk){
+		return "*"
+	});
+	console.log(newstr);
+	
+	
+	
+</script>

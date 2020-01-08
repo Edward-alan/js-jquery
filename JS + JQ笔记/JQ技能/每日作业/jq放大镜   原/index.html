@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        #small {
+            width: 300px;
+            height: 300px;
+            border: 2px #ccc solid;
+            float: left;
+            margin: 100px 200px;
+            position: relative;
+        }
+        
+        #smlimg {
+            width: 100%;
+            height: 100%;
+            -webkit-selected: none;
+        }
+        
+        #mark {
+            width: 100px;
+            height: 100px;
+            background: rgba(254, 0, 0, 0.3);
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        
+        #big {
+            width: 300px;
+            height: 300px;
+            border: 2px #666 solid;
+            float: left;
+            margin: 100px 0;
+            position: relative;
+            overflow: hidden;
+            display: none;
+        }
+        
+        #bigimg {
+            width: 900px;
+            height: 900px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="small">
+        <img src="small.jpg" alt="" id="smlimg">
+        <div id="mark"></div>
+    </div>
+    <div id="big"><img src="big.jpg" alt="" id="bigimg"></div>
+    <script src="jQuery.10.31.1.min.js"></script>
+    <script>
+        $("#small").on("mouseover", function() {
+            var that = this;
+            $("#mark").show();
+            $("#big").show();
+            $(this).on("mouseover", function(e) {
+                var l = e.pageX - $(that).offset().left - $("#mark").innerWidth() / 2;
+                var t = e.pageY - $(that).offset().top - $("#mark").innerHeight() / 2;
+                var mw = $(that).innerWidth() - $("#mark").innerWidth();
+                var mh = $(that).innerHeight() - $("#mark").innerHeight();
+                if (l < 0) l = 0;
+                if (l > mw) l = mw;
+                if (t < 0) t = 0;
+                if (t > mh) t = mh;
+                $("#mark").css("left", l + "px");
+                $("#mark").css("top", t + "px");
+                var view = $("#bigimg").innerWidth() / $("#small").innerWidth();
+                $("#bigimg").css("left", -l * view + "px");
+                $("#bigimg").css("top", -t * view + "px");
+            }).on("mouseup", function() {
+                $(this).off("mousemove");
+                $(this).off("mouseup");
+            })
+        })
+    </script>
+
+</body>
+
+</html>

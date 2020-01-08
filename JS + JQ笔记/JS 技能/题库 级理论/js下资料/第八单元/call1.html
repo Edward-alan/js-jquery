@@ -1,0 +1,12 @@
+<script type="text/javascript" charset="utf-8">
+	
+	function a(x,y){
+		console.log(x + y); //30    70 
+		console.log(this); //window   function a(){}
+	}
+	//a(10,20);
+	a.call(null,30,40);
+	//前提全局作用域下:
+	//	非严格模式下:this指向window
+	//	严格模式下:this指向undefined 
+</script>

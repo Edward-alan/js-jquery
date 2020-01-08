@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<span>1</span>
+	<span>2</span>
+	<span>3</span>
+	<span>4</span>
+
+	<script>
+	//通过call和apply方法把类数组转为数组。 
+	var spns=document.getElementsByTagName('span');
+	console.log([].slice.apply(spns));
+	console.log([].slice.call(spns));
+
+	//通过call和apply求数组最大值和最小值;
+	var arr=[3,4,5,2,1];
+	console.log(Math.max.apply(Math,arr));
+	console.log(Math.max.call(Math,5,4,1,3,2));
+
+	//var str = ‘abcd’;把该子符串通过map的方法得到[‘a1’,’b2’,’c3’,’d4’]
+	var str='abcd';
+	var arr=str.split('');
+	var newArr=arr.map(function(ele,index,array){
+		return ele+(index+1);
+	})
+	console.log(newArr)
+
+
+	</script>
+</body>
+</html>

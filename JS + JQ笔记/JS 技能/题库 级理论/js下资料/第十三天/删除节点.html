@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data = {
+                id: 1,
+                name: "someName",
+                child: {
+                    id: 2,
+                    name: "someName2",
+                    child: {
+                        id: 3,
+                        name: "someName3",
+                        child:{
+                            id:4,
+                            name:"someName4",
+                            child:{
+                                id:5,
+                                name:"someName5",
+                                child:{
+                                    id:6,
+                                    name:"someName6",
+                                    child:{
+                                        id:7,
+                                        name:"someName7"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            function deletId(obj,n){ //封装deletId函数
+                for(var i in obj){  //遍历当前对象
+                    //console.log(obj)
+                if (obj[i] instanceof Object) { //判断当前项是不是对象
+                        deletId(obj[i],n)//递归调用deleT函数
+                       if(obj[i].id==n){
+                           delete obj[i]
+                       }
+                   console.log(obj[i])
+                    }
+                }
+            }
+            deletId(data,5);// 将根对象 和要删除的id传递给deletId
+
+
+
+    </script>
+</body>
+</html>

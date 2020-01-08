@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		<ul>
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+		</ul>
+
+	<script>
+	//type事件类型  currentTarget 源元素  事件源  target 非IE下   srcElement IE下 
+	var ul=document.getElementsByTagName('ul')[0];
+	ul.onclick=function(event){
+		var Event= event || window.event; 
+		var x=Event.target || Event.srcElement;
+		console.log(Event.type);//click
+		console.log(Event.currentTarget); //绑定事件的元素
+		console.log(x);
+
+
+							  }
+	</script>
+
+</body>
+</html>

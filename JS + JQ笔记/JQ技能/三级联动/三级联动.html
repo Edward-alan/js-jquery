@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #area {
+            text-align: center;
+        }
+        
+        #area select {
+            background: transparent;
+            padding: 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            height: 34px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="area">
+        <select class="sheng">
+          <option value=0>请输入省</option>
+        </select>
+        <select class="shi">
+          <option value=0>请输入市</option>
+        </select>
+        <select class="qu">
+          <option value=0>请输入区</option>
+        </select>
+    </div>
+    <script src="js.js"></script>
+    <script>
+        var sIndex, qIndex;
+        $.ajax({
+            url: 'data.json',
+            success: function(data) {
+                data = JSON.parse(data)
+                renderSheng(data);
+                renderShi(data);
+                renderQu(data);
+            },
+        });
+        function renderSheng(data) {
+            var str = '';
+            for (var i = 0; i < data.length; i++) {
+                str += `<option value=${i+1}>${data[i].name}</option>`
+            }
+            $('.sheng').append(str);
+        }
+
+        function renderShi(data) {
+            $('.sheng').on('change', function() {
+                $('.shi').html(`<option value=0>请输入市</option>`)
+                sIndex = $(this).val() - 1;
+                var datas = data[sIndex].city;
+                if (datas) {
+                    var str = '';
+                    for (var i = 0; i < datas.length; i++) {
+                        str += `<option value=${i+1}>${datas[i].name}</option>`
+                    }
+                    $('.shi').append(str);
+                }
+            })
+        }
+
+        function renderQu(data) {
+            $('.shi').on('change', function() {
+                $('.qu').html(`<option value=0>请输入区</option>`);
+                qIndex = $(this).val() - 1;
+                var datas = data[sIndex].city[qIndex];
+                if (datas && datas.area) {
+                    var str = '';
+                    for (var i = 0; i < datas.area.length; i++) {
+                        str += `<option value=${i+1}>${datas.area[i]}</option>`
+                    }
+                    $('.qu').append(str);
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{width:300px;height:300px; background:blue;position:absolute;}
+	</style>
+</head>
+<body>
+	<div id="box">
+
+	</div>
+
+	<script>
+	var box=document.getElementById('box');
+
+	box.onmousedown=function(event){
+		var Event= event || window.event;
+		//获取盒子的offsetX值和offsetY值
+		x=Event.offsetX,
+		y=Event.offsetY;
+		document.onmousemove=function(event){
+			var Event= event || window.event;
+			box.style.left= Event.clientX-x+'px';
+			box.style.top=  Event.clientY-y+'px';
+			
+									   }
+			 box.onmouseup=function(event){
+			 	var Event= event || window.event;
+			 	document.onmousemove=null;
+			 						 	  }
+
+
+									}
+	</script>
+</body>
+</html>

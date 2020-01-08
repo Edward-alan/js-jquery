@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>你猜我是沙</title>
+    <link rel="stylesheet" href="./css/ceshi1.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="add-box">
+            <button class="add-btn">添加信息</button>
+        </div>
+        <div class="container-box">
+            <div class="every-box">
+                <p>姓名：<span class="username">史志龙</span></p>
+                <p>年级：<span class="age">18</span></p>
+                <p>地址: <span class="address">沙河</span></p>
+                <p>电话: <span class="tel">13171996138</span></p>
+                <div>
+                    <button class="modify">修改</button>
+                    <button class="del">删除</button>
+                </div>
+            </div>
+            <div class="every-box">
+                <p>姓名：<span class="username">史志龙</span></p>
+                <p>年级：<span class="age">18</span></p>
+                <p>地址: <span class="address">沙河</span></p>
+                <p>电话: <span class="tel">13171996138</span></p>
+                <div>
+                    <button class="modify">修改</button>
+                    <button class="del">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./js/libs/require.js"></script>
+    <script>
+        require(["./js/main"], function () {
+            require(["ceshi1"])
+        })
+    </script>
+</body>
+
+</html>

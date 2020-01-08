@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //异步加载图片：预加载
+    var p1 = new Promise(function(resolve,reject){
+        var img = new Image();
+        img.src="images/11.jpg";
+        img.onload = function(){
+            resolve(img);
+        }
+        img.onerror = function(){
+            reject(img.src);
+        }
+    })
+    p1.then((data)=>{
+        document.body.appendChild(data);
+    },(src)=>{
+        console.log("图片没有加载出来"+src);
+    })
+</script>
+</html>

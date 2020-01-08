@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title>promise</title>
+		<meta charset="utf-8">
+		<style>
+			#div1{
+				width:200px;
+			}
+			#div1>img{
+				width:200px;
+				height:100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script>
+			var imgs = ["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg","images/6.jpg","images/7.jpg"];
+			
+			
+			function Create(selector){
+				this.div = document.querySelector(selector);
+				this.prms = [];
+			}
+			Create.prototype = {
+				constructor:Create,
+				init:function(imgs){
+					var _this = this;
+					for(var i in imgs){
+						this.prms.push(this.loadImg(imgs[i]));
+					}
+					Promise.all(this.prms).then(function(re){
+						for(var i in re){
+							_this.div.appendChild(re[i]);
+						}
+					},function(err){
+						console.log("出错的图片是："+ err);
+					});				
+				},
+				createImg:function(src){					
+					var img = document.createElement("img");
+					img.src = src;
+					return img;
+					
+				},
+				loadImg:function(src){
+					var _this = this;
+					return new Promise(function(resolve,reject){
+						var img = _this.createImg(src)
+						img.onload = function(){
+							resolve(img);
+						}
+						img.onerror = function(){
+							reject(src)
+						}
+					});
+				}
+			}
+			
+			var obj = new Create("#div1");
+			obj.init(imgs);
+			
+		</script>
+	</body>
+</html>

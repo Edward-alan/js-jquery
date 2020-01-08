@@ -1,0 +1,110 @@
+ <html>
+	<head>
+		<meta charset="utf-8">
+		<title>title</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript" charset="utf-8">
+			
+					
+			function Dialog(obj){  //创建构造函数Diglog
+				this.tag = null; 
+				this.content = obj.content;//将obj下的content方法赋给了实例化对象的content
+				this.btn = obj.btn[0];//将数组btn的整项赋给了实例化对象
+				this.init();//调用init()方法 
+			}			
+			Dialog.prototype = {
+				//constructor:Dialog,
+				init:function(){  
+					this.createTag(); //创建并设置div
+					this.draw(); //将div追加到body中
+					this.bindEvent();//拖拽效果
+				},
+				createTag:function(){
+					this.tag = document.createElement("div");  //tag为新建的div
+					this.tag.style.width = "300px";  //给该div设置宽度
+					this.tag.style.height = "300px"; //给该div设置高度
+					this.tag.style.border = "1px solid #999";//给该div设置边框
+					this.tag.style.position = "absolute";//给该div设置定位
+					
+					this.tag.innerHTML = this.content();//给该div设置文本内容
+					this.tag.appendChild(this.createBtn());
+				},
+				createBtn:function(){
+					var btn = document.createElement("input");//新建一个input 
+					btn.type = "button";//将input的类型设为按钮
+					btn.value = this.btn.txt; //将实例化对象上的btn的txt属性设置为当前btn的value值
+					btn.onclick = this.btn.action;
+					return btn;
+				},
+				draw:function(){
+					document.body.appendChild(this.tag);
+				},
+				bindEvent:function(){
+					//记录this
+					var _this = this;
+					//解决浏览器兼容
+					var winW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+					var winH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+					
+					//给大盒子绑定鼠标按下事件
+					this.tag.onmousedown = function(event){
+						//解决兼容问题
+						var Event = event || window.event;
+						var x = Event.offsetX;//获取鼠标距离标签的水平坐标
+						var y = Event.offsetY;//获取鼠标距离标签的垂直坐标
+						//嵌套给文档绑定鼠标移动事件
+						document.onmousemove = function(event){
+							//解决兼容
+							var Event = event || window.event;
+
+							var mx = Event.clientX;//获取鼠标距离可视区水平坐标
+							var my = Event.clientY;//获取鼠标距离可视区垂直坐标
+							var tag_top = my - y;  //获取距上的距离
+							var tag_left = mx - x; //获取距左的距离
+							//限制大盒子不能超过可视区的边界
+							// if(tag_top < 0){
+							// 	tag_top = 0
+							// }
+							// if(tag_left < 0){
+							// 	tag_left = 0;
+							// }
+							//只允许大盒子在可视区中活动
+							if(tag_top > winH - _this.tag.offsetHeight){
+								tag_top = winH - _this.tag.offsetHeight;
+							}
+							
+							if(tag_left > winW - _this.tag.offsetWidth){
+								tag_left = winW - _this.tag.offsetWidth;
+							}
+							
+							_this.tag.style.top = tag_top + "px"
+							_this.tag.style.left = tag_left + "px"				
+						}
+						//嵌套绑定鼠标抬起事件
+					
+						document.onmouseup = function(){
+							document.onmousemove = null;
+							document.onmouseup = null;
+						}
+					
+					}
+					
+					return false;		
+				}
+			}
+			new Dialog({  //实例化对象
+				content:function () {
+					var html = `<h2>弹框的标题</h2><p>弹框的内容</p>`;
+					return html;
+				},
+				btn:[{txt:'按钮文字',action:function () {alert('点击按钮后的动作');}}]
+			});
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

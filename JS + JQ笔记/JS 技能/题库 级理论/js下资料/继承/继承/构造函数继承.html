@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+			function A(){
+				B.apply(this,arguments);//this指的是A  将arugments中的lili和20传给构造函数B
+						 }
+
+
+			function B(name,age){
+				this.name=name;//this指向发生改变 指向了构造函数A A.name=name; A.age=age;
+				this.age=age;
+						}
+			B.prototype.sex='男';
+			var x=new A('lili',20);
+			console.log(x);
+	</script>
+</body>
+</html>

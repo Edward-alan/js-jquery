@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function a(){
+		var c = 10;  //局部变量c
+		function b(){ 
+			return c;
+		}
+		return b;
+	}
+	
+	var x = a();
+	
+	//x == function b(){	console.log(c);	}     //  这里的x等价于b函数
+		
+		
+	console.log(x());  //  10
+	</script>
+</body>
+</html>

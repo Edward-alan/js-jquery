@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //继承：原型链的方式实现继承
+    function Father(){
+        this.money = "1亿";
+        this.city = "beijing";
+    }
+    Father.prototype.getMoney = function(){
+        return this.money;
+    }
+    function Son(name,age){
+        this.name = name;
+        this.age = age;
+        //this.city="上海";
+        this.getMoney = function(){
+            console.log("dsewreer");
+        }
+    }
+    Son.prototype = new Father();//原型链的继承
+    Son.prototype.city = "广州";
+    var s1 = new Son("zhangsan",20);
+    s1.getMoney();
+    console.log(s1.city);
+    //实例去查找属性或者方法的时候，先找自己有没有，自己如果有就找到了，如果没有，就去自己的原型对象上找,
+    // 如果没找到就去父亲上面的构造函数上找，如果还没找到就去父亲的原型对象上面去找，依次找下去，一直到Object，
+    //最终如果仍然没找到，返回underfined
+    var f1 = new Father();
+    console.log(f1.__proto__===Father.prototype);
+    console.log(Son.prototype.__proto__===Father.prototype);
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>aa</div>
+    <div>qq</div>
+</body>
+<script>
+    var divs = document.getElementsByTagName("div");
+    //类数组：对象  属性名称是下标
+    //类数组转数组
+    //1、Array.prototype.slice.call(divs)
+    var arr = Array.prototype.slice.call(divs);
+    arr.forEach(function(item){
+        console.log(item.innerHTML);
+    })
+    //2、[].slice.call(divs)
+    //3、es6提供的方法  Array.from
+    //Array.from(divs)
+    //4、[...divs]   es6
+</script>
+</html>

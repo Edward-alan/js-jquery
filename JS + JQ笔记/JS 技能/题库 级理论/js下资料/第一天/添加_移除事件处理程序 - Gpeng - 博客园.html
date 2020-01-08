@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.cnblogs.com/gpeng/p/4787061.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+<title>添加/移除事件处理程序 - Gpeng - 博客园</title>
+<meta property="og:description" content="添加/移除事件处理程序 本文整理自 &quot;《JavaScript高级程序设计》（第3版）&quot; 。 1. HTML事件处理程序
+添加事件: 移除事件： 2. DOM0级事件处理程序
+添加事">
+<link type="text/css" rel="stylesheet" href="./添加_移除事件处理程序 - Gpeng - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./添加_移除事件处理程序 - Gpeng - 博客园_files/bundle-darkgreentrip.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./添加_移除事件处理程序 - Gpeng - 博客园_files/bundle-darkgreentrip-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/gpeng/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/gpeng/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/gpeng/wlwmanifest.xml">
+<script async="" src="./添加_移除事件处理程序 - Gpeng - 博客园_files/analytics.js.下载"></script><script src="./添加_移除事件处理程序 - Gpeng - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+<script type="text/javascript">var currentBlogApp = 'gpeng', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./添加_移除事件处理程序 - Gpeng - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="https://www.cnblogs.com/gpeng/"><img id="blogLogo" src="./添加_移除事件处理程序 - Gpeng - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/gpeng/">Gpeng</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li></li>
+<li><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/gpeng/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Gpeng">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/gpeng/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/gpeng/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 1&nbsp; </span>
+<span id="stats_article_count">文章 - 1&nbsp; </span>
+<span id="stats-comment_count">评论 - 0</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/gpeng/p/4787061.html">添加/移除事件处理程序</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown"><h1 id="添加移除事件处理程序">添加/移除事件处理程序</h1>
+<hr>
+<p>本文整理自<a href="http://book.douban.com/subject/10546125/">《JavaScript高级程序设计》（第3版）</a>。</p>
+<h3 id="html事件处理程序">1. HTML事件处理程序</h3>
+<p>添加事件:</p>
+<pre><code class="hljs lua">//在HTML标签中给特性指定函数： onclick=<span class="hljs-string">""</span>
+&lt;<span class="hljs-built_in">input</span> id=<span class="hljs-string">"myBtn"</span> <span class="hljs-built_in">type</span>=<span class="hljs-string">"button"</span> value=<span class="hljs-string">"Click Me"</span> onclick=<span class="hljs-string">"showMessage()"</span> /&gt;</code></pre>
+<p>移除事件：</p>
+<pre><code class="hljs">    无法移除。</code></pre>
+<h3 id="dom0级事件处理程序">2. DOM0级事件处理程序</h3>
+<p>添加事件:</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">//给DOM0元素的事件处理程序属性赋值</span>
+<span class="hljs-keyword">var</span> btn = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"myBtn"</span>);
+    btn.onclick = showMessage();</code></pre>
+<p>移除事件：</p>
+<pre><code class="hljs yaml"><span class="hljs-string">//给属性赋</span> <span class="hljs-literal">null</span>
+<span class="hljs-string">btn.onclick</span> <span class="hljs-string">=</span> <span class="hljs-literal">null</span><span class="hljs-string">;</span></code></pre>
+<h3 id="dom2级事件处理程序">3. DOM2级事件处理程序</h3>
+<p>添加事件:</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">//调用 addEventListener(要处理的事件名，作为事件处理程序的函数，布尔值)</span>
+<span class="hljs-comment">//--要处理的事件名："click","load","mouseover"</span>
+<span class="hljs-comment">//--作为事件处理程序的函数：定义的函数，或匿名函数</span>
+<span class="hljs-comment">//--布尔值：false，冒泡阶段调用事件处理程序；true，事件捕获阶段调用事件处理程序</span>
+btn.addEventListener(<span class="hljs-string">"click"</span>, showMessage(), <span class="hljs-literal">false</span>);
+
+<span class="hljs-comment">//可添加多个事件处理程序，事件发生时依次触发，即先执行showMessage1()，再执行showMessage2()</span>
+btn.addEventListener(<span class="hljs-string">"click"</span>, showMessage1(), <span class="hljs-literal">false</span>);
+btn.addEventListener(<span class="hljs-string">"click"</span>, showMessage2(), <span class="hljs-literal">false</span>);</code></pre>
+<p>移除事件：</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">//调用 removeEventListener(要处理的事件名，作为事件处理程序的函数，布尔值)</span>
+<span class="hljs-comment">//--传入参数同添加事件的 addEventListener() 中的参数保持一致</span>
+<span class="hljs-comment">//**以匿名函数作为事件处理程序函数的事件无法移除</span>
+btn.removeEventListener(<span class="hljs-string">"click"</span>, showMessage(), <span class="hljs-literal">false</span>);</code></pre>
+<h3 id="ie事件处理程序">4. IE事件处理程序</h3>
+<p>添加事件:</p>
+<pre><code class="hljs awk"><span class="hljs-regexp">//</span>调用 attachEvent(事件处理程序名，作为事件处理程序的函数)
+<span class="hljs-regexp">//</span>--事件处理程序名：<span class="hljs-string">"onclick"</span>,<span class="hljs-string">"onload"</span>
+<span class="hljs-regexp">//</span>--作为事件处理程序的函数：定义的函数，或匿名函数
+btn.attachEvent(<span class="hljs-string">"onclick"</span>, showMessage());</code></pre>
+<p>移除事件：</p>
+<pre><code class="hljs less"><span class="hljs-comment">//调用 detachEvent(事件处理程序名，作为事件处理程序的函数)</span>
+<span class="hljs-comment">//--传入参数同添加事件的 attachEvent() 中的参数保持一致</span>
+<span class="hljs-comment">//**以匿名函数作为事件处理程序函数的事件无法移除</span>
+<span class="hljs-selector-tag">btn</span><span class="hljs-selector-class">.detachEvent</span>(<span class="hljs-string">"onclick"</span>, showMessage());</code></pre>
+<h3 id="跨浏览器的事件处理程序">5. 跨浏览器的事件处理程序</h3>
+<p>综合上述多重情况，定义了一个可跨浏览器实现的对象 EventUtil，用于实现不同浏览器的添加/删除事件的方法：</p>
+<pre><code class="hljs fsharp">var EventUtil = {
+
+    addHandler: <span class="hljs-keyword">function</span>(element, <span class="hljs-class"><span class="hljs-keyword">type</span>, <span class="hljs-title">handler</span>){</span>
+        <span class="hljs-keyword">if</span> (element.addEventListener){
+            element.addEventListener(<span class="hljs-class"><span class="hljs-keyword">type</span>, <span class="hljs-title">handler</span>, <span class="hljs-title">false</span>);</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (element.attachEvent){
+            element.attachEvent(<span class="hljs-string">"on"</span> + <span class="hljs-class"><span class="hljs-keyword">type</span>, <span class="hljs-title">handler</span>);</span>
+        } <span class="hljs-keyword">else</span> {
+            element[<span class="hljs-string">"on"</span> + <span class="hljs-class"><span class="hljs-keyword">type</span>] </span>= handler;
+        }
+    },
+
+    removeHandler: <span class="hljs-keyword">function</span>(element, <span class="hljs-class"><span class="hljs-keyword">type</span>, <span class="hljs-title">handler</span>){</span>
+        <span class="hljs-keyword">if</span> (element.removeEventListener){
+            element.removeEventListener(<span class="hljs-class"><span class="hljs-keyword">type</span>, <span class="hljs-title">handler</span>, <span class="hljs-title">false</span>);</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (element.detachEvent){
+            element.detachEvent(<span class="hljs-string">"on"</span> + <span class="hljs-class"><span class="hljs-keyword">type</span>, <span class="hljs-title">handler</span>);</span>
+        } <span class="hljs-keyword">else</span> {
+            element[<span class="hljs-string">"on"</span> + <span class="hljs-class"><span class="hljs-keyword">type</span>] </span>= <span class="hljs-keyword">null</span>;
+        }
+    },
+    
+};</code></pre>
+</div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="https://www.cnblogs.com/gpeng/category/731813.html" target="_blank">知识整理</a></div>
+<div id="EntryTag">标签: <a href="https://www.cnblogs.com/gpeng/tag/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a>, <a href="https://www.cnblogs.com/gpeng/tag/%E4%BA%8B%E4%BB%B6/">事件</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(4787061,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;9d97900e-d743-e511-b908-9dcfd8948a71&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./添加_移除事件处理程序 - Gpeng - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./添加_移除事件处理程序 - Gpeng - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/gpeng/" target="_blank"><img src="./添加_移除事件处理程序 - Gpeng - 博客园_files/sample_face.gif" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/gpeng/">Gpeng</a><br>
+            <a href="http://home.cnblogs.com/u/gpeng/followees">关注 - 0</a><br>
+            <a href="http://home.cnblogs.com/u/gpeng/followers">粉丝 - 0</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;9d97900e-d743-e511-b908-9dcfd8948a71&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(4787061,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(4787061,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2015-09-06 20:23</span> <a href="https://www.cnblogs.com/gpeng/">Gpeng</a> 阅读(<span id="post_view_count">753</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=4787061" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/gpeng/p/4787061.html#" onclick="AddToWz(4787061);return false;">收藏</a></div>
+	</div>
+	<script src="./添加_移除事件处理程序 - Gpeng - 博客园_files/highlight.min.js.下载"></script><script>markdown_highlight();</script><script type="text/javascript">var allowComments=true,cb_blogId=240432,cb_entryId=4787061,cb_blogApp=currentBlogApp,cb_blogUserGuid='9d97900e-d743-e511-b908-9dcfd8948a71',cb_entryCreatedDate='2015/9/6 20:23:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/gpeng/p/4787061.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/gpeng/p/4787061.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br><a href="https://www.linuxprobe.com/chapter-00.html" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-linuxprobe&#39;)">【免费】要想入门学习Linux系统技术，你应该先选择一本适合自己的书籍</a><br><a href="https://www.grapecity.com.cn/developer/spreadjs?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=SpreadJS&amp;utm_campaign=community" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-SpreadJS&#39;)">【前端】SpreadJS表格控件，可嵌入应用开发的在线Excel</a><br><a href="https://cloud.tencent.com/developer/edu/major-100005?fromSource=gwzcw.1312543.1312543.1312543#course-1274" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-微信支付&#39;)">【直播】如何快速接入微信支付功能</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="https://cloud.tencent.com/act/special/rav?fromSource=gwzcw.1312547.1312547.1312547" target="_blank"><img width="300" height="250" src="./添加_移除事件处理程序 - Gpeng - 博客园_files/24442-20180914091419057-283402001.jpg" alt="腾讯云" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;C1&#39;);"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/608296/" target="_blank">谷歌回应，Chrome 70将解决cookies和登录隐私问题</a><br> ·  <a href="https://news.cnblogs.com/n/608240/" target="_blank">我们在太湖西山岛上，做出了世界首例体细胞克隆猴 | 孙强</a><br> ·  <a href="https://news.cnblogs.com/n/608295/" target="_blank">华兴资本今日港交所鸣锣 包凡感谢创业者和这个时代</a><br> ·  <a href="https://news.cnblogs.com/n/608294/" target="_blank">iOS新版增加eSIM和双号支持 运营商开始接纳eSIM</a><br> ·  <a href="https://news.cnblogs.com/n/608293/" target="_blank">三星准备掀翻小米 四季度做印度手机老大</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://clickc.admaster.com.cn/c/a113319,b2799157,c1705,i0,m101,8a1,8b3,h" target="_blank"><img width="468" height="60" src="./添加_移除事件处理程序 - Gpeng - 博客园_files/24442-20180916205959082-1265433055.jpg" alt="华为云HC0917" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;C2&#39;);"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="https://kb.cnblogs.com/page/606682/" target="_blank">为什么说 Java 程序员必须掌握 Spring Boot ？</a><br> ·  <a href="https://kb.cnblogs.com/page/606645/" target="_blank">在学习中，有一个比掌握知识更重要的能力</a><br> ·  <a href="https://kb.cnblogs.com/page/603663/" target="_blank">如何招到一个靠谱的程序员</a><br> ·  <a href="https://kb.cnblogs.com/page/573614/" target="_blank">一个故事看懂“区块链”</a><br> ·  <a href="https://kb.cnblogs.com/page/603697/" target="_blank">被踢出去的用户</a><br></div>» <a href="https://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/gpeng/">Gpeng</a><br>园龄：<a href="https://home.cnblogs.com/u/gpeng/" title="入园时间：2015-08-16">3年1个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/gpeng/followers/">0</a><br>关注：<a href="https://home.cnblogs.com/u/gpeng/followees/">0</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;9d97900e-d743-e511-b908-9dcfd8948a71&#39;)">+加关注</a></div><script>getFollowStatus('9d97900e-d743-e511-b908-9dcfd8948a71')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/08/01&#39;);return false;">&lt;</a></td><td align="center">2018年9月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/10/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td class="CalWeekendDay" align="center">1</td></tr><tr><td class="CalWeekendDay" align="center">2</td><td align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td class="CalWeekendDay" align="center">8</td></tr><tr><td class="CalWeekendDay" align="center">9</td><td align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td class="CalWeekendDay" align="center">15</td></tr><tr><td class="CalWeekendDay" align="center">16</td><td align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td class="CalWeekendDay" align="center">22</td></tr><tr><td class="CalWeekendDay" align="center">23</td><td align="center">24</td><td align="center">25</td><td align="center">26</td><td class="CalTodayDay" align="center">27</td><td align="center">28</td><td class="CalWeekendDay" align="center">29</td></tr><tr><td class="CalWeekendDay" align="center">30</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block"></div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/gpeng/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/gpeng/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/gpeng/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/gpeng/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/gpeng/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_recentposts" class="sidebar-block">
+<div class="catListEssay">
+<h3 class="catListTitle">最新随笔</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/gpeng/p/4787061.html">1. 添加/移除事件处理程序</a></li>
+</ul>
+</div>
+</div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/gpeng/tag/ajax/">ajax</a>(1)</li><li><a href="https://www.cnblogs.com/gpeng/tag/php/">php</a>(1)</li><li><a href="https://www.cnblogs.com/gpeng/tag/%E8%B7%A8%E5%9F%9F/">跨域</a>(1)</li><li><a href="https://www.cnblogs.com/gpeng/tag/%E4%BA%8B%E4%BB%B6/">事件</a>(1)</li><li><a href="https://www.cnblogs.com/gpeng/tag/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a>(1)</li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/gpeng/category/731813.html">知识整理(1)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="https://www.cnblogs.com/gpeng/archive/2015/09.html">2015年9月 (1)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_articlearchive" class="catListArticleArchive sidebar-block">
+<h3 class="catListTitle">文章档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="https://www.cnblogs.com/gpeng/archives/2015/09.html" rel="nofollow">2015年9月 (1)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap" style="display: none;">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"></div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/gpeng/p/4787061.html">1. 添加/移除事件处理程序(754)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap" style="display: none;">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap" style="display: none;">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2018 Gpeng
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>

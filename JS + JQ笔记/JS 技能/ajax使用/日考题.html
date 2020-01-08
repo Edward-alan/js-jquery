@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var data = {
+        id:1,
+        name:"someName",
+        child:{
+            id:2,
+            name:"someName2",
+            child:{
+                id:3,
+                name:"someName3",
+                child:{
+                    id:100,
+                    name:"someName100"
+                }
+            }
+        }
+    }
+    // 每个id在这个树中是唯一的，child是子节点。
+    // 请写一段程序，删除该树形结构中id=100的节点。
+
+    // delete data.name;
+    // console.log(JSON.stringify(data));
+
+    // function delteId(obj,n){
+    //     if(obj.id==n){
+    //         delete obj.id;
+    //     }else{
+    //         delteId(obj.child,n);
+    //     }
+    // }
+    // delteId(data,2);
+    // console.log(JSON.stringify(data));
+
+
+
+    function dater(obj,n){
+        if(obj.id == n){
+            delete obj.id
+        }else{
+            dater(obj.child,n)
+        }
+    }
+    dater(data,100);
+    console.log(JSON.stringify(data))
+</script>
+</html>

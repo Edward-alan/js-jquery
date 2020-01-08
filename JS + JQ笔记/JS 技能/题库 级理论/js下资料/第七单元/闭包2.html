@@ -1,0 +1,16 @@
+<script type="text/javascript" charset="utf-8">
+	
+	function fn(x){
+		return function fn1(y){
+			return function fn2(z){
+				return x + y + z;
+			}
+		}
+	}
+	console.log(fn(1)(2)(3))
+	//fn(1) ==>  fn1(y){...}
+	//fn(1)(2)==>fn2(z){}
+	//fn(1)(2)(3)==>  return x+y+z;
+
+
+</script>

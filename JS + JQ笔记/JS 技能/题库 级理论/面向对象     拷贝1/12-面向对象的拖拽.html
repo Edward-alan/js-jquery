@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            background: green;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="drag"></div>
+    <!--<div id="drag2"></div>-->
+</body>
+<script>
+    /*var Div = document.getElementById("drag");
+    var pos = {};//用来存放鼠标刚开始相对于div的位置
+    Div.addEventListener("mousedown",function(e){
+        var ev = e || window.event;
+        pos = {
+            x:ev.offsetX,
+            y:ev.offsetY
+        }
+        document.addEventListener("mousemove",fn,false);
+        document.addEventListener("mouseup",fn1,false);
+    });
+
+    /!**
+     * 鼠标移动
+     * @param e
+     *!/
+    function fn(e){
+        var ev = e || window.event;
+        Div.style.left = ev.clientX-pos.x+"px";
+        Div.style.top = ev.clientY-pos.y+"px";
+
+    }
+
+    /!**
+     * 鼠标抬起
+     *!/
+    function fn1(){
+        document.removeEventListener("mousemove",fn,false);
+        document.removeEventListener("mouseup",fn1,false);
+    }*/
+    function Drag(id){
+        this.Div = document.getElementById(id);//要拖拽的元素
+        this.pos = {};//用来存放鼠标刚开始相对于div的位置
+
+        this.fn1 = null;//存函数
+        this.fn2 = null;
+    }
+    Drag.prototype = {
+        constructor:Drag,
+        /*绑定事件
+        * */
+        bindEvent:function(){
+            var that = this;
+            this.Div.addEventListener("mousedown",function(e){
+                var ev = e || window.event;
+                that.pos = {
+                    x:ev.offsetX,
+                    y:ev.offsetY
+                }
+                that.fn1 = that.move.bind(that);
+                that.fn2 = that.up.bind(that);
+                document.addEventListener("mousemove",that.fn1,false);
+                document.addEventListener("mouseup",that.fn2,false);
+            });
+        },
+        move:function(e){
+            var ev = e || window.event;
+            this.Div.style.left = ev.clientX-this.pos.x+"px";
+            this.Div.style.top = ev.clientY-this.pos.y+"px";
+        },
+        up:function(){
+            var that = this;
+            console.log(123);
+            document.removeEventListener("mousemove",that.fn1,false);
+            document.removeEventListener("mouseup",that.fn2,false);
+        }
+    }
+
+    var d1=new Drag("drag");
+    d1.bindEvent();
+</script>
+</html>

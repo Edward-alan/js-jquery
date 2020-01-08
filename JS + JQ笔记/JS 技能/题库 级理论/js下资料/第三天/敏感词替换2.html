@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input{width:300px;}
+	</style>
+</head>
+<body>
+	<input type="text" id="ipt1"><button id="btn">替换</button><br>
+	<input type="text" id="ipt2">
+	<script>
+		var re = /人民|减税|税务战/g;
+		btn.onclick=function(){
+			ipt2.value=ipt1.value.replace(re,function(str){
+				newStr='';
+				for(var i=0;i<str.length;i++){
+					newStr+='*';
+					}
+				return newStr;
+			});
+
+							  }
+	</script>
+</body>
+</html>

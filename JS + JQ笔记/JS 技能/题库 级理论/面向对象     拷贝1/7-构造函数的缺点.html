@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //构造函数创建对象缺点：每次创建实例，都会重新创建一遍实例对应的方法，浪费空间
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+        this.eat= function(){
+            console.log("能吃辣条");
+        }
+    }
+    var p1 = new Person("zhangsan",18);
+    var p2 = new Person("lisi",20);
+    p1.eat();
+    p2.eat();
+    console.log(p1.eat == p2.eat);//false
+</script>
+</html>

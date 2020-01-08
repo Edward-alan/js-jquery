@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //用原型链继承的方式通常是用来继承功能和方法的
+    function Animal(){
+        this.colors = ["red","green","blue"];
+    }
+    Animal.prototype.run = function(){
+        console.log("会跑");
+    }
+    function Cat(){
+
+    }
+    //var a1 = new Animal();
+    Cat.prototype = new Animal();
+
+    var c1 = new Cat();
+    c1.run();
+    c1.colors.push("black");
+    console.log(c1.colors);
+    var c2 = new Cat();
+    console.log(c2.colors);
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建对象</title>
+</head>
+<body>
+	<script>
+		//对象字面量创建
+		//创建一个 dog 对象
+		var dog = {
+			name : "erha",
+			age : 2,
+			color : "yellow",
+			eat : function(){
+				console.log("吃吃吃");
+			},
+
+			run : function(){
+				console.log("跑跑跑");
+			}
+		}
+
+		console.log(dog.name);
+
+		dog.eat();
+
+		//创建一个你的自己对象 ,创建一个你 好朋友对象.
+		// 你有一个属性,是好朋友属性, 这个属性值是, 朋友对象.
+		// 模拟你向 你朋友借钱的场景.
+
+
+		var gf = {
+			name : "gailun",
+			goodF : me,
+			money : 1000,
+			say : function(msg){
+				console.log(msg);
+			}
+		}
+
+		var me = {
+			name : "zhaoxin",
+			goodF : gf,
+
+			say : function(msg){
+				console.log(msg);
+			}
+		}	
+
+
+		me.say(me.goodF.name + "借我点钱");
+		gf.say("你想借多少?");
+		me.say("你有多少钱?");
+		gf.say("我还有" + (gf.money - 900) + "块钱");
+
+
+
+		// 有一人 姓马, 家里是卖啤酒的, 马卖啤
+		// 有一个 姓东方,他爸爸想让他一生中,很少有失败的时候, 所有起了一个名字,东方老赢.
+		// 有一个 姓西门, 家里老下雪,小的时候就喜欢吹雪, 他爸起了一个 西门冻嘴.
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+*{padding:0; margin:0; list-style:none;}
+	.box{
+		width: 400px;
+		height:523px;
+		margin:30px auto;
+		border:1px solid #ccc;
+	}
+	p>span{
+		margin-left:5px;
+	}
+	.box>.inp{
+		height: 50px;
+		text-align:center;
+		line-height:50px;
+		position:relative;
+	}
+	.box>.inp>input{
+		width: 300px;
+		height: 30px;
+	}
+	.abc>span{
+		margin-left:20px;
+	}
+	.boxz{
+		height: 410px;
+		overflow:auto;
+		position:relative;
+	}
+	h3{
+		display:inline-block;	
+	}
+	.right{
+		display:inline-block;
+	}
+	.right>span{
+		margin-top:-15px;
+	}
+	.uls{
+		width: 300px;
+		height: 200px;
+		background:rgba(0,0,0,.3);
+		position:absolute;
+		left:50px;
+		top:43px;
+		display:none;
+	}
+</style>
+</head>
+<body>
+	<div class="box">
+		<p>
+			<span>北京</span>
+			<span>山西</span>
+			<span>大同</span>
+			<span>山西</span>
+			<span>山西</span>
+			<span>平遥</span>
+			<span>介休</span>
+			<span>太原</span>
+			<span>榆次</span>
+			<span>陆良</span>
+			<span>五台山</span>
+			<span>刘家大院</span>
+			<span>大同</span>
+		</p>
+		<div class="inp"><input type="text">
+			<ul class="uls">
+				<!-- <li>sdf</li>
+				<li>sdf</li> -->
+			</ul>
+		</div>
+		<div class="abc">
+			<span class="dian">ABCDEFGH</span>
+			<span class="dian">IJLMNOP</span>
+			<span class="dian">QRSTUVWX</span>
+			<span class="dian">YZ</span>
+		</div>
+		<div class="boxz">
+			<!-- <div>
+				<h3>a</h3>
+				<div class="right">
+	 				<span>sd</span>
+	 			</div></div>
+			</div> -->
+	</div>
+	<script src="jQuery.js"></script>
+	<script>
+	jQuery.ajax({
+		url:"data.json",
+		sccess:function(data){
+			var str = []
+			data.Data.forEach(function(item,index){
+				if(str.indexOf(item.PrefixEName) ==-1){
+					str.push(item.PrefixEName)
+				}
+			})
+			str.sort();
+			str.forEach(function(item,index){
+			var ser = ``;
+				data.Data.forEach(function(v,k){
+					if(item==v.PrefixEName){
+						ser+=`<span>${v.Name}</span>`
+					}
+				})
+			var	arr=`<div class="booxl"><h3>${item}</h3>
+				<div class="right">
+	 				${ser}
+	 			</div> </div>`
+						
+				$(".boxz").append(arr);
+			})
+			$(".dian",$(".abc")).on("click",function(){
+				var len = 0;
+				var top = 0;
+				var hhr = Array.from($(this).prevAll());
+				hhr.forEach(function(item,index){
+					len += item.innerHTML.length;
+				})
+				$(".booxl").each(function(index,item){
+					if(index <= len){
+						top += $(item).innerHeight()
+						console.log(top)
+						$(".boxz")[0].scrollTop = top;
+
+					}
+				})
+			})
+			$(".uls").html("")
+	$("input").on("input",function(){
+		var inpu = $("input").value()
+		if(inpu){
+			data.Data.forEach(function(item,index){
+				var arr = ``
+				if(item.Name.indexOf(inpu) == 0){
+					arr += `<li>${item.Name}</li>`
+					$(".uls").append(arr)
+					$(".uls").show()
+				}
+
+			})
+		}else{
+			$(".uls").hide()
+		}
+	})
+		}
+
+
+	})
+	
+	</script>
+</body>
+</html>

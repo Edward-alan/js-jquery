@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    console.log("创建实例前");
+    /*var p1 = new Promise(function(resolve,reject){
+        console.log("创建实例。。。。");
+        var random = Math.floor(Math.random()*10)+1;//1-10
+        if(random>5){
+            resolve(random);
+        }else{
+            reject(random);
+        }
+    })*/
+    var p1 = new Promise((resolve,reject)=>{
+        console.log("创建实例。。。。");
+        var random = Math.floor(Math.random()*10)+1;//1-10
+        if(random>5){
+            resolve(random);
+        }else{
+            reject(random);
+        }
+    })
+    //then方法是异步的
+    /*p1.then(function(n){
+        console.log(n+"大于5");
+    },function(n){
+        console.log(n+"小于5");
+    })*/
+    p1.then((n)=>{
+        console.log(n+"大于5");
+    },(n)=>{
+        console.log(n+"小于5");
+    })
+
+    console.log("后面的代码");
+</script>
+</html>

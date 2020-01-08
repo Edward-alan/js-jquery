@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>y原型链继承之A原型指向B原型 ==> 不能继承构造函数中的属性和方法</title>
+</head>
+<body>
+	<script>
+	function A(){
+		
+	}
+
+	A.prototype=B.prototype; //把对象A的原型指向对象B的原型
+
+	function B(){
+		this.name='二狗';
+		this.age=18;
+				}
+	B.prototype.sex='男';
+	B.prototype.fn=function(){alert(1)}
+
+	var x=new A();
+	console.log(x.sex);
+	x.fn();
+	</script>
+</body>
+</html>

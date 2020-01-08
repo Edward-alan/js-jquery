@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> 箭头函数 </title>
+</head>
+<body>
+	<button id="btn">点我</button>
+
+	<script>
+		//箭头函数 是 ES6新出的. 箭头函数的特点是使函数变的简洁了
+		//回调函数内都可以写成箭头函数
+
+		//箭头函数有一个特点, 自动绑定 this 指向 . 绑定 this 是父级函数的 this 指向
+
+		//如果你怕乱, 那么把所有的回调函数都弄成箭头函数. 这样就不用保存 this 指向了.
+
+		//回调函数,就是做完一件事情,调用一个函数,告诉你,我做完了.
+
+		// function fn(){
+		// 	console.log(111);
+		// }	
+		// fn();
+
+		
+		/*setTimeout(() => {     
+			console.log(2)
+		},1000);*/
+
+		/*[1,2,3,4,5].forEach((item) => {
+			console.log(item);
+		});*/
+		
+	/*	var name = "lalala";
+		var dog = {
+			name : "a",
+			jump : function(){
+				var _this = this;
+				setTimeout(function(){
+					console.log(this.name + "跳了");
+				}, 1000);
+			},
+			eat : function(){
+				setTimeout(() => {  //箭头函数
+					console.log(this.name + "吃");
+				},2000);
+			}
+		}
+
+		dog.jump();
+		dog.eat();*/
+
+		var name='lvqinghu';
+		var dog={
+			name:'dapan',
+			
+			sleep:function(){
+				var _this=this;
+				setTimeout(function(){
+					console.log(_this.name+'又困了'); // lvqingh
+				},100);
+						   },
+			/*sleepGod:function(){
+				setTimeout(()=>{
+					console.log(this.name+"睡着了");// dapan
+				},100);
+								 }	*/
+			}
+
+
+			dog.sleep();
+			//dog.sleepGod();
+
+
+
+
+	</script>
+</body>
+</html>

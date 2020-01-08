@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //Promise 专门用来解决异步的  是一个构造函数,该构造函数有一个参数是函数f,f也有两个参数:reslove,reject
+    //resolve和reject也是函数，resolve表示的是成功对应的函数，reject表示的是失败对应的函数
+    //Promise的实例有三种状态：resolve(成功) reject(失败) pending(进行中)，在我的实例创建好以后，他的状态就确定了
+    var p1 = new Promise(function(resolve,reject){
+        //做一些判断
+        /*if(成功了){
+            resolve();
+        }else{
+            reject();
+        }*/
+        //resolve("实例里面的成功了");
+        reject("failed");
+    })
+    //实例的then方法有两个参数，都是函数，第一个函数表示的是成功的函数，
+    // 第二个函数表示失败的函数，注意：第二个参数可以省略
+    /*p1.then(function(str){
+        console.log("then方法里面的成功"+str);
+    },function(str){
+        alert(str);
+    })*/
+    p1.then(function(){
+        console.log("成功了");
+    }).catch(function(){
+        console.log("失败了");
+    })
+    //catch语句执行的是失败的函数
+</script>
+</html>

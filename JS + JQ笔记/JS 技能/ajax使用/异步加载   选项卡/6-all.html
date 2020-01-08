@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var p1 = new Promise(function (resolve,reject) {
+        var img = new Image();
+        img.src="images/1.jpg";
+        img.onload = function(){
+            resolve(img);
+        }
+        img.error = function(){
+            reject(img.src);
+        }
+    })
+    var p2 = new Promise(function (resolve,reject) {
+        var img = new Image();
+        img.onload = function(){
+            resolve(img);
+        }
+        img.onerror = function(){
+            console.log(1223);
+            reject(img.src);
+        }
+        img.src="images/2.jpg";
+    })
+    //all方法：Promise.all([p1,p2,p3]) 由多个实例通过数组的方式组成一个新的实例，
+    //只有p1、p2、p3这三个实例的状态都是成功，则新的实例的状态才是成功,所有实例的返回数据组成一个数组返回回来
+    //只要有一个实例的状态是失败，则新实例的状态就是失败
+    Promise.all([p1,p2]).then(function(imgs){
+        for(var i=0;i<imgs.length;i++){
+            document.body.appendChild(imgs[i]);
+        }
+    },function(){
+        console.log(2222);
+    })
+</script>
+</html>

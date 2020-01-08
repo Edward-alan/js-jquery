@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<script>
+var Ocat = {
+     name:GetObj,
+     nrray:123,
+     Temay:[78465]
+}
+
+function GetObj(obj){
+	for(var i in obj){
+		console.log(i+':'+obj[i])
+	if(typeof obj[i] == 'object'){
+		GetObj(obj[i]);
+	}
+	}
+}
+GetObj(Ocat)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // task1：使用组合继承实现下列需求：
+        // Animal类有favorite = ['play', 'eat'];
+        // Dog类有todo数组，是通过实例化的时候传入并赋值的;
+        // Dog继承Animal，且有checkTodoInFavorite方法，
+        // dog是Dog的实例，如果dog的todo中和favorite有交集则返回'happy, todo in favorite',否则返回'unhappy, todo not in favorite'
+
+        function Animal() {
+            // 有favorite = ['play', 'eat'];
+            this.favorite = ['play', 'eat'];
+        }
+
+        function Dog(todo) {
+            this.todo = todo;
+            // 在子类中通过apply调用父类,继承属性
+            Animal.apply(this, arguments);
+        }
+        //给Dog的原型上添加checkTodoInFavorite方法
+        Dog.prototype.checkTodoInFavorite = function() {
+            var that = this;
+            var flag = false; //没有交集
+            // 检测todo['run', 'play'] 和  favorite ['play', 'eat'] 
+            this.todo.map(function(item) {
+                // 检测run在不在favorite
+                if (that.favorite.indexOf(item) > -1) {
+                    flag = true;
+                }
+            });
+            if (flag) {
+                alert('happy');
+            } else {
+                alert('unhappy');
+
+            }
+
+        };
+        var dog = new Dog(['run', 'play2']);
+        dog.checkTodoInFavorite();
+        // 此处应该打印 'happy, todo in favorite'
+    </script>
+</body>
+
+</html>

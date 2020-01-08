@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>table切换</title>
+    <link rel="stylesheet" href="./css/tableTurn.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <span>国内</span>
+            <span>国际</span>
+            <span>社会</span>
+        </div>
+        <div class="context">
+            <ul class="list">
+                <li>123123</li>
+                <li>123</li>
+                <li>123</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./js/libs/require.js"></script>
+    <script>
+        require(["./js/main"], function () {
+            require(["tableTurn"]);
+        })
+    </script>
+</body>
+
+</html>

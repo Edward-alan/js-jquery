@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function strExtend(str){
+        var reg = /\S/g;
+        return str.replace(reg,function(a){
+            return a+" ";
+        })
+    }
+    var str = "helloword!!";
+    console.log(str.replace(/(\S)/g,"$1 "));//$1表示第一个小括号的东西 ，$2表示的是第二个小括号的值
+
+    var str1 = "wed-23,aq-123,edrr-2345";//23-wed,123-aq,2345-edrr
+    var reg = /([a-z]+)-(\d+)/g;
+    console.log(str1.replace(reg,"$2-$1"));
+
+
+</script>
+</html>

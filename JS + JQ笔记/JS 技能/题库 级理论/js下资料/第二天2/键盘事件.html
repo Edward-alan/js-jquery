@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	//事件对象.keyCode     键盘码
+	/*
+		回车的键盘码  13
+		空格的键盘码  32
+		左上右下的键盘码  37 38 39 40
+	keyup抬起  keydown按下 keypress按下*/
+
+	document.onkeypress=function(event){
+		var Event= event || window.event;
+		alert(Event.keyCode);
+									 }
+
+
+	</script>
+</body>
+</html>

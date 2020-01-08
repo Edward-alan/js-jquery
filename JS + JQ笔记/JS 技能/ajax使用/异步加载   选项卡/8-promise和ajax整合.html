@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*var p1 = new Promise(function(resolve,reject){
+        var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+        xhr.open("get","js/1.txt",true);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState==4){
+                if(xhr.status==200){
+                    resolve(xhr.responseText);
+                }else{
+                    reject(xhr.status);
+                }
+            }
+        }
+        xhr.send(null);
+    })
+    p1.then(function(data){
+        console.log(data);
+
+    })*/
+
+    function ajax(url){
+        /*var p1 = new Promise(function(resolve,reject){
+            var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+            xhr.open("get",url,true);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState==4){
+                    if(xhr.status==200){
+                        resolve(xhr.responseText);
+                    }else{
+                        reject(xhr.status);
+                    }
+                }
+            }
+            xhr.send(null);
+        })
+        return p1;*/
+        return new Promise(function(resolve,reject){
+            var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+            xhr.open("get",url,true);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState==4){
+                    if(xhr.status==200){
+                        resolve(xhr.responseText);
+                    }else{
+                        reject(xhr.status);
+                    }
+                }
+            }
+            xhr.send(null);
+        })
+    }
+
+    ajax("js/1.txt").then(function(data){
+        var Data = JSON.parse(data).data;
+        Data.forEach(function(item){
+            document.write("<h1>"+item+"</h1>");
+        })
+    })
+</script>
+</html>

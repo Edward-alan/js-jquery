@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 800px;
+            height: 500px;
+            background: #000;
+        }
+        
+        .barrage {
+            color: #fff;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    弹幕：<button id="btn">关</button>
+    <div class="box"></div>
+    <input type="text" id="inp">
+    <script src="js/barrage.js"></script>
+    <script>
+        var btn = document.getElementById('btn');
+        var barrage = new Barrage({
+            el: document.querySelector('.box'),
+            data: [{
+                "msg": "看着不错。。。。"
+            }, {
+                "msg": "哈哈哈。。。。"
+            }, {
+                "msg": "不错不错。。"
+            }, {
+                "msg": "真好看。。。。"
+            }, {
+                "msg": "看着不错。。。。"
+            }, {
+                "msg": "哈哈哈。。。。"
+            }, {
+                "msg": "不错不错。。"
+            }, {
+                "msg": "真好看。。。。"
+            }, {
+                "msg": "看着不错。。。。"
+            }, {
+                "msg": "哈哈哈。。。。"
+            }, {
+                "msg": "不错不错。。"
+            }, {
+                "msg": "真好看。。。。"
+            }, {
+                "msg": "看着不错。。。。"
+            }, {
+                "msg": "哈哈哈。。。。"
+            }, {
+                "msg": "不错不错。。"
+            }, {
+                "msg": "真好看。。。。"
+            }]
+        });
+        btn.onclick = function() {
+            if (btn.innerHTML === '关') {
+                barrage.addBarrage();
+                btn.innerHTML = '开';
+            } else {
+                barrage.clear();
+                btn.innerHTML = '关';
+            }
+        };
+        inp.onblur = function() {
+            var val = this.value.trim();
+            barrage.addData(val);
+        }
+    </script>
+</body>
+
+</html>

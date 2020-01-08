@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin:0; padding:0; list-style:none;}
+		.kuang{ 
+			width: 888px;
+			height: 400px;
+			margin:0 auto;
+		}
+		.box{
+			height: 266px;
+			background:#ccc;
+			position:relative;
+		}
+		.left{
+			width: 179px;
+			height: 174px;
+			position:absolute;
+			top:26px;
+			left:20px;
+			z-index:999;
+		}
+		/*.left img{
+			
+		}*/
+		.right{
+			width: 179px;
+			height: 174px;
+			position:absolute;
+			right:188px;
+			top:26px;
+			z-index:1;
+		}
+		/*.right>img{
+			
+		}*/
+		.boxkuan{
+			width: 858px;
+			height:80px;
+			border:20px solid #666;
+			margin:15px auto 0;
+			line-height:80px;
+			text-align:center;
+			font-size:35px;
+			position:relative;
+			z-index:1;
+		}
+		.huadon{
+			width: 60px;
+			height: 60px;
+			background:rgba(0,0,0,.3);
+			line-height:60px;
+			text-align: center;
+			font-size:30px;
+			cursor:pointer;
+			position:absolute;
+			top:10px;
+			left:7px;
+			z-index:999;
+		}
+	</style>
+</head>
+<body>
+	<div class="kuang">
+		<div class="box">
+			<div class="left"><img src="img/101.png" alt=""></div>
+			<div class="right"><img src="img/10.png" alt=""></div>
+		</div>
+		<div class="boxkuan">
+			向右滑动滑块填充拼图
+			<div class="huadon">→</div>
+		</div>
+	</div>
+<script src="jQuery.js"></script>
+<script>
+	$(".huadon").on("mousedown",function(e){
+		e.preventDefault();
+		var that = this;
+		var left = e.pageX - $(this).position().left;
+		$(document).on("mousemove",function(e){
+			e.preventDefault();
+			var l = e.pageX - left;
+			var marx = $(".boxkuan").innerWidth() - $(that).innerWidth()
+			if(l<0) l = 0;
+			if(l>marx) l = marx;
+				$(that).css("left",l+"px");
+				$(".left").css("left",l+"px")
+		}).on("mouseup",function(){
+			var leftL = $(".left img").offset().left;
+			var rightL = $(".right img").offset().left;
+			if(Math.abs(leftL - rightL) <=5){
+				alert("确认登录")
+			}
+			$(this).off("mousemove")
+			$(this).off('mouseup')
+		})
+	})
+</script>
+</body>
+</html>

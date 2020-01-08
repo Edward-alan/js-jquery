@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //拷贝对象：浅拷贝和深拷贝
+    var obj = {
+        name:"zhangsan",
+        age:20,
+        friend:{
+            name:"wangwu",
+            age:21
+        },
+        hobbies:["迟到","睡觉","聊天"],
+        classes:"1612B"
+    }
+    /*var o = obj;
+    o.name = "lisi";
+    console.log(obj.name);*/
+    //1、浅拷贝  属性值是基本数据类型 是没有问题的  但是引用数据类型拷贝的还是地址
+    function copy1(o){
+        var newO = new Object();
+        for(var i in o){
+            //console.log(i+","+o[i]);
+            newO[i] = o[i];
+        }
+        return newO;
+    }
+    var o1=copy1(obj);//
+    o1.name = "lisi";
+    o1.hobbies.push("玩游戏");
+    console.log(o1.name+","+obj.name);
+    console.log(obj.hobbies);
+    //2、深拷贝
+    function deepCopy(o){
+        var newO = o instanceof Array?[]:{};
+        for(var i in o){
+            if(typeof o[i]=='object'){
+                newO[i] = deepCopy(o[i]);
+            }else{
+                newO[i] = o[i];
+            }
+        }
+        return newO;
+    }
+    var o2 = deepCopy(obj);
+    obj.hobbies.push("写代码");
+    console.log("==================");
+    console.log(o2);
+    console.log(obj);
+</script>
+</html>

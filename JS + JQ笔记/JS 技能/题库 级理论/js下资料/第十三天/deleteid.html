@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data = {
+                id: 1,
+                name: "someName",
+                child: {
+                    id: 2,
+                    name: "someName2",
+                    child: {
+                        id: 3,
+                        name: "someName3",
+                        child:{
+                            id:4,
+                            name:"someName4",
+                            child:{
+                                id:5,
+                                name:"someName5",
+                                child:{
+                                    id:6,
+                                    name:"someName6",
+                                    child:{
+                                        id:7,
+                                        name:"someName7"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            function deletId(obj,n){
+                for(var i in obj){
+                if (obj[i] instanceof Object) {
+                        deletId(obj[i],n)
+                       if(obj[i].id==n){
+                           delete obj[i]
+                       }
+                       console.log(obj[i])
+                    }
+                }
+            }
+            deletId(data,1)
+
+
+
+    </script>
+</body>
+</html>

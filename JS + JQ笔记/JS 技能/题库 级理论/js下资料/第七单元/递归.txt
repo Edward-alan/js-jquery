@@ -1,0 +1,163 @@
+﻿递归
+
+
+
+	function a(n){
+		console.log(n);
+		a(n)
+	}
+	
+	函数里利用函数名调用自己的函数叫做递归函数。
+	
+	
+	function a(n){
+		console.log(n);
+		n--;
+		if(n > 0){
+			a(n)
+		}		
+	}
+	a(10);
+	
+	
+2、
+
+	function a(n){
+		console.log(n);
+		n--;
+		if(n > 0){
+			a(n)
+		}		
+	}
+	
+	var b = a;
+	
+	
+	b = function(n){
+		console.log(n);
+		n--;
+		if(n > 0){
+			a(n)
+		}
+	}
+	a = null;
+	b();
+	
+	
+	
+	arguments对象里有一个属性callee,指向包含arguments对象的函数
+	
+	
+	function c(){
+	
+		arguments.callee  等价于 函数c
+	
+	}
+	
+	function c(n){
+		console.log(n);
+		n--;
+		if(n>0){
+			arguments.callee(n);
+		}
+	}
+	
+	
+递归能做什么？
+
+	for和while语句能做的东西递归函数都可以做
+	
+	
+	
+	var obj = {
+		id:1,
+		name:"aaaa",
+		son:{
+			id:2,
+			name:"bbbb",
+			son:{
+				id:3,
+				name:"cccc",
+				son:{
+					id:4,
+					name:"dddd",
+					son:null
+				}
+			}
+		}
+	}
+	
+	
+	for(var i in obj){   //  循环数组和对象
+	
+	}
+	
+	
+	
+	//
+	
+	删除对象的属性
+	
+	
+		var obj = {
+			id:1,
+			name:"aaaa",
+			son:null
+		}
+		
+		
+		删除name属性
+		
+		
+		var obj = {
+			id:1,
+			son:null
+		}
+		
+		
+		delete obj.name;  // 删除obj对象里的name属性
+		
+		
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function ajax(opt){
+        var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+        xhr.open("get",opt.url,opt.async);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState==4){
+                if(xhr.status==200){
+                    //容错处理
+                    opt.success&&opt.success(xhr.responseText);
+                    console.log(234);
+                    //drawHTML(xhr.responseText);
+                }else{
+                    opt.error&&opt.error();
+                }
+
+            }
+        }
+        xhr.send(null);
+    }
+    ajax({
+        url:"js/1.txt",
+    })
+    // function drawHTML(data){
+    //     console.log(data);
+    // }
+</script>
+</html>

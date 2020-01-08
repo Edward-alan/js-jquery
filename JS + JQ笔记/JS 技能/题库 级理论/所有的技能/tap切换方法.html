@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<!-- 	<style>
+		#sect{width: 300px;height: 300px;border:1px solid #ccc;}
+		#div{width: 300px;height: 60px;}
+		span{border:1px solid #00f; display: inline-block;}
+		#btn p{width: 300px;height: 200px;border:1px solid #ccc;overflow: }
+	</style> -->
+	<style>
+        span{
+            display: inline-block;
+            border:1px solid #666;
+            width:100px;
+            height:30px;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .active{
+            background: green;
+            color: #ffffff;
+        }
+        #contents>div{
+            display: none;
+            border: 1px solid;
+            width:312px;
+            height:200px;
+        }
+    </style>
+</head>
+<body>
+<!-- 	<section id="sect">
+		<div id="div">
+			<span id="span">课程简介</span>
+			<span>课程大纲</span>
+			<span>就业方向</span>
+		</div>
+		<div id="btn">
+			<p>前端开发大牛</p>
+			<p>css大神</p>
+			<p>模块开发渣渣</p>
+		</div>
+	</section> -->
+	<section id="container">
+        <div id="tab">
+            <span class="active">课程简介</span>
+            <span>课程大纲</span>
+            <span>就业方向</span>
+        </div>
+        <div id="contents">
+            <div style="display: block">前端大牛</div>
+            <div>div大牛</div>
+            <div>前端工程师</div>
+        </div>
+    </section>
+</body>
+<script>
+	function Tab(){
+		this.menus = document.querySelector("#tab").children;
+		console.log(this.menus)
+		this.contents = document.querySelector("#contents").children;
+		console.log(this.contents)
+		this.currentIndex = 0;
+	}
+	Tab.prototype = {
+		constructor:Tab,
+		change:function(){
+			for(var i = 0;i<this.menus.length;i++){
+				this.menus[i].index = i;
+				var that=this;
+				this.menus[i].onclick=function(){
+				that.clearClass();
+				this.className = "active";
+				that.contents[this.index].style.display = "block";	
+				}
+			}
+		},
+	clearClass:function(){
+		for(var j=0;j<this.contents.length;j++){
+			this.menus[j].className = "";
+			this.contents[j].style.display = "none";
+		}
+	}
+	}
+	new Tab().change();
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="js/ajax.js"></script>
+<script>
+    // 跨域：从某一个域名的网页去访问另外一个网页的数据，Ajax基于同源策略，不支持跨域访问
+    //三种方式是跨域访问：
+    // 1、域名不同  从httt://www.baidu.com 去访问  http://www.taobao.com里面的数据
+    // 2、协议不同   http    https
+    // 3、端口不同   http://www.baidu.com:8080  去访问http://www.baidu.com:9999
+    /*ajax({
+        url:"http://localhost:8080/index.js",
+        success:function(data){
+            console.log(data);
+        }
+    })*/
+    //报错：No 'Access-Control-Allow-Origin' 不允许跨域访问
+    //JSONP 是用来解决跨域的
+    //原理：通过动态的创建script标签，把url地址加到URL上面，地址里面传递一个回调函数的名称，
+    // 回调函数在我们本地去定义，回调函数在对方服务器那边调用
+    var script = document.createElement("script");
+    script.src="http://localhost:8080/index.js?callback=aa";
+    document.body.insertBefore(script,document.body.firstChild);
+    function aa(data){
+        console.log(data);
+    }
+    function JSONP(url,fName){
+        var script = document.createElement("script");
+        script.src=url+"&callback="+fName;
+        document.body.insertBefore(script,document.body.firstChild);
+    }
+
+    JSONP("http://localhost:8080/index.js","cc");
+    JSONP("http://localhost:8080/index.js","ss");
+</script>
+</html>

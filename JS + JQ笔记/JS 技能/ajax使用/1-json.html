@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //json：一种数据格式
+    // 1、简单的值   ""  、数字、boolean、null 不能使undefined
+    //2、数组   数组中如果元素是字符串，必须是双引号
+    //3、对象 {}  属性名称必须是双引号
+    //在json中没有变量、函数这种东西，只是数据格式
+    var arr = ["aa","cc"];//json数据格式的数组
+    var obj = {
+        "name":"zhangsan",
+        age:20,
+        "frined":{
+            "name":"lisi",
+            "age":22
+        }
+    }//JSON格式的对象
+    // 序列化：把对象转换成字符串   JSON.stringify(obj)
+    console.log(JSON.stringify(obj));//typeof JSON.stringify(obj)   结果是string
+    //反序列化: 把字符串转换成对象  JSON.parse(str)  转换成json格式的对象
+    var str = '{"name":"lisi","sex":"nan"}';
+    var o = JSON.parse(str);
+    console.log(o.name);
+
+    //拷贝对象的简单方式
+    function copy(o) {
+        var str = JSON.stringify(o);
+        return JSON.parse(str);
+    }
+    var o1 = copy(obj);
+    o1.frined.age = 18;
+    console.log("===================")
+    console.log(o1);
+    console.log(obj);
+
+    //字符串转对象的另外一种方式
+    var str1 = "{name:'wangwu',age:19}";
+    var newObj=eval("("+str1+")");
+    console.log(newObj.name);
+
+</script>
+</html>

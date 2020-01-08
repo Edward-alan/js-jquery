@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="alert(123)"></button>
+
+	<script>
+			//事件冒泡: 由具体到不具体  由内到外 
+			//事件捕获: 由不具体到具体  由外到内
+			//事件流:  事件捕获阶段==> 目标阶段 ==> 事件冒泡阶段 
+			
+			//HTML级事件处理程序  (内联模型) 
+			//将事件当前元素的属性来设置 
+			
+			//DOM 0级 
+			
+			//DOM 2级 
+			//addEventListener(事件类型,执行函数,布尔值);  ==>添加监听器(绑定事件)
+			//removeEventListener(事件类型,执行函数,布尔值); ==>删除监听器(删除事件)
+			//如果要删除事件,则语法结构和内容要与相应的绑定事件一致 
+			//如果执行函数为匿名函数,则不能删除
+			
+			//IE事件处理程序 ==>再非IE下会报错
+			//attachEvent(事件类型,执行函数);  ==>添加
+			//detachEvent(事件类型,执行函数);  ==>删除
+			////如果要删除事件,则语法结构和内容要与相应的绑定事件一致 
+			//如果执行函数为匿名函数,则不能删除
+
+			//阻止默认事件
+			//preventDefault() ==>非IE   returnValue=false ==> IE
+			
+			//阻止事件传播
+			//StopPropagation() ==>非IE   cancelBubble=true ==>IE
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

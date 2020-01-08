@@ -1,0 +1,54 @@
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="css/cityStyle.css">
+</head>
+
+<div class="text">
+    <ul id="news">
+        <li>
+            <!-- <h3>女装打打打打打打打发访问官网反射光栅各色各说个事</h3>
+            <p>安抚付付付付付付付付发发发我发我发我发我 发我阿瓦发发我发我发我发我发我发我发我发发我
+            </p>
+            <span>今天13.40</span>
+            <span>&nbsp;摩托化&nbsp; 阿大&nbsp; 方法</span>
+            <span class="right">评论</span> -->
+        </li>
+    </ul>
+    <div class="ye">
+        <button>上一页</button>
+        <section id="page">
+            <div class="all"></div>
+        </section>
+        <button>下一页</button>
+        <button>后5页</button>
+    </div>
+</div>
+
+
+<body>
+    <script src="js/ajax.js"></script>
+    <script src="js/news.js"></script>
+    <script>
+        // ajax请求得到数据
+        ajax({
+            type: 'get',
+            async: true,
+            url: "news.json",
+            success: function(rs) {
+                new News({
+                    news: document.getElementById('news'),
+                    page: document.querySelector('#page>div'),
+                    data: eval("(" + rs + ")")
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

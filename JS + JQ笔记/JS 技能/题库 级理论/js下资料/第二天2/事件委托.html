@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#ul{width:300px; height:300px; border: 10px solid red}
+	</style>
+</head>
+<body>
+		<ul id="ul">
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+			<li>444</li>
+			<li>555</li>
+		</ul>
+
+	<script>
+	//事件委托:
+	/*var lis=document.getElementsByTagName('li');
+	for(let i=0; i<lis.length;i++){
+		lis[i].onclick=function(){
+			alert(i)
+			 					 }
+		}*/
+	//事件源
+	//target 非IE下 事件源   srcElement IE下事件源
+	//type 事件类型  currentTarget 绑定事件的元素
+		
+	//事件委托 利用冒泡机制 
+	var ul=document.getElementById('ul');
+	ul.onclick=function(event){
+		var Event= event || window.event;
+		var x= Event.target || Event.srcElement;
+		//判断事件源是否为li
+		
+		if(Event.target.tagName=='LI'){
+			alert(Event.target.innerHTML);
+			}
+
+
+						 }
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

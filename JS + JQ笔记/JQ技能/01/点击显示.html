@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h2 {
+            width: 200px;
+            height: 25px;
+            background: #ff0;
+            margin-left: 40px;
+        }
+        
+        ul {
+            display: none;
+        }
+        
+        ul li {
+            width: 200px;
+            height: 20px;
+            list-style-type: none;
+        }
+        
+        ul li:first-child {
+            background: #0ff;
+        }
+        
+        ul li:last-child {
+            background: #00f;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="btn">点击</h2>
+    <ul class="box">
+        <li>1</li>
+        <li>2</li>
+
+    </ul>
+    <script src='js/jquery-1.3.js'></script>
+    <script>
+        $('.btn').on('click', function() {
+            $(".box").toggle();
+        })
+    </script>
+</body>
+
+</html>

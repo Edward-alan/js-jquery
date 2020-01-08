@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /**
+     * 封装异步加载图片
+     * @param url 图片的路径
+     * @returns {Promise<any>}
+     */
+    function asyncLoadImg(url){
+        /*var p1 = new Promise(function(resolve,reject){
+            var img = new Image();
+            img.src=url;
+            img.onload = function(){
+                resolve(img);
+            }
+            img.onerror = function () {
+                reject(img.src);
+            }
+        })*/
+        //return p1;
+        return  new Promise(function(resolve,reject){
+            var img = new Image();
+            img.src=url;
+            img.onload = function(){
+                resolve(img);
+            }
+            img.onerror = function () {
+                reject(img.src);
+            }
+        })
+    }
+
+    asyncLoadImg("images/2.jpg").then(function(data){
+        document.body.appendChild(data);
+    }).catch(function(error){
+        console.log("img"+error+"没有加载出来，请检查路径");
+    })
+    asyncLoadImg("images/3.jpg").then(function(data){
+        document.body.appendChild(data);
+    }).catch(function(error){
+        console.log("img"+error+"没有加载出来，请检查路径");
+    })
+</script>
+</html>

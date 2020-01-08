@@ -1,0 +1,28 @@
+[
+  {
+    "title":"手机",
+     "contents":[
+       {"src":"1.jpg","desc":"魅族手机1","price":"999"},
+       {"src":"2.jpg","desc":"魅族手机2","price":"999"},
+       {"src":"3.jpg","desc":"魅族手机3","price":"999"},
+       {"src":"4.jpg","desc":"魅族手机4","price":"999"},
+       {"src":"5.jpg","desc":"魅族手机5","price":"999"},
+       {"src":"6.jpg","desc":"魅族手机6","price":"999"},
+       {"src":"7.jpg","desc":"魅族手机7","price":"999"},
+       {"src":"8.jpg","desc":"魅族手机8","price":"999"}
+     ]
+  },
+  {
+    "title":"声学",
+    "contents":[
+      {"src":"11.jpg","desc":"耳机","price":"999"},
+      {"src":"12.jpg","desc":"耳机","price":"999"},
+      {"src":"13.jpg","desc":"耳机","price":"999"},
+      {"src":"14.jpg","desc":"耳机","price":"999"},
+      {"src":"15.jpg","desc":"耳机","price":"999"}
+    ,{"src":"16.jpg","desc":"耳机","price":"999"},
+      {"src":"17.jpg","desc":"耳机","price":"999"},
+      {"src":"18.jpg","desc":"耳机","price":"999"}
+    ]
+  }
+]

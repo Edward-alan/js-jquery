@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+*{margin:0; padding:0; list-style:none;}
+	.box{
+		width: 800px;
+		height: 400px;
+		background:red;
+		margin:50px auto;
+		overflow: hidden;
+		position:relative;
+	}
+	li{
+		width: 900px;
+		height: 400px;
+	}
+	img{
+		width: 900px;
+		height: 400px;
+	}
+	ol{
+		width: 200px;
+		height: 25px;
+		background:yellow;
+		position:absolute;
+		bottom:240px;
+		left:50%;
+		margin-left:-50px;
+	}
+	ol>li{
+		width: 20px;
+		height: 20px;
+		background:red;	
+		border-radius:50px;
+		float:left;	
+		margin-left:10px;
+	}
+</style>
+</head>
+<body>
+	<div class="box"  id="hua">
+		<li ><img src="img/(174).jpg" alt=""></li>
+		<li><img src="img/(216).jpg" alt=""></li>
+		<li><img src="img/(226).jpg" alt=""></li>
+		<li><img src="img/(306).jpg" alt=""></li>
+		<li><img src="img/(834).jpg" alt=""></li>
+	</div>
+	<ol id="btn">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ol>
+<script>
+	var btn = document.getElementById('btn')
+	var hua = document.getElementById('hua')
+	btn.onclick = function(){
+		
+	}
+</script>
+</body>
+</html>

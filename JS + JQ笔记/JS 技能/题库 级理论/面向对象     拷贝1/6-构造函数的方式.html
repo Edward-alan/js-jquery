@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*var p1 = {
+        name:"zhangsan",
+        age:20,
+        money:1000,
+        shopping:function(){
+            var timer=setInterval(function(){
+                p1.money-=100;
+                if(p1.money<0){
+                    console.log("花光了，回家拿钱吧！");
+                    clearInterval(timer);
+                }else{
+                    console.log("正在血拼呢,还剩"+p1.money+"钱");
+                }
+            },1000);
+        }
+    }*/
+    function Person(name,age,money){
+        this.name = name;
+        this.age = age;
+        this.money = money;
+        this.shopping = function(){
+            var that = this;//把表示实例的this保存一份
+            var timer=setInterval(function(){
+                //console.log(this);
+                that.money-=100;
+                if(that.money<0){
+                    console.log(that.name+"花光了，回家拿钱吧！");
+                    clearInterval(timer);
+                }else{
+                    console.log(that.name+"正在血拼呢,还剩"+that.money+"钱");
+                }
+            },1000);
+        }
+    }
+    var p1 = new Person("zhangsan",20,1000);
+    var p2 = new Person("lisi",22,900);
+    p1.shopping();
+    p2.shopping();
+</script>
+</html>

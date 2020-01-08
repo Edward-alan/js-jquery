@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var obj={
+			x:function(){
+				console.log(this);
+						}
+		}
+		//obj.x();
+		obj.x.call(window);
+	</script>
+</body>
+</html>

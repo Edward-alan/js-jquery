@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        margin-left: 30px;
+    }
+</style>
+
+<body>
+
+    <script>
+        var data = [{
+                name: "我是一级",
+                lists: [{
+                    name: "我是二级",
+
+                }, {
+                    name: "我也是二级",
+                    lists: [{
+                        name: "我是三级",
+                        lists: [{
+                            name: "我是四级",
+                        }]
+                    }]
+                }]
+            },
+            {
+                name: "我是一级",
+                lists: [{
+                    name: "我是二级",
+
+                }, {
+                    name: "我也是二级",
+                    lists: [{
+                        name: "我是三级",
+                    }]
+                }]
+            },
+        ]
+
+        console.log(data)
+        var dom = document.getElementsByTagName("body")[0];
+        console.log(dom)
+        var html = ``;
+        var count = 0;
+
+        function test(data, dom) {
+            data.forEach(function (item) {
+                count++;
+                html += item.name;
+                var div = document.createElement("div");
+                div.innerHTML = "---" + item.name;
+                dom.appendChild(div);
+                if (item.lists) {
+                    test(item.lists, div)
+                }
+            })
+        }
+        test(data, dom);
+        console.log(count)
+
+
+
+
+
+
+
+
+
+
+
+
+
+        document.onclick = function (e) {
+            if (e.target.tagName.toLowerCase() == "div") {
+                if (e.target.children.length) {
+                    [...e.target.children].forEach(function (item) {
+                        if (item.style.display == 'none') {
+                            item.style.display = 'block'
+
+                        } else {
+                            item.style.display = 'none'
+                        }
+
+                    })
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

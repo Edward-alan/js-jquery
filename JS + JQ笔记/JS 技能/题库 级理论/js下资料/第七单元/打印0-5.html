@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	function fn(){
+			var i=0;
+			return function(){
+				return i++;
+							 }
+
+	}
+
+	var n=fn();
+	for(var j=1;j<=6;j++){
+		console.log(n())
+		 }
+
+	
+
+
+	</script>
+</body>
+</html>

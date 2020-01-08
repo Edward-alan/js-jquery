@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //构造函数的继承一般是去继承属性
+    function Animal(name,color){
+        this.name = name;
+        this.color = color;
+        this.getName = function(){
+            console.log(123);
+        }
+    }
+    function Cat(name,color){
+        // this.name = name;
+        // this.color = color;
+        //Animal.call(this,name,color);
+        //Animal.call(this,name,color);
+        //Animal.apply(this,[name,color]);
+        Animal.apply(this,arguments);
+    }
+    var c1 = new Cat("小花","花的");
+    //var c2 = new Cat("小黑","黑色");
+    console.log(c1.name);
+    //console.log(window.color);
+    c1.getName();
+</script>
+</html>

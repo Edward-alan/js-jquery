@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型方式继承</title>
+</head>
+<body>
+<div id="box">加入购物车</div>v
+    <script>
+
+        // //  原型链上的继承   实例就是 创建一个 A的构造函数 赋值给属性和方法   在创建一个B的构造函数  B为空的构造函数
+        // //
+        // //这是创建一个构造函数A 赋值给属性和方法  在原型上也赋值了属性和方法
+
+        // function A(name,age){   //构造函数的函数体
+        //     this.name=name||"A";
+        //     this.age= age || 15;
+        //     this.kg='66kg';
+        //     this.eat=function(){
+        //         console.log("我会吃")
+        //     }
+        // }
+        // //在原型上创建属性和方法
+        // A.prototype.sex = "男"  //原型上的属性。
+        // A.prototype.run=function(){  //原型上的方法
+        //     console.log("我会跑")
+        // }
+
+        // var  a= new A("张三",17)//创建实例
+        // function B(){
+        // 	/*this.kg='88kg';
+        // 	this.eat=function(){console.log('我不会吃')}*/
+        // }
+        // B.prototype.kg='88kg';
+        // B.prototype.eat=function(){console.log('我不会吃')}
+        // console.log(B.prototype)
+        // B.prototype= new A()   // 把要继承的原型对象指向继承的实例化对象
+        // console.log(B.prototype);
+
+        //          // 通过这个操作我们就完成了构造函数B继承构造函数A的 操作
+
+        // var  b= new B()  //创建B的实例化对象
+        // b.eat()
+       	// console.log(b.kg);
+
+       /* function C(){
+
+        }
+        C.prototype= new A()  //C的原型对象也继承了A的构造函数
+        var c= new C();
+        C.prototype.constructor=C
+
+        console.log(c.constructor)
+        b.eat()
+        b.run()*/
+//        var foo = 1;
+// function main() {
+//     console.log(foo);
+//     var foo = 2;
+//     this.foo=6
+//     console.log()
+//     console.log(this.foo)
+//     this.foo = 3;
+//     console.log(this.foo)
+// }
+// var m1 = new main();
+// console.log(this.foo)
+
+
+
+
+// var a = 100;
+// function test(){
+//     console.log(this.a);
+//     a = 10;
+//     console.log(a);
+// }
+//  // var b=new test();
+// console.log(window.a);
+
+
+
+// var a = 100;
+// function test(){
+//     console.log(this.a);
+//     a = 10;
+//     console.log(a);
+// }
+// test();
+// console.log(window.a);
+
+
+
+
+// document.getElementById("box").onclick = function(){
+// 　　function fn(){
+// 　　　  alert(this);
+// 　　}
+// 　　fn();
+// };
+   // subType()();
+//}
+var Classify = function(name){
+   this.name = name;
+}
+Classify.prototype.getName = function(){
+    var name = "lili";
+    return this.name;
+}
+var son = new Classify("huahua");
+console.log(son.constructor);
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+body .ban {
+  width: 100%;
+  height: 900px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.banner {
+  z-index: 200;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  top: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner a {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+.banner a img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.ban:target {
+  z-index: 2;
+}
+
+.bag1:target {
+  z-index: 100;
+  animation: ban1 2s linear;
+}
+
+@-webkit-keyframes ban1 {
+  0% {
+    transform: translateX(-100%) translateY(900px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(450px);
+  }
+  100% {
+  }
+}

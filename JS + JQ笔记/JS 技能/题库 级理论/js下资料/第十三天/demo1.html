@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> 封装 ajax </title>
+</head>
+<body>
+	<script>
+		
+		function ajax(type,url,fn){
+			//创建一个请求对象
+
+			//兼容 IE
+			// if(window.XMLHttpRequest){
+			// 	var xhr = new XMLHttpRequest();
+			// }else{
+			// 	//创建 ie 浏览器下的请求对象
+			// 	var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			// }
+
+			//上面的 代码简化
+			var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+
+			//其他步骤都不变
+
+			xhr.open(type,url,true);
+
+			if(type == "get"){
+				xhr.send(null);
+			}
+			if(type == "post"){
+				xhr.send(data);
+			}
+			
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4 && xhr.status == 200){
+					//console.log(xhr.responseText);
+					//传进来一个函数,当数据回来之后,执行这个 函数.
+					fn(xhr.responseText);
+				}
+			}
+		}
+
+		//完成请求目的
+		ajax("get","data.json",function(data){
+			console.log(data);
+		});
+
+		ajax("get","data1.json",function(data){
+			console.log(data);
+		});
+
+	</script>
+</body>
+</html>

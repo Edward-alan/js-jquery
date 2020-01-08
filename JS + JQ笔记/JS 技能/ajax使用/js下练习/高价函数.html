@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			position:absolute;
+			top:0;
+			left:0;
+			width: 200px;
+			height: 200px;
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+<script>
+// 	var arr = ['a','b','c','d']
+// 	var mang = arr.map(function(lel,index,arr){
+// 		return lel+(index+1)
+// 	})
+// 	console.log(mang)
+
+// var arr = [2,4,5,8,7]
+// var arr1 = arr.map(function(ele,index,arr){  
+//                            //1,遍历每一项
+//                            //2,下标
+//                            //3,数组本身
+// 	return ele*index;
+// })
+// console.log(arr1)
+
+//面向对象拖拽
+function Dog(){
+	this.Odiv = document.getElementById('box')
+}
+Dog.prototype = {
+	consouty:Dog,
+	dog:function(){
+		var that = this;
+		this.Odiv.onmousedown = function(e){
+			var ev = e||window.event;
+			var pos = {
+				x: ev.offsetX,
+				y:ev.offsetY
+			}
+		that.mover(pos)
+		that.oup();
+	}	
+		},
+mover:function(pos){
+	var that = this;
+	document.onmousemove = function(e){
+		var ev = e||event;
+		that.Odiv.style.left = ev.clientX-pos.x+'px'
+		that.Odiv.style.top = ev.clientY-pos.y+'px'
+	}
+},
+oup:function(){
+	document.onmouseup = function(){
+		document.onmousemove = null
+	}
+	} 
+}
+new Dog().dog();
+
+</script>
+</body>
+</html>

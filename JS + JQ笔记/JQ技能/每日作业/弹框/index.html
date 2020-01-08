@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		button{
+			width: 200px;
+			height: 50px;
+			background:blue;
+		}
+		.box{
+			width: 100%;
+			height: 100%;
+			background:rgba(0,0,0,.7);
+			position:absolute;
+			top:0;
+			left:0;
+			display:none;
+		}
+		.kuang{
+			width: 300px;
+			height: 300px;
+			background:#fff;
+			position:absolute;
+			top:50%;
+			left:50%;
+			margin-left:-100px;
+			margin-top:-100px;
+		}
+		.nuw{
+			width: 300px;
+			height: 30px;
+			border-bottom:1px solid #ccc;
+		}
+		.remov{
+			width: 300px;
+			height: 150px;
+			font-size:30px;
+			text-align:center;
+			line-height:150px
+		}
+		.kkbox{
+			width: 300px;
+			height: 130px;
+			text-align:center;
+			line-height:130px;
+		}
+		.btn{
+			width: 100px;
+			height: 40px;
+			background:yellow;
+		}
+		.bnt{
+			width: 100px;
+			height: 40px;
+			background:yellow;
+		}
+	</style>
+</head>
+<body>
+	<button>删除按钮</button>
+	<div class="box">
+		<div class="kuang">
+			<div class="nuw">信息</div>
+			<div class="remov">已经删除</div>
+			<div class="kkbox">
+				<button class="btn">确认</button>
+				<button class="bnt">取消</button>
+			</div>
+			
+		</div>
+	</div>
+<script src="jQuery.js"></script>
+<script>
+	
+
+	$("button").on("click",function(){
+		$(".box").show();
+	})
+	$(".btn").on("click",function(){
+		$(".box").hide();
+		$("button").hide();
+	})
+	$(".bnt").on("click",function(){
+		console.log()
+	})
+</script>
+</body>
+</html>

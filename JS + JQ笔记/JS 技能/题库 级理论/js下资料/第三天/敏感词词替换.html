@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input{width:400px;}
+	</style>
+</head>
+<body>
+	<input type="text" id="ipt1"><button id="btn">替换</button><br>
+	<input type="text" id="ipt2">
+
+	<script>
+	var ipt1=document.getElementById('ipt1'),
+		ipt2=document.getElementById('ipt2'),
+		btn=document.getElementById('btn');
+
+		var reg=/你们|我们的|他/g;
+		
+		
+		btn.onclick=function(){
+
+		ipt2.value=ipt1.value.replace(reg,function(str){
+				var newStr='';
+				for(var i=0;i<str.length;i++){
+					newStr+="*";
+					  }
+				return newStr;
+		});
+
+}
+	</script>
+</body>
+</html>

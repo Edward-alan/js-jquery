@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*var xhr= window.XMLHttpRequest ? new XMLHttpRequest():new ActiveXObject();//1
+
+		xhr.open('get','data.json',true); //2
+
+		xhr.send(null);//3
+
+		xhr.onreadystatechange=function(){//4
+			if(xhr.readyState==4 && xhr.status==200){
+				console.log(xhr.responseText);
+				 }
+										 }*/
+
+		var data='city=北京&name=哈哈';
+		function ajax(type,url,fn){
+  			var xhr= window.XMLHttpRequest ? new XMLHttpRequest():new ActiveXObject();
+  			//判断请求方式
+  			if(type=='get' || type=='GET'){
+  				type=get;
+  				xhr.open(type,url+"?"+data,true);
+  				xhr.send(null);
+  				 						   }
+  			if(type=='post' || type=='POST'){
+  				type=post;
+  				xhr.open(type,url,true);
+  				xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  				xhr.send(data);
+  				 }
+  			//监听
+  			xhr.onreadystatechange=function(){
+  				//判断状态
+  				if(xhr.readyState==4 && xhr.status==200){
+  					var d= JSON.parse(xhr.responseText);
+  					fn(d);
+  					}
+  											 }
+
+
+
+					   }
+
+			ajax('get','data.json',callback);
+			function callback(newData){
+				console.log(newData);
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

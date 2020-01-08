@@ -1,0 +1,18 @@
+<script>
+var xhr = new XMLHttpRequest(); //1.创建Ajax对象
+xhr.open("get","xyz.json",true);  //2.建议一个http链接 (请求方式,请求url,同步异步 ) 同步需要等待 异步可以同时发送请求
+xhr.send(null);  //3.发送一个http请求
+xhr.onreadystatechange = function(){//4.给ajax状态绑定一个回调函数
+
+	if(xhr.readyState == 4 && xhr.status ==200){
+		var s=JSON.parse(xhr.responseText) //JSON对象转js对象
+		console.log(s[0].title);
+		console.log(xhr.responseText);//接收服务器返回来的字符串数据
+
+	}
+
+}
+
+	var xhr =new XMLHttpRequest(); //创建了一个AJAX实例 阿贾克斯
+
+</script>

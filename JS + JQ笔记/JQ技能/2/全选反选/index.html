@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="checkbox" class="fuirt">苹果</br>
+        <input type="checkbox" class="fuirt">桔子</br>
+        <input type="checkbox" class="fuirt">火龙果</br>
+        <input type="checkbox" class="fuirt">香蕉</br>
+        <input type="checkbox" class="fuirt">梨</br>
+
+        <input type="button" class="selectAll" value="全选">
+        <input type="button" class="unSelectAll" value="全不选">
+        <input type="button" class="reverse" value="反选">
+    </div>
+
+
+
+
+</body>
+<script src="jQuery1-5.js"></script>
+<script>
+    $('.fuirt').prop('checked', true);
+    $('div').on('click', ".selectAll,.unSelectAll,.reverse", function() {
+        if ($(this).attr('class') == 'selectAll') {
+            $('.fuirt').prop('checked', true);
+        } else if ($(this).attr('class') == 'unSelectAll') {
+            $('.fuirt').prop('checked', false);
+        } else if ($(this).attr('class') == 'reverse') {
+            $('.fuirt').each(function(k, v) {
+                $(v).prop('checked', !$(v).prop('checked'));
+            })
+        }
+
+
+    })
+</script>
+
+</html>

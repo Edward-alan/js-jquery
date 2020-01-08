@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var o1 ={
+        name:"zhangsan",
+        age:20,
+        city:"shanghai",
+        country:"china"
+    }
+    var o2 = {
+        country:"England",
+        weight:"60"
+    }
+    var o3 = {
+        car:"路虎",
+        city:"伦敦"
+    }
+    function extend(){
+        for(var i=1;i<arguments.length;i++){
+            for(var k in arguments[i]){
+                arguments[0][k] = arguments[i][k];
+            }
+        }
+        return arguments[0];
+    }
+    var o4=extend(o1,o2,o3);
+    console.log(o4);
+</script>
+</html>

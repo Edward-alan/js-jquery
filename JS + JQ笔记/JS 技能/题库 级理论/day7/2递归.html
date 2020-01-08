@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //"use strict";
+    //递归  ：  在函数里面调用他自己,通常会有一个终止的条件
+    var i=0;
+    //第一种写法
+    // function fn(){
+    //     i++;
+    //     console.log(123);
+    //     if(i<5)
+    //         fn();
+    // }
+    //第二种写法
+    /*function fn(){
+        i++;
+        console.log(123);
+         if(i<5)
+            arguments.callee();//arguments.callee指的是当前执行的函数  也就是函数本身  arguments.callee不支持严格模式
+    }*/
+    //第三种写法
+    // var fn = function f(){
+    //     i++;
+    //     console.log(123);
+    //     if(i<5) f();
+    // }
+    // var fn1 = fn;
+    // fn = null;
+    // fn1();
+
+
+
+    
+</script>
+</html>

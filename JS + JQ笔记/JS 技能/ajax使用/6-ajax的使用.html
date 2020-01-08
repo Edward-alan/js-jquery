@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td,th{
+            height:30px;
+            line-height: 30px;
+            border:1px solid;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>理论成绩</th>
+                <th>技能成绩</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+<script>
+    var tbody = document.getElementsByTagName("tbody")[0];
+    var xhr = null;
+    //获取对象
+    if(window.XMLHttpRequest){
+        xhr = new XMLHttpRequest();
+    }else{
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhr.open("get","js/d.txt",true);
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState==4){
+            if(xhr.status==200){
+                var data = JSON.parse(xhr.responseText);
+                renderHTML(data);
+            }
+        }
+    }
+    xhr.send(null);
+
+    /**
+     * 渲染页面
+     * @param data
+     */
+    function renderHTML(data){
+        data.forEach(function(item){
+            var tr = document.createElement("tr");
+            for(var i in item){
+                var td = document.createElement("td");
+                td.innerHTML = item[i];
+                tr.appendChild(td);
+            }
+            tbody.appendChild(tr);
+        })
+    }
+</script>
+</html>

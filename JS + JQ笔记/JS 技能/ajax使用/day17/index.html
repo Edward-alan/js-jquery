@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>测试题</title>
+    <style>
+
+    </style>
+</head>
+<body>
+	<div id="header">
+		    <div>
+                <!--<span>手机</span>
+                <span>声学</span>-->
+            </div>
+            <div>
+               <!-- <dl>
+                    <dt><img src="images/1.jpg" alt=""></dt>
+                    <dd>
+                        <p>啊啊啊啊啊啊啊</p>
+                        <p>3450</p>
+                    </dd>
+                </dl>-->
+            </div>
+	</div>
+    	<script>
+    		//封装ajax
+    		function ajax(url,callback){
+    			//补全代码
+                var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+                xhr.open("get",url,true);
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState==4){
+                        if(xhr.status==200){
+                            callback&&callback(xhr.responseText);
+                        }
+                    }
+                }
+                xhr.send(null);
+    		}
+    		
+    		//构造函数
+    		function Header(options){
+    			//设置属性
+                this.box = document.querySelector(options.box);
+                this.titC = this.box.getElementsByTagName("div")[0];//放标题的容器
+                this.contentsC = this.box.getElementsByTagName("div")[1];//放内容的容器
+                this.data = options.data;
+                this.drawHTML();
+                this.bindEvent();
+    		}
+    		
+    		//原型方法
+    		Header.prototype = {
+    			constructor:Header,
+    			drawHTML:function(){
+    			    //"<span>手机</span><span>声学</span><span>智能</span><span>生活</span>"
+                    //["<span>手机</span>","<span>声学</span>"]
+                    var str=this.data.map(function(item,index){
+                        return `<span index="${index}">${item.title}</span>`
+                    }).join("");
+                    this.titC.innerHTML = str;
+                },
+    			//显示
+    			show:function(index){
+    				//补全代码
+                    var data = this.data[index].contents;
+                    this.contentsC.innerHTML= data.map(function(item){
+                        return `<dl>
+                    <dt><img src="images/${item.src}" alt=""></dt>
+                    <dd>
+                        <p>${item.desc}</p>
+                        <p>${item.price}</p>
+                    </dd>
+                </dl>`
+                    }).join("");
+    			},
+    			//绑定事件
+    			bindEvent:function(){
+    				//补全代码
+                    var that = this;
+                    this.box.onclick = function(e){
+                        var ev = e || window.event;
+                        var target = ev.target|| ev.srcElement;
+                        if(target.tagName=="SPAN"){
+                            //console.log();
+                            that.show(target.getAttribute("index"))
+                        }
+                    }
+    			}
+    		}
+    		ajax("js/data.json",function(res){
+    			new Header({
+	    			box:"#header",
+	    			data:JSON.parse(res)
+	    		});
+    		});
+    		
+    		
+    		
+    		
+    		
+    	</script>
+</body>
+</html>

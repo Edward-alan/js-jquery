@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box1{padding:100px;background:red}
+		.box2{padding:100px; background:green}
+		.box3{padding:100px;background:blue}
+	</style>
+</head>
+<body>
+	
+	<div class='box1'>
+		<div class='box2'>
+			<div class='box3'></div>
+		</div>
+	</div>
+
+	<script>
+	var nodes=document.getElementsByTagName('div');
+	nodes[0].onclick=function(){
+		alert('我是红色');
+							   }
+
+	nodes[1].onclick=function(){
+		alert("我是原谅色");
+								}
+
+	nodes[2].onclick=function(qwer){
+			var Event=qwer || window.event;
+			if(Event.stopPropagation){
+				Event.stopPropagation();//非IE
+				}
+			else{
+				Event.cancelBubble=true;//IE下
+				}
+
+
+
+		alert("我是蓝色");
+
+
+
+
+
+
+
+
+	}
+
+
+
+
+
+
+
+	</script>
+
+	
+	
+
+
+</body>
+</html>

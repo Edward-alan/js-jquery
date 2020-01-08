@@ -1,0 +1,22 @@
+﻿高阶函数
+
+	什么是高阶函数?
+	
+		操作函数的函数就是高阶函数。
+		
+		
+		
+		function a(函数名){
+		
+		}
+
+		a(fn);
+
+		function fn();
+
+		或
+		function b(){		
+			return 函数名;
+		}
+		
+		

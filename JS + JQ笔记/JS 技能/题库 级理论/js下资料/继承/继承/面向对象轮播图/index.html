@@ -1,0 +1,69 @@
+<html>
+	<head>
+			<meta charset="utf-8">
+			<title>title</title>
+			<style type="text/css" media="screen">
+				#banner{
+					width:500px;
+					height:200px;
+					margin:0 auto;
+				}
+				#banner>img{
+					width:500px;
+					height:200px;
+					display:none;
+				}
+				#banner>img.active{
+					display:block;
+				}
+			</style>
+	</head>
+	<body>
+		<div id="banner">
+			<img border="0" class="active" src="images/2.jpg" >
+			<img border="0" src="images/3.jpg" >
+			<img border="0" src="images/4.jpg" >
+			<img border="0" src="images/5.jpg" >
+			<img border="0" src="images/6.jpg" >
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			//全局变量    对象的属性
+			//函数          对象的方法
+			var banner = {
+				imgs:[],
+				index:0,
+				init:function(){ 
+					//获取大div
+					var oDiv = document.getElementById("banner");
+					//将该div下的所有图片赋给img数组
+					this.imgs = oDiv.children;
+					//记录当前this
+					_this = this;
+					setInterval(function(){
+						//调用banner下的
+						_this.next();
+					},1000);
+					
+				},
+				show:function(){
+					//排他思想  先清空所有的类名
+					for(var i=0;i<this.imgs.length;i++){
+						this.imgs[i].className = ""
+					}
+					this.imgs[this.index].className = "active" //将当前的图片显示
+				},
+				next:function (){
+					this.index++;//下标值自增
+					if(this.index  == this.imgs.length){//如果当前下标等于图片数组长度 则将index重置为0
+						this.index = 0;//回到第一张
+					}
+					this.show();//调用show方法
+				}
+			}
+			
+			
+			banner.init();//先调用init方法
+		
+		</script>
+	</body>
+</html>

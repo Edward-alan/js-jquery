@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{padding:0;margin:0; margin: auto;}
+		#box{width:300px; height:300px;border:1px solid red;}
+	</style>
+</head>
+<body>
+	<div id="box">
+
+	</div>
+	
+	<script>
+	//offsetX  相对于标签的水平坐标 （鼠标的）
+	//offsetY  相对于标签的垂直坐标 （鼠标的）
+	
+	var box=document.getElementById('box');
+	box.onclick=function(event){
+		var Event=event || window.event;
+		alert(Event.offsetX);
+		alert(Event.offsetY);
+						  }
+
+	</script>
+</body>
+</html>

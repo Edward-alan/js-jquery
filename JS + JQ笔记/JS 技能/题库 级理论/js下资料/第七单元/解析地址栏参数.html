@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			var url="https://www.baidu.com?city=北京&name=张凯浪&age=86";
+			
+			
+			
+			
+			
+			console.log(test(url, 'city'));
+			
+			function test(url, attr){
+				var re = /[?&](\w+)=([^?&]+)/g;
+				var val = '';
+				url.replace(re, function ($0, $1, $2){
+					//console.log($0,$1,$2)
+					if($1 == attr){
+						val = $2;
+					}
+				})
+				return val;
+			}
+			
+
+
+
+
+
+
+
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

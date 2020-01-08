@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box1{padding:100px;background:red}
+		.box2{padding:100px;background:green}
+		.box3{padding:100px;background:blue}
+	</style>
+</head>
+<body>
+	<!-- //HTML事件处理程序(内联模型)违背了代码分离的原则-->
+		
+	<!-- //结构 html 样式css  行为js 要求代码分离  耦合性强  
+	
+	<button id="btn" onclick="alert(123)">点我</button> -->
+		
+	<!-- HTML事件处理程序 ==>事件冒泡
+	
+	<div class="box1" onclick="alert(1)">
+		<div class="box2"  onclick="alert(2)">
+			<div class="box3"  onclick="alert(3)">
+	
+			</div>
+		</div>
+	</div> -->
+
+
+	<script>
+
+	/*var btn=document.getElementById('btn');
+	btn.onclick=function(){
+		//.....
+						  }*/
+	</script>
+
+</body>
+</html>

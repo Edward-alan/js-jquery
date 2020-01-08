@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>sdfsfwef</h2>
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <h2>Lorem ipsum dolor sit Lorem ipsum dolor sit.</h2>
+    <input type="button" value="获取新闻">
+    <p id="news">
+
+    </p>
+</body>
+<script>
+    var oInput = document.getElementsByTagName("input")[0];
+    var oP = document.getElementById("news");
+    oInput.onclick = function(){
+        var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+        xhr.open("get","js/n.txt",true);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState==4){
+                if(xhr.status==200){
+                    var data = eval("("+xhr.responseText+")");
+                    data.forEach(function(item){
+                        var h = document.createElement("h2");
+                        h.innerHTML = item.title;
+                        var div = document.createElement("div");
+                        div.innerHTML = item.desc;
+                        oP.appendChild(h);
+                        oP.appendChild(div);
+                    })
+                }
+            }
+        }
+        xhr.send(null);
+;    }
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	//原型链继承
+
+	// 如果B的原型对象技能A的实例化对象 则可以继承构造函数A里的属性和方法
+	function A(name,age){
+			this.name=name||'哈哈';
+			this.age=age||18;
+			this.fn=function(){"我是构造函数A"}
+					}
+		A.prototype.kg='66kg';
+		A.prototype.fn1=function(){'我是66KG'}
+		B.prototype=new A();  //!!!!!!!
+		console.log(B.prototype);
+
+		function B(){}
+
+
+
+
+
+
+
+
+
+
+
+	// 如果B的原型对象继承A的原型对象 则只能技能原型对象上的属性和方法
+		function A(name,age){
+			this.name=name||'哈哈';
+			this.age=age||18;
+			this.fn=function(){"我是构造函数A"}
+					}
+		A.prototype.kg='66kg';
+		A.prototype.fn1=function(){'我是66KG'}
+		B.prototype=A.prototype;  //!!!!!!!
+		console.log(B.prototype);
+
+		function B(){}
+	</script>
+</body>
+</html>

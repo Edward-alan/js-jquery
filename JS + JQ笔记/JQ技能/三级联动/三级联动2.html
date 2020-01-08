@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            list-style-type: none;
+        }
+        
+        .one {
+            display: none;
+        }
+        
+        .two {
+            display: none;
+        }
+        
+        .three {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="urge">
+        <p>酷站代码</p>
+        <ul class="one">
+            <li>搜索</li>
+            <li>新闻</li>
+            <li>招聘</li>
+            <li>网赚
+                <ol class='two'>
+                    <li>网站</li>
+                    <li>快递公司
+                        <ul class='three'>
+                            <li>圆通</li>
+                            <li>中通</li>
+                            <li>顺丰</li>
+                            <li>百世</li>
+                            <li>天天</li>
+                            <li>韵达</li>
+                            <li>申通</li>
+                        </ul>
+                    </li>
+                    <li>电子支付</li>
+                </ol>
+            </li>
+            <li>购物</li>
+            <li>科技</li>
+        </ul>
+    </div>
+    <script src='js.js'></script>
+    <script>
+        //点击p出现一级菜单
+        $('p').on('click', function() {
+            $('.one').css('display', 'block');
+            //点击一级菜单出现二级菜单
+            $('.one').on('click', function() {
+                $('.two').css('display', 'block');
+                //点击二级菜单出现三级菜单
+                $('.two').on('click', function() {
+                    $('.three').css('display', 'block');
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

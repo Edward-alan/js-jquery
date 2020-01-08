@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	//全局作用域 局部(函数)作用域
+	//局部变量也具有变量声明提升的作用 它会将变量提升到函数的最上层(不包括值)
+
+	var b=4;
+	function fn(){
+		console.log(a);//undefined
+		var a=1;  //带var的变量 则为局部变量
+		console.log(a);
+			b=2;  //不带var的变量 为全部变量
+				 }
+	fn();
+	console.log(b);
+
+	</script>
+</body>
+</html>

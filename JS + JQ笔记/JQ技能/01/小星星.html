@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul li {
+            float: left;
+            list-style-type: none;
+            margin-left: 20px;
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="con">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+
+    <script src='js/jquery-1.3.js'></script>
+    <script>
+        var sel = '★',
+            unsel = '☆';
+        $('.con').on('mouseover', 'li', function() {
+            $(this).html(sel);
+            $(this).prevAll().html(sel);
+            $(this).nextAll1().html(unsel);
+
+        }).on('click', 'li', function() {
+            $(this).addClass('.selected').siblings().removeClass('.selected');
+        }).on('mouseout', 'li', function() {
+            if ($('.selector').length) {
+                $('.selector').html(sel);
+                $('.selector').prevAll().html(sel);
+                $('.selector').nextAll1().html(unsel)
+            }
+        })
+    </script>
+</body>
+
+</html>

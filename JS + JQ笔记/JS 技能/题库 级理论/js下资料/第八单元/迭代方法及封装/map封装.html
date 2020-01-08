@@ -1,0 +1,19 @@
+<script type="text/javascript" charset="utf-8">
+	function map(arr,fn){
+		//定义新数组
+		var newarr = [];
+		//遍历形参arr
+		for(var i=0;i<arr.length;i++){
+			newarr.push(fn(arr[i],i,arr));
+		}
+		return newarr;
+	}
+	var ages = [15,18,21,20,68];
+	//调用函数map 传递数组 和匿名函数
+	 var arr1 = map(ages,function(e,i,s){
+	 	return e + "*";
+	 })
+	console.log(arr1);
+	
+	
+</script>

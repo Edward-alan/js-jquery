@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        img {
+            vertical-align: top;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        .wrap {
+            margin: 50px auto;
+            width: 500px;
+            position: relative;
+        }
+        
+        .btn-list {
+            background: #ccc;
+            font-size: 0;
+        }
+        
+        .btn-list li {
+            display: inline-block;
+            width: 100px;
+            font-size: 16px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        
+        .content-list {
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        
+        .content-list li {
+            position: relative;
+            width: 1000px;
+            height: 300px;
+            display: none;
+        }
+        
+        .content-list li div {
+            float: left;
+            width: 500px;
+        }
+        
+        .btn-list li.active {
+            color: #f00;
+        }
+        
+        .circle-list {
+            position: absolute;
+            z-index: 99;
+            width: 500px;
+            bottom: 10px;
+            text-align: center;
+        }
+        
+        .circle-list li {
+            display: inline-block;
+            margin-right: 10px;
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .circle-list li.active {
+            background: #f00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="btn-list">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul class="content-list">
+            <li style="display: block;">
+                <div><img src="img/1a.jpg" alt="" /></div>
+                <div><img src="img/2a.jpg" alt=""></div>
+            </li>
+            <li>
+                <div><img src="img/3a.jpg" alt="" /></div>
+                <div><img src="img/4a.jpg" alt=""></div>
+            </li>
+            <li>
+                <div><img src="img/5a.jpg" alt="" /></div>
+                <div><img src="img/1a.jpg" alt=""></div>
+            </li>
+            <li>
+                <div><img src="img/2a.jpg" alt="" /></div>
+                <div><img src="img/3a.jpg" alt=""></div>
+            </li>
+            <li>
+                <div><img src="img/4a.jpg" alt="" /></div>
+                <div><img src="img/5a.jpg" alt=""></div>
+            </li>
+        </ul>
+    </div>
+    <script src="jquery-1.8.3.min.js"></script>
+    <script>
+        function instance_of() {
+            var iWidth = $('.content-list li').eq(0).find('div').eq(0).width();
+            var iNow = 0;
+            $('.btn-list li').click(function() {
+                iNow = $(this).index();
+                $(this).addClass('active').siblings().removeClass('active');
+                $('.content-list li').eq(iNow).show().siblings().hide();
+            });
+        }
+        instance_of();
+    </script>
+</body>
+
+</html>

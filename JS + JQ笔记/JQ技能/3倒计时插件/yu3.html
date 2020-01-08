@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="yu3.css"/>
+</head>
+<body>
+    <div class="count_down1"></div>
+    <div class="count_down">
+        <span class="day_num"></span>
+        <span class="hour_num"></span>
+        <span class="min_num"></span>
+        <span class="sec_num"></span>
+    </div>
+</body>
+<script src="index最终版.js"></script>
+<script src="yu3.js"></script>
+<script>
+    //对象级插件：
+    $(".count_down").countDown({
+        startTime:"2018/12/11 14:15:00", //开始时间
+        endTime:"2019/1/1 00:00:00",   //结束时间
+        daySelector:".day_num",         //天
+        hourSelector:".hour_num",      //时
+        minSelector:".min_num",       //分
+        secSelector:".sec_num"       //秒
+    })
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width:200px;
+			height:200px;
+			background:skyblue;
+			position:absolute;
+
+			}
+	</style>
+</head>
+<body>
+	<div id="box">
+	</div>
+
+	<script>
+	var box=document.getElementById('box');
+	document.onclick=function(event){
+		var Event=event || window.event;
+		//获取box的宽和高
+		var x=box.offsetWidth,
+			y=box.offsetHeight;
+
+		box.style.left= Event.clientX- x/2 +"px";
+		box.style.top= Event.clientY- y/2 +"px";
+								    }
+	</script>
+</body>
+</html>

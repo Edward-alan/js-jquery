@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+    xhr.open("get","1.txt",false);//同步的请求
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState==4){
+            if(xhr.status==200){
+                var data = eval("("+xhr.responseText+")");
+                for(var i=0;i<data.length;i++){
+                    document.write(data[i]);
+                }
+            }
+        }
+    }
+    xhr.send(null);
+    console.log(xhr.readyState);//4
+
+</script>
+</html>

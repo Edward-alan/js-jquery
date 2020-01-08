@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	//递归的作用:自身调用自身的技巧  函数调用本身的功能     递归边界  递归前进段  递归返回段 
+	//递归是什么:函数里利用函数名调用自己的函数叫做递归函数
+
+		function fn(n){ //n==4 
+			if(n==1){
+				return 1;
+				}
+			return fn(n-1)+n;    
+			//fn(1)+2
+					 }
+
+		var result=fn(2);
+		console.log(result)
+	</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+    </style>
+    <script>
+        var str='习近平对政法工作作出重要指示强调坚持以人民为中心的发展思想 履行好维护国家政治安全确保社会大局稳定促进社会公平正义保障人民安居乐业的主要任务';
+        //  习近平  政法 政治安全  社会大局 公平正义
+        var reg=/习近平|政法|政治安全|社会大局|公平正义|任务/g;
+        document.write(str.replace(reg,function (a) {
+            console.log(a)
+            var str='';
+            for(var i=0;i<a.length;i++){
+                str+='*';
+            }
+            return str;
+        }));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

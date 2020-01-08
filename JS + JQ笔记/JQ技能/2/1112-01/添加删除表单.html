@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script src="jquery-1.11.3/jquery.min.js"></script> -->
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        #wrap {
+            报名 width: 500px;
+            height: 500px;
+            margin: 20px auto;
+        }
+        
+        .text {
+            width: 400px;
+            height: 25px;
+            border-radius: 5px;
+            margin-top: 8px;
+            outline: none;
+            border: 1px solid #ccc;
+        }
+        
+        #add {
+            width: 50px;
+            height: 30px;
+            background: skyblue;
+            color: #fff;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        
+        #rm {
+            width: 50px;
+            height: 30px;
+            background: orangered;
+            color: #fff;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        
+        h2 {
+            color: skyblue;
+            text-align: center;
+        }
+        
+        table thead tr {
+            height: 35px;
+        }
+        
+        table thead tr td {
+            border: 1px solid #ccc;
+            text-align: center;
+            color: orangered;
+        }
+        
+        table tbody tr td {
+            border: 1px solid #ccc;
+            text-align: center;
+            height: 35px;
+        }
+        
+        table tbody tr td input {
+            width: 50px;
+            height: 35px;
+            background: blue;
+            color: #fff;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+        
+        table tfoot tr td {
+            height: 35px;
+            border: 1px solid #ccc;
+        }
+        
+        table tfoot tr td input {
+            margin-left: 365px;
+            width: 70px;
+            height: 30px;
+            background: orangered;
+            color: #fff;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <p>用户名：</p>
+        <input type="text" placeholder="请输入用户名" class="text" id="user">
+        <p>年龄：</p>
+        <input type="text" placeholder="请输入年龄" class="text" id="age">
+        <br>
+        <input type="button" value="添加" class="btn" id="add">
+        <input type="button" value="重置" class="btn" id="rm">
+        <h2>用户信息表</h2>
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <td>序号</td>
+                    <td>名字</td>
+                    <td>年龄</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>序号</td>
+                    <td>名字</td>
+                    <td>年龄</td>
+                    <td>删除</td>
+                </tr> -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <input type="button" value="删除全部" class="delAll">
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script>
+        var ind = 0; //定义一个变量
+        $("#add").on("click", function() { //给添加绑定点击事件
+            var user = $("#user").val(), //获取用户名
+                age = $("#age").val(); //获取年龄
+
+            if (!user) { //如果用户名为空
+                alert("用户名不可以为空哦!") //提示
+                return false;
+            }
+            if (!age) { //如果年龄为空
+                alert("年龄不可以为空哦!") //提示
+                return false;
+            }
+
+            var str = `<tr><td>${++ind}</td><td>${user}</td><td>${age}</td>
+                <td><input type="button" class="del" value="删除"></td></tr>` //渲染
+            $("tbody").append(str); //渲染到tbody里面
+
+
+            $("#user").val("");
+            $("#age").val("");
+
+            $(".del").on("click", function() { //点击单行删除
+                // alert()
+                $(this).parent().parent().remove(); //删除单行
+            })
+        })
+
+        $("#rm").on("click", function() { //点击重置按钮
+            $("#user").val(""); //重置为初始状态
+            $("#age").val(""); //重置为初始状态
+        })
+
+        $(".delAll").on("click", function() { //点击全部删除的时候
+            $("tbody").children().remove(); //删除tbody里面的内容
+        })
+    </script>
+</body>
+
+</html>

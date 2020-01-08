@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<a href="http://172.16.10.111:8083/exam_admin/login.do" target="_blank" id="a1">123</a>
+
+	<script>
+		var a1=document.getElementById('a1');
+		a1.addEventListener('click',function(event){
+			var Event= event || window.event;
+			if(Event.preventDefault){
+				Event.preventDefault();// 非IE 及IE9以上
+				}
+			else{
+				Event.returnValue=false;//IE8及以下
+				}
+		})
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+        <div id="title">
+            <!--<span class="active">aa</span>
+            <span>bb</span>-->
+        </div>
+        <div id="contents">
+            <!--<div style="display: block">sdfsf</div>
+            <div>qqqq</div>-->
+        </div>
+</body>
+<script src="js/ajax.js"></script>
+<script src="js/tab.js"></script>
+<script>
+    ajax({
+        url:"js/data.json",
+        success:function(data){
+            var Data = JSON.parse(data);
+            new Tab({
+                tabId:"title",
+                contentsId:"contents",
+                data:Data
+            });
+        }
+    })
+</script>
+</html>

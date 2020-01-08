@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //创建对象的方式：
+    //  1、工厂模式
+    // 2、 构造函数
+
+    function A(){
+        this.name="zz";
+        this.age=20;
+       /* this.getName = function(){
+            console.log("姓名是"+this.name);
+        }*/
+    }
+    var a=new A();//a是对象  叫做A的一个实例
+    console.log(a.name);
+    var a1 = new A();
+    console.log(a1.name);
+
+    A.prototype.getName = function(){
+        console.log("姓名是"+this.name);
+    }
+    a.getName();
+    a1.getName();
+    console.log(a.getName === a1.getName);//true
+</script>
+</html>

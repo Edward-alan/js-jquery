@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //every返回值是Boolean 所有的元素都符合条件则返回true，否则返回FALSE
+    var arr = [3,4,"qq",4,5];
+    //判断数组是否全是数字
+    var tem=arr.every(function(item,index,arr){
+        return !isNaN(item)
+    })
+    console.log(tem);
+
+    function myEvery(array,callback){
+        var flag = true;
+        for(var i=0;i<array.length;i++){
+            if(!callback(array[i],i,array)){
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+</script>
+</html>

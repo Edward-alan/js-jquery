@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /**
+     * 简单的封装
+     * @param opt  {url:"",async:true,success:,error:}
+     */
+    function ajax2(opt){
+        var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+        xhr.open("get",opt.url,opt.async);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState==4){
+                if(xhr.status==200){
+                    opt.success(xhr.responseText)
+                }else{
+                    opt.error();
+                }
+
+            }
+        }
+        xhr.send(null);
+    }
+    /**
+     * 简单的封装
+     * @param url  请求的地址
+     * @param async 是否异步
+     * @param success 成功的时候执行的函数
+     */
+    function ajax(url,async,success,error){
+        var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");
+        xhr.open("get",url,async);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState==4){
+                if(xhr.status==200){
+                   success(xhr.responseText);
+                }else{
+                    error();
+                }
+
+            }
+        }
+        xhr.send(null);
+    }
+    // ajax("js/2.txt",true,function(data){
+    //     document.write(data);
+    // },function(){
+    //     alert("页面出错了");
+    // })
+    ajax2({
+        url:"js/1.txt",
+        async:true,
+        success:function(data){
+            var tData = JSON.parse(data);
+            tData.forEach(function(item){
+                document.write("<h1>"+item+"</h1>");
+            })
+        },
+        error:function(){
+
+        }
+    })
+</script>
+</html>

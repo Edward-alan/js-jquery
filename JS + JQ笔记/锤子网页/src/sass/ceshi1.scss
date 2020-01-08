@@ -1,0 +1,67 @@
+@import "./reset.scss";
+
+
+.container {
+    width: 800px;
+    margin: auto;
+
+    .container-box {
+        border: 1px solid black;
+        padding: 10px;
+
+        .every-box {
+            border: 1px solid black;
+            padding: 10px;
+
+            p {
+                border-bottom: 1px solid black;
+                line-height: 30px;
+            }
+
+            div {
+                text-align: center;
+                margin-top: 10px;
+
+                button {
+                    padding: 5px 10px;
+                    margin-left: 50px;
+                }
+            }
+        }
+    }
+}
+
+.dialog {
+    i {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background: rgba(100, 100, 100, .5);
+        left: 0;
+        top: 0;
+        z-index: 998;
+    }
+
+    .dialog-box {
+        background: white;
+        height: 300px;
+        width: 400px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 999;
+
+        div {
+            text-align: center;
+            height: 30px;
+
+            button {
+                margin-left: 20px;
+                padding: 5px 10px;
+            }
+        }
+    }
+}

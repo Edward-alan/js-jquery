@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //第一步：获取XMLHttpRequest对象
+    //var xhr = new XMLHttpRequest();//低版本的ie不支持
+    //低版本的ie
+    //xhr = new ActiveXObject("Microsoft.XMLHTTP");//支持ie6
+    var xhr = null;
+    if(window.XMLHttpRequest){
+        xhr = new XMLHttpRequest();
+    }else{
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    //2、open方法 (methd,url,aysnc)  1、请求的方法 2、url 地址 3 是否异步
+    //设置相关的信息
+    //console.log(xhr.readyState);
+    xhr.open("get","data.json",true);
+    //console.log(xhr.readyState);
+    xhr.onreadystatechange = function(){
+        //console.log(xhr.readyState+"****");
+        if(xhr.readyState==4){
+            if(xhr.status==200){
+                console.log(xhr.responseText);//字符串
+                var o = eval("("+xhr.responseText+")");
+                console.log(o.name);
+                document.write(o.name);
+            }
+        }
+    }
+    //3、send方法  提交
+    xhr.send(null);
+    //console.log(xhr.readyState);
+    // setTimeout(function(){
+    //     console.log(xhr.readyState+"++++");
+    // },1000);
+</script>
+</html>

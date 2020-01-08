@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	// forEach map filter every some
+	var arr=[1,2,3,4,5];
+	/*for(var i=0; i<arr.length;i++){
+		console.log(arr[i])
+	} */
+
+	//forEach 遍历数组或对象 没有返回值
+	/*arr.forEach(function(element,index,array){
+		console.log(element,index,array)
+	})*/
+		
+	//every 判断数组项是否都符合条件 如果都符合则返回true 只要有一个不符合则返回false
+	/*var x=arr.every(function(element,index,array){
+		return element>1;
+	})
+	console.log(x)//true*/
+
+	//some 判断数组项中的某(一)项符合条件 则返回true 全部不满足则返回false
+	// var x=arr.some(function(element,index,array){
+	// 	return element>4;
+	// })
+	// console.log(x);//true
+	
+
+	//map 返回值为数组  映射 对所有数组项做某些操作 并全部返回
+	var x=arr.map(function(element,index,array){
+		return element+"*";
+	})
+	console.log(x);
+
+
+	//filter 返回值为数组   过滤  筛选符合条件的项   /*
+	/*var arr=['王壮壮','王欣欣',"王博","绿巨人","赵四"];
+	var x=arr.filter(function(element,index,array){
+		return element.charAt(0)=="王";
+											     })
+	console.log(x)
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
